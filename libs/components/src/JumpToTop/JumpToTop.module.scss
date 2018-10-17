@@ -17,11 +17,16 @@
     cursor: pointer;
     opacity: 1;
   }
+
   @include media-breakpoint-up(sm) {
     width: 45px;
     height: 45px;
     right: 20px;
     background-color: none;
+  }
+
+  &:focus {
+    @include focus-outline($position: fixed);
   }
 
   .Icon {

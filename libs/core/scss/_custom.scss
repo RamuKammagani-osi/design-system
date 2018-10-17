@@ -18,7 +18,21 @@ $grays: (
   '900':        $gray-900,
 );
 
+<<<<<<< HEAD
 // Theme Colors
+=======
+// $fir:         #d8ecf0;
+
+$primary:       #09798e; // ($aspen)
+$secondary:     $gray-700;
+$accent:        #601974; // ($oak)
+$success:       #068347; // ($elm)
+$info:          #0d4f78; // ($spruce)
+$warning:       #e7740b; // ($hickory)
+$danger:        #bb3709; // ($maple)
+$light:         $gray-100;
+$dark:          $gray-800;
+>>>>>>> Start unifying the focus treatment
 
 $theme-colors: (
   'primary':    $primary,
@@ -179,3 +193,10 @@ $avatar-sizes: (
 // Banner
 
 $banner-height: 8.5rem;
+
+// Focus Outlines
+
+$focus-outline-color:               $accent;
+$focus-outline-style:               solid;
+$focus-outline-width:               3px;
+$focus-outline-offset:              2px;

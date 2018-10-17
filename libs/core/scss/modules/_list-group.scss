@@ -14,12 +14,18 @@
     }
   }
 
+  &.focus,
   &:focus {
-    box-shadow: 0 0 0 3px rgba($primary, 0.5);
-    outline: none;
+    @include focus-outline;
     z-index: 3;
-    &:active {
-      box-shadow: none;
-    }
   }
+
+  // &:focus {
+  //   box-shadow: 0 0 0 3px rgba($primary, 0.5);
+  //   outline: none;
+  //   z-index: 3;
+  //   &:active {
+  //     box-shadow: none;
+  //   }
+  // }
 }

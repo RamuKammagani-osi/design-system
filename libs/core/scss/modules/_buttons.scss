@@ -5,15 +5,22 @@
   .btn-#{$color} {
     &:focus,
     &.focus {
-      box-shadow: 0 0 0 $btn-focus-width theme-color($key: accent);
+      box-shadow: none;
+      @include focus-outline();
     }
 
     &:not(:disabled):not(.disabled):active,
     &:not(:disabled):not(.disabled).active {
-      box-shadow: none;
       &:focus {
-        box-shadow: 0 0 0 $btn-focus-width theme-color($key: accent);
+        box-shadow: none;
       }
     }
+  }
+}
+
+.btn-link {
+  &:focus,
+  &.focus {
+    @include focus-outline;
   }
 }

@@ -1,0 +1,15 @@
+// Focus
+
+@mixin focus-outline(
+  $outline-color: $accent,
+  $outline-style: $focus-outline-style,
+  $outline-width: $focus-outline-width,
+  $outline-offset: $focus-outline-offset,
+  $position: relative
+) {
+  outline-color: $outline-color;
+  outline-style: $outline-style;
+  outline-width: $outline-width;
+  outline-offset: $outline-offset;
+  position: $position;
+}
