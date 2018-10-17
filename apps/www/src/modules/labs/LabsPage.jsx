@@ -6,6 +6,7 @@ import DefaultPage from '!babel-loader!@mdx-js/loader!./views/DefaultView.mdx'
 import CardsPage from '!babel-loader!@mdx-js/loader!./views/CardsPage/Cards.mdx'
 // import DataGridsPage from '!babel-loader!@mdx-js/loader!./views/DataGridsPage/DataGridsPage.mdx';
 import FormsPage from '!babel-loader!@mdx-js/loader!./views/FormsPage/FormsPage.mdx'
+import DeviceDetectionPage from './views/DeviceDetection'
 
 const TITLE = 'Labs'
 const HOME_ROUTE = { title: TITLE, path: '/labs' }
@@ -13,6 +14,11 @@ const HOME_ROUTE = { title: TITLE, path: '/labs' }
 const routes = [
   { title: 'Cards', path: '/cards', component: CardsPage },
   { title: 'Forms', path: '/forms', component: FormsPage },
+  {
+    title: 'Device Detection',
+    path: '/device-detection',
+    component: DeviceDetectionPage,
+  },
   // { title: 'DataGrids', path: '/datagrids', component: DataGridsPage },
 ].map(d => ({ ...d, path: [HOME_ROUTE.path, d.path].join('') }))
 
