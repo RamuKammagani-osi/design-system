@@ -1,4 +1,4 @@
-@import '~bootstrap/scss/buttons';
+@import "~bootstrap/scss/buttons";
 
 // TODO: consistent active and focus visual style
 @each $color, $value in $theme-colors {
@@ -15,5 +15,13 @@
         box-shadow: 0 0 0 $btn-focus-width theme-color($key: accent);
       }
     }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-outline-#{$color} {
+    background-color: $white;
+    box-shadow: inset 0 0 0 1px $value;
+    // border: 1px solid transparent;
   }
 }
