@@ -18,10 +18,10 @@
   }
 }
 
-@each $color, $value in $theme-colors {
-  .btn-outline-#{$color} {
-    background-color: $white;
-    box-shadow: inset 0 0 0 1px $value;
-    // border: 1px solid transparent;
-  }
-}
+// @each $color, $value in $theme-colors {
+//   .btn-outline-#{$color} {
+//     background-color: $white;
+//     box-shadow: inset 0 0 0 1px $value;
+//     // border: 1px solid transparent;
+//   }
+// }

@@ -36,7 +36,7 @@ class ModalExample extends React.Component {
   render() {
     return (
       <div>
-        <Button color="secondary" onClick={this.toggle}>
+        <Button outline onClick={this.toggle}>
           Search
         </Button>
         <Modal

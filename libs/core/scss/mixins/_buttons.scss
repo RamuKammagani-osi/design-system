@@ -1,0 +1,57 @@
+@mixin button-outline-variant($color, $color-hover: color-yiq($color), $active-background: $color, $active-border: $color) {
+
+  background-color: $white;
+  background-image: none;
+
+  @if lightness($color) > 50 {
+    color: color-yiq($color);
+    border-color: color-yiq($color);
+    box-shadow: inset 0 0 0 1px color-yiq($color);
+  } @else {
+    color: $color;
+    border-color: $color;
+    box-shadow: inset 0 0 0 1px $color;
+  }
+
+  &:hover {
+    color: $color-hover;
+    background-color: $active-background;
+    @if lightness($color) > 50 {
+      border-color: color-yiq($active-border);
+    } @else {
+      border-color: $active-border;
+    }
+  }
+
+  &:focus,
+  &.focus {
+    box-shadow: inset 0 0 1px $color, 0 0 0 $btn-focus-width $accent;
+  }
+
+  &.disabled,
+  &:disabled {
+    @if lightness($color) > 50 {
+      color: color-yiq($color);
+    } @else {
+      color: $color;
+    }
+    background-color: $white;
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    color: color-yiq($active-background);
+    background-color: $active-background;
+    border-color: $active-border;
+
+    &:focus {
+      // Avoid using mixin so we can pass custom focus shadow properly
+      @if $enable-shadows and $btn-active-box-shadow != none {
+        box-shadow: $btn-active-box-shadow, 0 0 0 $btn-focus-width rgba($color, .5);
+      } @else {
+        box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
+      }
+    }
+  }
+}
