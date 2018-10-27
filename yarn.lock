@@ -33,7 +33,7 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/core@^7.0.1":
+"@babel/core@^7.0.1", "@babel/core@^7.1.0":
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.1.2.tgz#f8d2a9ceb6832887329a7b60f9d035791400ba4e"
   dependencies:
@@ -2515,7 +2515,7 @@ babel-plugin-jest-hoist@^23.2.0:
   version "23.2.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-jest-hoist/-/babel-plugin-jest-hoist-23.2.0.tgz#e61fae05a1ca8801aadee57a6d66b8cefaf44167"
 
-babel-plugin-macros@2.4.2, babel-plugin-macros@^2.2.0, babel-plugin-macros@^2.2.2:
+babel-plugin-macros@2.4.2, babel-plugin-macros@^2.2.0, babel-plugin-macros@^2.2.2, babel-plugin-macros@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/babel-plugin-macros/-/babel-plugin-macros-2.4.2.tgz#21b1a2e82e2130403c5ff785cba6548e9b644b28"
   dependencies:
@@ -3103,7 +3103,7 @@ babel-preset-minify@^0.3.0:
     babel-plugin-transform-undefined-to-void "^6.9.0"
     lodash.isplainobject "^4.0.6"
 
-babel-preset-react-app@^5.0.3:
+babel-preset-react-app@^5.0.3, babel-preset-react-app@^5.0.4:
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/babel-preset-react-app/-/babel-preset-react-app-5.0.4.tgz#e64a875071af1637a712b68f429551988ec5ebe4"
   dependencies:
@@ -8555,6 +8555,21 @@ mdurl@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
 
+mdx.macro@^0.2.7:
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/mdx.macro/-/mdx.macro-0.2.7.tgz#d3c0889fcd4a2fc63c5bcd6431149151aed5a863"
+  dependencies:
+    "@babel/core" "^7.1.0"
+    "@babel/parser" "^7.1.3"
+    "@mdx-js/mdx" "^0.15.5"
+    "@mdx-js/tag" "^0.15.0"
+    babel-plugin-macros "^2.4.2"
+    babel-preset-react-app "^5.0.4"
+    babel-traverse "^6.26.0"
+    find-cache-dir "^2.0.0"
+    fs-extra "^7.0.0"
+    rev-hash "^2.0.0"
+
 media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
@@ -12035,6 +12050,10 @@ ret@~0.1.10:
 retry@^0.10.0:
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/retry/-/retry-0.10.1.tgz#e76388d217992c252750241d3d3956fed98d8ff4"
+
+rev-hash@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/rev-hash/-/rev-hash-2.0.0.tgz#7720a236ed0c258df3e64bec03ec048b05b924c4"
 
 rgb-hex@^2.1.0:
   version "2.1.0"

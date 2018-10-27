@@ -13,6 +13,8 @@ import {
   Row,
   Col,
 } from '@cwds/components'
+import { importMDX } from 'mdx.macro'
+const SomeMdx = importMDX.sync('./some.mdx')
 
 // const info = metaInfo('../components/index.js')
 // console.log(info)
@@ -25,6 +27,7 @@ export default () => (
     main={props => (
       <Row>
         <Col xs={{ order: 2 }} lg={{ size: 9, order: 1 }}>
+          <SomeMdx />
           <Row>
             <Col sm={6}>
               <Card>
