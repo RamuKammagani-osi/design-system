@@ -1,0 +1,9 @@
+@import '~bootstrap/scss/type';
+
+tt {
+  font-family: $font-family-monospace;
+  color: $accent;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-sm;
+  font-style: italic;
+}
