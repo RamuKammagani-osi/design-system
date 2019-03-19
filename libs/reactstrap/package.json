@@ -1,6 +1,6 @@
 {
   "name": "@cwds/reactstrap",
-  "version": "1.1.1",
+  "version": "1.1.2-rc.0",
   "description": "reactstrap components for CWS-CARES",
   "keywords": [
     "reactstrap"
