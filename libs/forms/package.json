@@ -1,6 +1,6 @@
 {
   "name": "@cwds/forms",
-  "version": "1.1.2-rc.0",
+  "version": "1.1.2-rc.1",
   "description": "Forms for CWS-CARES",
   "author": "Danny Eck <danny.eck@osi.ca.gov>",
   "homepage": "https://cws-cares.netlify.com",
@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.3.3",
-    "@cwds/reactstrap": "^1.1.2-rc.0",
+    "@cwds/reactstrap": "^1.1.2-rc.1",
     "@types/classnames": "^2.2.7",
     "classnames": "^2.2.6",
     "lodash.uniqueid": "^4.0.1",
