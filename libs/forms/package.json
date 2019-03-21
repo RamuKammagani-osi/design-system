@@ -25,11 +25,9 @@
     "build:js:babel": "babel compiled --verbose --root-mode upward --out-dir dist",
     "build:js:rollup": "rollup -c",
     "postbuild:js": "rimraf compiled",
-    "build:scss": "cpx --verbose \"src/**/*.{css,scss}\" dist",
     "predev": "yarn clean",
     "dev": "run-p dev:*",
-    "dev:esm": "babel src --verbose --root-mode upward --watch --out-dir dist --extensions \".ts,.tsx\"",
-    "dev:scss": "yarn build:scss --watch"
+    "dev:esm": "babel src --verbose --root-mode upward --watch --out-dir dist --extensions \".ts,.tsx\""
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.3.3",

@@ -12,10 +12,8 @@
     "build": "run-p build:*",
     "build:esm": "babel --verbose --root-mode upward --out-dir dist src",
     "clean": "rimraf dist",
-    "touch": "touch -c src/index.js",
     "dev": "run-p dev:*",
-    "dev:esm": "yarn build:esm --watch",
-    "dev:scss": "onchange 'scss/**/*.scss' -- yarn touch"
+    "dev:esm": "yarn build:esm --watch"
   },
   "files": [
     "dist",

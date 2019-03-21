@@ -23,12 +23,10 @@
     "prebuild": "yarn clean",
     "build": "run-p build:*",
     "build:esm": "babel --verbose --root-mode upward --out-dir dist src",
-    "build:scss": "cpx --verbose \"src/**/*.{css,scss}\" dist",
     "build:cjs": "rollup -c",
     "clean": "rimraf dist",
     "dev": "run-p dev:*",
-    "dev:esm": "yarn build:esm --watch",
-    "dev:scss": "yarn build:scss --watch"
+    "dev:esm": "yarn build:esm --watch"
   },
   "dependencies": {
     "reactstrap": "^7.1.0"
