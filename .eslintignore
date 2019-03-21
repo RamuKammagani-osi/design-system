@@ -4,4 +4,6 @@ libs/core/scss
 libs/core/js/core.js
 *.json5
 libs/*/dist
+libs/*/compiled
 **/node_modules/*
+/coverage
