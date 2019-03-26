@@ -1,3 +1,5 @@
+import sortBy from 'lodash.sortby'
+
 /**
  * Exports utilities for searching a routing tree and retrieving Articles
  */
@@ -47,20 +49,30 @@ function getBreadcrumbs(node, parents) {
   }, [])
 }
 
+function getChildLinks(node, parents) {
+  return node.children.map(child => ({
+    title: child.title,
+    path: `${[...parents, node].map(d => d.path).join('')}${child.path}`,
+    active: node.path === child.path,
+  }))
+}
+
+function getSiblingLinks(node, parents) {
+  return parents[parents.length - 1].children.map(child => ({
+    title: child.title,
+    path: `${parents.map(d => d.path).join('')}${child.path}`,
+    active: node.path === child.path,
+  }))
+}
+
 function getSidebar(node, parents) {
-  if (node.children) {
-    return node.children.map(child => ({
-      title: child.title,
-      path: `${[...parents, node].map(d => d.path).join('')}${child.path}`,
-      active: node.path === child.path,
-    }))
-  } else if (parents.length && parents[parents.length - 1].children) {
-    return parents[parents.length - 1].children.map(child => ({
-      title: child.title,
-      path: `${parents.map(d => d.path).join('')}${child.path}`,
-      active: node.path === child.path,
-    }))
-  } else {
+  const sidebarlinks = (() => {
+    if (node.children) {
+      return getChildLinks(node, parents)
+    } else if (parents.length && parents[parents.length - 1].children) {
+      return getSiblingLinks(node, parents)
+    }
     return []
-  }
+  })()
+  return sortBy(sidebarlinks, ['title'])
 }

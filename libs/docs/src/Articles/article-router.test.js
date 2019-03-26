@@ -28,26 +28,27 @@ describe('getArticle', () => {
   describe('when child nodes present', () => {
     it('returns a sidebar of child routes', () => {
       const { sidebar } = getArticle('/a/c', routes())
-      expect(sidebar.length).toBe(2)
+      expect(sidebar.length).toBe(3)
       expect(sidebar.map(d => d.path)).toContain('/a/c/d')
       expect(sidebar.map(d => d.path)).toContain('/a/c/e')
+    })
+    it('sorts the links', () => {
+      const { sidebar } = getArticle('/a', routes())
+      expect(sidebar[0].title).toBe('B_TITLE')
+      expect(sidebar[1].title).toBe('C_TITLE')
     })
   })
 
   describe('when child nodes are not present', () => {
     it('returns a sidebar of siblings', () => {
       const { sidebar } = getArticle('/a/c/e', routes())
-      expect(sidebar.length).toBe(2)
-      expect(sidebar[0]).toEqual({
-        title: 'D_TITLE',
-        path: '/a/c/d',
-        active: false,
-      })
-      expect(sidebar[1]).toEqual({
-        title: 'E_TITLE',
-        path: '/a/c/e',
-        active: true,
-      })
+      expect(sidebar.length).toBe(3)
+      expect(sidebar.map(d => d.title)).toContain('D_TITLE')
+      expect(sidebar.map(d => d.title)).toContain('E_TITLE')
+    })
+    it('sorts the links', () => {
+      const { sidebar } = getArticle('/a/c/e', routes())
+      expect(sidebar[0].title).toBe('AAA')
     })
   })
 })
@@ -58,11 +59,6 @@ function routes() {
     path: '/a',
     component: 'A_COMPONENT',
     children: [
-      {
-        title: 'B_TITLE',
-        path: '/b',
-        component: 'B_COMPONENT',
-      },
       {
         title: 'C_TITLE',
         path: '/c',
@@ -85,7 +81,17 @@ function routes() {
             path: '/e',
             component: 'E_COMPONENT',
           },
+          {
+            title: 'AAA',
+            path: '/aaa',
+            component: 'AAA_COMPONENT',
+          },
         ],
+      },
+      {
+        title: 'B_TITLE',
+        path: '/b',
+        component: 'B_COMPONENT',
       },
     ],
   }
