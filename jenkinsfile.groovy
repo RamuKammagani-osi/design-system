@@ -8,8 +8,6 @@ def newTag
 
 // Get Secrets
 GITHUB_CREDENTIALS_ID = '433ac100-b3c2-4519-b4d6-207c029a103b'
-// NPM_CREDENTIALS_ID = '13dbf218-bc6d-4df0-b2c8-4ede7ee9a4f0'
-NPM_TOKEN = 'dac03a95-dbb6-442e-81a4-69e20c2112fd'
 
 // Script Vars
 PROJECT_NAME = 'Design System'
@@ -90,6 +88,21 @@ def pullRequestPipeline() {
 def masterPipeline() {
   node('linux') {
     def triggerProperties = pullRequestMergedTriggerProperties(GITHUB_HOOK_PARAMS_TOKEN)
+
+    /**
+     * The GitHub PullRequestEvent#pull_request object
+     *
+     * NOTE: The variable naming is confusing here. The payload of the webhook is
+     * the PullRequestEvent, but what is assigned to env.pull_reqeust_event in this
+     * context is the GitHub PullRequest object itself.
+     *
+     * Links:
+     *
+     *   - [PullRequestEvent](https://developer.github.com/v3/activity/events/types/#pullrequestevent)
+     *   - [PullRequest](https://developer.github.com/v3/pulls/#response)
+     */
+    def mergedPR = readJSON text: env.pull_request_event
+
     properties([
       githubConfigProperties(GITHUB_REPO_URL),
       pipelineTriggers([triggerProperties]),
@@ -101,8 +114,8 @@ def masterPipeline() {
         checkout scm
       }
       stage('Jenkins Guess and Check') {
-        echo sh(script: 'env|sort', returnStdout: true)
-        echo "${env.pull_request}"
+        // echo sh(script: 'env|sort', returnStdout: true)
+        echo "${mergedPR}"
         // sh "exit 1"
       }
       docker.image('node:lts').inside("-u 0 --env CI=true") {
@@ -120,24 +133,26 @@ def masterPipeline() {
           sh "yarn build:libs"
         }
         stage('Publish Pkgs') {
-          def doRelease = env.pull_request_event.labels.any { it.name == GITHUB_LABEL_RELEASE }
+          def doRelease = mergedPR.labels.any { it.name == GITHUB_LABEL_RELEASE }
           if (doRelease) {
-            assert env.pull_request_event.state == 'closed'
-            assert env.pull_request_event.base.ref == 'master'
+            assert mergedPR.state == 'closed'
+            assert mergedPR.base.ref == 'master'
             withCredentials([
               usernameColonPassword(credentialsId: GITHUB_CREDENTIALS_ID, variable: 'GITHUB_USERPASS')
-              // string(credentialsId: NPM_CREDENTIALS_ID, variable: 'NPM_TOKEN')
+              string(credentialsId: 'NPM_CREDENTIALS_ID', variable: 'NPM_TOKEN')
             ]) {
               def GITHUB_CI_USER = 'CWDS Jenkins'
               def GITHUB_CI_EMAIL = 'cwdsdoeteam@osi.ca.gov'
               sh '''
                 git config user.name ${GITHUB_CI_USER}
                 git config user.email ${GITHUB_CI_EMAIL}
-                git remote add main https://${GH_USERPASS}@github.com/ca-cwds/design-system.git
+                git remote set-url origin https://${GH_USERPASS}@github.com/ca-cwds/design-system.git
                 yarn config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}
               '''
               sh "yarn release:publish --yes"
             }
+          } else {
+            echo "Skipping publish because the `${GITHUB_LABEL_RELEASE}` was not applied."
           }
         }
       }
