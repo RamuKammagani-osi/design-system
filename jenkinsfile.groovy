@@ -8,7 +8,8 @@ def newTag
 
 // Get Secrets
 GITHUB_CREDENTIALS_ID = '433ac100-b3c2-4519-b4d6-207c029a103b'
-NPM_CREDENTIALS_ID = '13dbf218-bc6d-4df0-b2c8-4ede7ee9a4f0'
+// NPM_CREDENTIALS_ID = '13dbf218-bc6d-4df0-b2c8-4ede7ee9a4f0'
+NPM_TOKEN = 'dac03a95-dbb6-442e-81a4-69e20c2112fd'
 
 // Script Vars
 PROJECT_NAME = 'Design System'
@@ -95,7 +96,6 @@ def masterPipeline() {
       buildDiscarderDefaults('master')
     ])
     try {
-      // def doRelease = env.pull_request.event.labels.contains(GITHUB_LABEL_RELEASE)
       stage('Checkout') {
         deleteDir()
         checkout scm
@@ -103,7 +103,7 @@ def masterPipeline() {
       stage('Jenkins Guess and Check') {
         echo sh(script: 'env|sort', returnStdout: true)
         echo "${pull_request}"
-        sh "exit 1"
+        // sh "exit 1"
       }
       docker.image('node:lts').inside("-u 0 --env CI=true") {
         stage('Bootstrap') {
@@ -120,11 +120,24 @@ def masterPipeline() {
           sh "yarn build:libs"
         }
         stage('Publish Pkgs') {
+          def doRelease = env.pull_request_event.labels.any { it.name == GITHUB_LABEL_RELEASE }
           if (doRelease) {
-            sh "yarn config set '//registry.npmjs.org/:_authToken' ${NPM_CREDENTIALS_ID}"
-            sh "yarn release:publish --yes"
-          } else {
-            echo "Skipping publish to npm"
+            assert env.pull_request_event.state == 'closed'
+            assert env.pull_request_event.base.ref == 'master'
+            withCredentials([
+              usernameColonPassword(credentialsId: GITHUB_CREDENTIALS_ID, variable: 'GITHUB_USERPASS')
+              // string(credentialsId: NPM_CREDENTIALS_ID, variable: 'NPM_TOKEN')
+            ]) {
+              def GITHUB_CI_USER = 'CWDS Jenkins'
+              def GITHUB_CI_EMAIL = 'cwdsdoeteam@osi.ca.gov'
+              sh '''
+                git config user.name ${GITHUB_CI_USER}
+                git config user.email ${GITHUB_CI_EMAIL}
+                git remote add main https://${GH_USERPASS}@github.com/ca-cwds/design-system.git
+                yarn config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}
+              '''
+              sh "yarn release:publish --yes"
+            }
           }
         }
       }
