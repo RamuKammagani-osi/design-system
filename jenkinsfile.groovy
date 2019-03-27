@@ -102,7 +102,7 @@ def masterPipeline() {
       }
       stage('Jenkins Guess and Check') {
         echo sh(script: 'env|sort', returnStdout: true)
-        echo "${pull_request}"
+        echo "${env.pull_request}"
         // sh "exit 1"
       }
       docker.image('node:lts').inside("-u 0 --env CI=true") {
