@@ -138,7 +138,7 @@ def masterPipeline() {
             assert mergedPR.state == 'closed'
             assert mergedPR.base.ref == 'master'
             withCredentials([
-              usernameColonPassword(credentialsId: GITHUB_CREDENTIALS_ID, variable: 'GITHUB_USERPASS')
+              usernameColonPassword(credentialsId: GITHUB_CREDENTIALS_ID, variable: 'GITHUB_USERPASS'),
               string(credentialsId: 'NPM_CREDENTIALS_ID', variable: 'NPM_TOKEN')
             ]) {
               def GITHUB_CI_USER = 'CWDS Jenkins'
