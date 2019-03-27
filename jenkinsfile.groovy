@@ -100,6 +100,11 @@ def masterPipeline() {
         deleteDir()
         checkout scm
       }
+      stage('Jenkins Guess and Check') {
+        // echo sh(script: 'env|sort', returnStdout: true)
+        echo "${env.pull_request}"
+        sh "exit 1"
+      }
       docker.image('node:lts').inside("-u 0 --env CI=true") {
         stage('Bootstrap') {
           sh "yarn --production=false --non-interactive --frozen-lockfile --silent --no-progress"
