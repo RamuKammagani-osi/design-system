@@ -101,7 +101,7 @@ def masterPipeline() {
         checkout scm
       }
       stage('Jenkins Guess and Check') {
-        // echo sh(script: 'env|sort', returnStdout: true)
+        echo sh(script: 'env|sort', returnStdout: true)
         echo "${pull_request}"
         sh "exit 1"
       }
