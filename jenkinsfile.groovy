@@ -95,7 +95,7 @@ def masterPipeline() {
       buildDiscarderDefaults('master')
     ])
     try {
-      def doRelease = env.pull_request.event.labels.contains(GITHUB_LABEL_RELEASE)
+      // def doRelease = env.pull_request.event.labels.contains(GITHUB_LABEL_RELEASE)
       stage('Checkout') {
         deleteDir()
         checkout scm
