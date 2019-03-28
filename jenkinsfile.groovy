@@ -142,8 +142,8 @@ def masterPipeline() {
             withCredentials([
               string(credentialsId: 'NPM_CREDENTIALS_ID', variable: 'NPM_TOKEN')
             ]) {
-              sh "git config user.name ${GITHUB_CI_USER}"
-              sh "git config user.email ${GITHUB_CI_EMAIL}"
+              sh "git config --global user.name ${GITHUB_CI_USER}"
+              sh "git config --global user.email ${GITHUB_CI_EMAIL}"
               sh "yarn config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}"
               sh "git checkout master"
               sh "yarn lerna version --conventional-commits --force-publish --exact --no-push --yes"
