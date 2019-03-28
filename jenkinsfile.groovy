@@ -119,6 +119,10 @@ def masterPipeline() {
       }
       docker.image('node:lts').inside("-u 0 --env CI=true") {
         stage('Bootstrap') {
+          sh "git config --global user.name ${GITHUB_CI_USER}"
+          sh "git config --global user.email ${GITHUB_CI_EMAIL}"
+          sh "git config --global core.sshCommand 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'"
+          sh "git checkout master"
           sh "yarn --production=false --non-interactive --frozen-lockfile --silent --no-progress"
           sh "yarn lerna bootstrap"
         }
@@ -138,9 +142,6 @@ def masterPipeline() {
             withCredentials([string(credentialsId: 'NPM_CREDENTIALS_ID', variable: 'NPM_TOKEN')]) {
               sh "yarn config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}"
               sshagent(credentials: [GITHUB_CREDENTIALS_ID]) {
-                sh "git config --global user.name ${GITHUB_CI_USER}"
-                sh "git config --global user.email ${GITHUB_CI_EMAIL}"
-                sh "git config --global core.sshCommand 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'"
                 sh "yarn release:publish --yes"
               }
             }
