@@ -11,6 +11,8 @@ GITHUB_CREDENTIALS_ID = '433ac100-b3c2-4519-b4d6-207c029a103b'
 
 // Script Vars
 PROJECT_NAME = 'Design System'
+GITHUB_CI_USER = 'CWDS Jenkins'
+GITHUB_CI_EMAIL = 'cwdsdoeteam@osi.ca.gov'
 GITHUB_REPO_URL = 'https://github.com/ca-cwds/design-system'
 GITHUB_HOOK_PARAMS_TOKEN = 'design-system-master'
 GITHUB_LABEL_RELEASE = 'release'
@@ -138,18 +140,13 @@ def masterPipeline() {
             assert mergedPR.state == 'closed'
             assert mergedPR.base.ref == 'master'
             withCredentials([
-              usernameColonPassword(credentialsId: GITHUB_CREDENTIALS_ID, variable: 'GITHUB_USERPASS'),
               string(credentialsId: 'NPM_CREDENTIALS_ID', variable: 'NPM_TOKEN')
             ]) {
-              def GITHUB_CI_USER = 'CWDS Jenkins'
-              def GITHUB_CI_EMAIL = 'cwdsdoeteam@osi.ca.gov'
-              sh '''
-                git config user.name ${GITHUB_CI_USER}
-                git config user.email ${GITHUB_CI_EMAIL}
-                git remote set-url origin https://${GH_USERPASS}@github.com/ca-cwds/design-system.git
-                yarn config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}
-              '''
-              sh "yarn release:publish --yes"
+              sh "yarn config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}"
+              sh "yarn release:publish --no-push --yes"
+            }
+            sshagent([GITHUB_CREDENTIALS_ID]) {
+              sh('git push origin master')
             }
           } else {
             echo "Skipping publish because the `${GITHUB_LABEL_RELEASE}` was not applied."
