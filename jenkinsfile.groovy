@@ -140,7 +140,7 @@ def masterPipeline() {
             assert mergedPR.state == 'closed'
             assert mergedPR.base.ref == 'master'
             withCredentials([string(credentialsId: 'NPM_CREDENTIALS_ID', variable: 'NPM_TOKEN')]) {
-              sh "yarn config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}"
+              sh "npm config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}"
               sshagent(credentials: [GITHUB_CREDENTIALS_ID]) {
                 sh "yarn release:publish --yes"
               }
