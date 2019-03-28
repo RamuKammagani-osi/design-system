@@ -135,7 +135,7 @@ def masterPipeline() {
           if (doRelease) {
             assert mergedPR.state == 'closed'
             assert mergedPR.base.ref == 'master'
-            withCredentials(string(credentialsId: 'NPM_CREDENTIALS_ID', variable: 'NPM_TOKEN')) {
+            withCredentials([string(credentialsId: 'NPM_CREDENTIALS_ID', variable: 'NPM_TOKEN')]) {
               sh "yarn config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}"
               sshagent(credentials: [GITHUB_CREDENTIALS_ID]) {
                 sh "git config --global user.name ${GITHUB_CI_USER}"
