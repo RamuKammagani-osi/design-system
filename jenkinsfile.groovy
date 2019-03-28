@@ -105,6 +105,8 @@ def masterPipeline() {
      */
     def mergedPR = readJSON text: env.pull_request_event
 
+    def doRelease = mergedPR.labels.any { it.name == GITHUB_LABEL_RELEASE }
+
     properties([
       githubConfigProperties(GITHUB_REPO_URL),
       pipelineTriggers([triggerProperties]),
@@ -115,47 +117,35 @@ def masterPipeline() {
         deleteDir()
         checkout scm
       }
-      withCredentials([
-        string(credentialsId: 'NPM_CREDENTIALS_ID', variable: 'NPM_TOKEN'),
-        sshUserPrivateKey(
-          credentialsId: GITHUB_CREDENTIALS_ID,
-          keyFileVariable: 'SSH_KEY_FILE',
-          usernameVariable: 'SSH_USER'
-        )
-      ]) {
-        docker.image('node:lts').inside("-u 0 --env CI=true -v ${SSH_KEY_FILE}:/root/.ssh/id_rsa") {
-
-          sh "git config --global user.name ${GITHUB_CI_USER}"
-          sh "git config --global user.email ${GITHUB_CI_EMAIL}"
-          sh "git remote set-url origin git@github.com:${SSH_USER}/ca-cwds/design-system.git"
-          sh "git config core.sshCommand 'ssh -i /root/.ssh/id_rsa -F /dev/null'"
-          sh "yarn config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}"
-
-          sh "git fetch"
-
-          stage('Bootstrap') {
-            sh "yarn --production=false --non-interactive --frozen-lockfile --silent --no-progress"
-            sh "yarn lerna bootstrap"
-          }
-          stage('Lint') {
-            sh "yarn lint --format tap"
-          }
-          stage('Unit Test') {
-            sh "yarn test"
-          }
-          stage('Build Pkgs') {
-            sh "yarn build:libs"
-          }
-          stage('Publish Pkgs') {
-            def doRelease = mergedPR.labels.any { it.name == GITHUB_LABEL_RELEASE }
-            if (doRelease) {
-              assert mergedPR.state == 'closed'
-              assert mergedPR.base.ref == 'master'
-                sh "git checkout master"
+      docker.image('node:lts').inside("-u 0 --env CI=true") {
+        stage('Bootstrap') {
+          sh "yarn --production=false --non-interactive --frozen-lockfile --silent --no-progress"
+          sh "yarn lerna bootstrap"
+        }
+        stage('Lint') {
+          sh "yarn lint --format tap"
+        }
+        stage('Unit Test') {
+          sh "yarn test"
+        }
+        stage('Build Pkgs') {
+          sh "yarn build:libs"
+        }
+        stage('Release') {
+          if (doRelease) {
+            assert mergedPR.state == 'closed'
+            assert mergedPR.base.ref == 'master'
+            withCredentials(string(credentialsId: 'NPM_CREDENTIALS_ID', variable: 'NPM_TOKEN')) {
+              sh "yarn config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}"
+              sshagent(credentials: [GITHUB_CREDENTIALS_ID]) {
+                sh "git config --global user.name ${GITHUB_CI_USER}"
+                sh "git config --global user.email ${GITHUB_CI_EMAIL}"
+                sh "git config --global core.sshCommand 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'"
                 sh "yarn release:publish --yes"
-            } else {
-              echo "Skipping publish because the `${GITHUB_LABEL_RELEASE}` was not applied."
+              }
             }
+          } else {
+            echo "Skipping publish because the `${GITHUB_LABEL_RELEASE}` was not applied."
           }
         }
       }
