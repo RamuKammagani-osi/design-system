@@ -131,6 +131,8 @@ def masterPipeline() {
           sh "git config core.sshCommand 'ssh -i /root/.ssh/id_rsa -F /dev/null'"
           sh "yarn config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}"
 
+          sh "git fetch"
+
           stage('Bootstrap') {
             sh "yarn --production=false --non-interactive --frozen-lockfile --silent --no-progress"
             sh "yarn lerna bootstrap"
