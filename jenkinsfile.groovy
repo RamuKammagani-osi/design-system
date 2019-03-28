@@ -143,7 +143,8 @@ def masterPipeline() {
               string(credentialsId: 'NPM_CREDENTIALS_ID', variable: 'NPM_TOKEN')
             ]) {
               sh "yarn config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}"
-              sh "yarn release:publish --no-push --yes"
+              sh "git checkout master"
+              sh "yarn lerna version --conventional-commits --force-publish --exact --no-push --yes"
             }
             sshagent([GITHUB_CREDENTIALS_ID]) {
               sh('git push origin master')
