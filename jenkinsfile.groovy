@@ -121,7 +121,7 @@ def masterPipeline() {
           credentialsId: GITHUB_CREDENTIALS_ID,
           keyFileVariable: 'SSH_KEY_FILE',
           usernameVariable: 'SSH_USER'
-        ]
+        )
       ]) {
         docker.image('node:lts').inside("-u 0 --env CI=true -v ${SSH_KEY_FILE}:/root/.ssh") {
           stage('Bootstrap') {
