@@ -124,14 +124,14 @@ def masterPipeline() {
         )
       ]) {
         docker.image('node:lts').inside("-u 0 --env CI=true -v ${SSH_KEY_FILE}:/root/.ssh/id_rsa") {
+
+          sh "git config --global user.name ${GITHUB_CI_USER}"
+          sh "git config --global user.email ${GITHUB_CI_EMAIL}"
+          sh "git remote set-url origin git@github.com:${SSH_USER}/ca-cwds/design-system.git"
+          sh "git config core.sshCommand 'ssh -i /root/.ssh/id_rsa -F /dev/null'"
+          sh "yarn config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}"
+
           stage('Bootstrap') {
-            sh '''
-              git config --global user.name ${GITHUB_CI_USER}
-              git config --global user.email ${GITHUB_CI_EMAIL}
-              git remote set-url origin git@github.com:${SSH_USER}/ca-cwds/design-system.git
-              git config core.sshCommand "ssh -i /root/.ssh/id_rsa -F /dev/null"
-              yarn config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}
-            '''
             sh "yarn --production=false --non-interactive --frozen-lockfile --silent --no-progress"
             sh "yarn lerna bootstrap"
           }
