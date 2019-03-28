@@ -115,44 +115,44 @@ def masterPipeline() {
         deleteDir()
         checkout scm
       }
-      stage('Jenkins Guess and Check') {
-        // echo sh(script: 'env|sort', returnStdout: true)
-        echo "${mergedPR}"
-        // sh "exit 1"
-      }
-      docker.image('node:lts').inside("-u 0 --env CI=true") {
-        stage('Bootstrap') {
-          sh "yarn --production=false --non-interactive --frozen-lockfile --silent --no-progress"
-          sh "yarn lerna bootstrap"
-        }
-        stage('Lint') {
-          sh "yarn lint --format tap"
-        }
-        stage('Unit Test') {
-          sh "yarn test"
-        }
-        stage('Build Pkgs') {
-          sh "yarn build:libs"
-        }
-        stage('Publish Pkgs') {
-          def doRelease = mergedPR.labels.any { it.name == GITHUB_LABEL_RELEASE }
-          if (doRelease) {
-            assert mergedPR.state == 'closed'
-            assert mergedPR.base.ref == 'master'
-            withCredentials([
-              string(credentialsId: 'NPM_CREDENTIALS_ID', variable: 'NPM_TOKEN')
-            ]) {
-              sh "git config --global user.name ${GITHUB_CI_USER}"
-              sh "git config --global user.email ${GITHUB_CI_EMAIL}"
-              sh "yarn config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}"
-              sh "git checkout master"
-              sh "yarn lerna version --conventional-commits --force-publish --exact --no-push --yes"
+      withCredentials([
+        string(credentialsId: 'NPM_CREDENTIALS_ID', variable: 'NPM_TOKEN'),
+        sshUserPrivateKey(
+          credentialsId: GITHUB_CREDENTIALS_ID,
+          keyFileVariable: 'SSH_KEY_FILE',
+          usernameVariable: 'SSH_USER'
+        ]
+      ]) {
+        docker.image('node:lts').inside("-u 0 --env CI=true -v ${SSH_KEY_FILE}:/root/.ssh") {
+          stage('Bootstrap') {
+            sh 'ls ~/.ssh'
+            sh '''
+              git config --global user.name ${GITHUB_CI_USER}
+              git config --global user.email ${GITHUB_CI_EMAIL}
+              yarn config set '//registry.npmjs.org/:_authToken' ${NPM_TOKEN}
+            '''
+            sh "yarn --production=false --non-interactive --frozen-lockfile --silent --no-progress"
+            sh "yarn lerna bootstrap"
+          }
+          stage('Lint') {
+            sh "yarn lint --format tap"
+          }
+          stage('Unit Test') {
+            sh "yarn test"
+          }
+          stage('Build Pkgs') {
+            sh "yarn build:libs"
+          }
+          stage('Publish Pkgs') {
+            def doRelease = mergedPR.labels.any { it.name == GITHUB_LABEL_RELEASE }
+            if (doRelease) {
+              assert mergedPR.state == 'closed'
+              assert mergedPR.base.ref == 'master'
+                sh "git checkout master"
+                sh "yarn release:publish --yes"
+            } else {
+              echo "Skipping publish because the `${GITHUB_LABEL_RELEASE}` was not applied."
             }
-            sshagent([GITHUB_CREDENTIALS_ID]) {
-              sh('git push origin master')
-            }
-          } else {
-            echo "Skipping publish because the `${GITHUB_LABEL_RELEASE}` was not applied."
           }
         }
       }
