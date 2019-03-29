@@ -1,5 +1,6 @@
 import { IOption, IListType } from './types'
 import * as React from 'react'
+import PropTypes from 'prop-types'
 import cn from 'classnames'
 import { Input, FormGroup, Label } from '@cwds/reactstrap'
 import CheckboxControl from './CheckboxControl'
@@ -23,8 +24,23 @@ export interface CheckboxBankProps<T = any> extends IListType<T> {
   /** Blur handler (traditional callback) */
   onBlur: React.EventHandler<any>
 }
+
 class CheckboxBank extends React.Component<CheckboxBankProps> {
-  static propTypes = {}
+  static propTypes = {
+    value: PropTypes.array.isRequired,
+    options: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        value: PropTypes.any.isRequired,
+        disabled: PropTypes.bool,
+      })
+    ).isRequired,
+  }
+
+  static defaultProps = {
+    value: [],
+    options: [],
+  }
 
   handleChange = (e: React.ChangeEvent<HTMLFormElement>) => {
     const { value, checked } = e.target
@@ -41,6 +57,10 @@ class CheckboxBank extends React.Component<CheckboxBankProps> {
 
   render() {
     const { options } = this.props
+    if (!options.length)
+      console.error(
+        'Warning: You should not provide zero-length options to `CheckboxBank`'
+      )
     return (
       <Fieldset>
         {options.map(opt => {
