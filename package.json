@@ -24,6 +24,7 @@
     "dev": "lerna run --stream --parallel --scope @cwds/* dev",
     "release:build": "yarn clean:pkgs && yarn lint:libs && yarn test:libs && NODE_ENV=production yarn build:libs",
     "release:publish": "yarn lerna publish --conventional-commits --force-publish --exact",
+    "release:dryrun": "yarn lerna version --conventional-commits --force-publish --exact --no-git-tag-version --no-push --yes --allow-branch '*'",
     "lint": "eslint --ext .jsx,.js libs/ apps/www/src/",
     "lint:libs": "eslint --ext .jsx,.js libs/",
     "lint:apps": "eslint --ext .jsx,.js apps/www/src/",
