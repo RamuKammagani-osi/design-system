@@ -24,6 +24,7 @@ import CaresProvider from '!babel-loader!@mdx-js/loader!./articles/CaresProvider
 import Tile from '!babel-loader!@mdx-js/loader!./articles/Tile/Tile.mdx'
 import Checkboxes from '!babel-loader!@mdx-js/loader!./articles/Checkboxes/Checkboxes.mdx'
 import Forms from '!babel-loader!@mdx-js/loader!./articles/Forms/Forms.mdx'
+import InputArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/InputArticle.mdx'
 
 const routes = {
   title: 'Component Library',
@@ -244,14 +245,41 @@ const routes = {
       component: CaresProvider,
     },
     {
-      title: 'Checkboxes',
-      path: '/checkboxes',
-      component: Checkboxes,
-    },
-    {
       title: 'Forms',
       path: '/forms',
       component: Forms,
+      children: [
+        {
+          title: 'About',
+          path: '/forms',
+        },
+        {
+          title: 'Form Field (WiP)',
+          path: '/form-field',
+        },
+        {
+          title: 'Kitchen Sink (WiP)',
+          path: '/kitchen-sink',
+        },
+        {
+          title: 'Input',
+          path: '/input',
+          component: InputArticle,
+        },
+        {
+          title: 'Checkboxes',
+          path: '/checkboxes',
+          component: Checkboxes,
+        },
+        {
+          title: 'Radios (WiP)',
+          path: '/radios',
+        },
+        {
+          title: 'Select (WiP)',
+          path: '/select',
+        },
+      ],
     },
   ],
 }
