@@ -7,6 +7,7 @@
   "license": "AGPL-3.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "scss",
@@ -21,7 +22,9 @@
     "prebuild": "yarn clean",
     "build": "run-p build:*",
     "build:js": "run-s build:js:tsc build:js:babel build:js:rollup",
-    "build:js:tsc": "tsc -p tsconfig.json",
+    "build:js:tsc": "run-s build:js:tsc:compile build:js:tsc:dts",
+    "build:js:tsc:compile": "tsc -p tsconfig.json",
+    "build:js:tsc:dts": "cpx \"compiled/**/*.d.ts\" dist",
     "build:js:babel": "babel compiled --verbose --root-mode upward --out-dir dist",
     "build:js:rollup": "rollup -c",
     "postbuild:js": "rimraf compiled",
