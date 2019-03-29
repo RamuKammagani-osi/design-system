@@ -13,6 +13,7 @@ describe('@cwds/components', () => {
     ${'ButtonGroup'}
     ${'ButtonToolbar'}
     ${'Card'}
+    ${'CaresButton'}
     ${'CardBody'}
     ${'CardFooter'}
     ${'CardHeader'}

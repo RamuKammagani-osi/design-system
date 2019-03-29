@@ -1,8 +1,34 @@
-import { Button, Icon, IconButton, Card, CardBody } from "@cwds/components";
+import {
+  Button,
+  CaresButton,
+  Icon,
+  IconButton,
+  Card,
+  CardBody
+} from "@cwds/components";
 import { DemoCard, PropTable } from "@cwds/docs";
 import Docgen from "../ReactDogenInfo.js";
 
 ## Synopsis
+
+`CaresButton` should be use in most CARES Application unless a button is a different theme or customize
+
+<DemoCard>
+  <div className="d-flex justify-content-around">
+    <div className="text-center">
+      <CaresButton solid>Submit</CaresButton>
+      <div>Solid</div>
+    </div>
+    <div className="text-center">
+      <CaresButton>Cancel</CaresButton>
+      <div>Outline (default)</div>
+    </div>
+  </div>
+</DemoCard>
+
+```jsx
+import { CaresButton } from "@cwds/components";
+```
 
 `Button`s indicate an opportunity for users to trigger a system response when activated.
 
@@ -48,42 +74,66 @@ The `Button` is the dominant component for indicating Call To Action (CTA) oppor
 
 - Buttons with Icon may be used when you want to draw more attention to the button, or when an icon helps to clarify or convey more meaning.
 
-<IconButton icon="circle-notch" spin color="primary" size="sm">
-  Busy
-</IconButton><br />
-<IconButton icon="circle-notch" spin size="sm">
-  Busy
-</IconButton><br />
-<IconButton icon="circle-notch" spin color="secondary" size="sm">
-  Busy
-</IconButton><br />
-<IconButton icon="circle-notch" spin color="accent" size="sm">
-  Busy
-</IconButton><br />
-<IconButton icon="circle-notch" spin color="success" size="sm">
-  Busy
-</IconButton><br />
-<IconButton icon="circle-notch" spin color="info" size="sm">
-  Busy
-</IconButton><br />
-<IconButton icon="circle-notch" spin color="warning" size="sm">
-  Busy
-</IconButton><br />
-<IconButton icon="circle-notch" spin color="danger" size="sm">
-  Busy
-</IconButton><br />
-<IconButton icon="circle-notch" spin color="light" size="sm">
-  Busy
-</IconButton><br />
-<IconButton icon="circle-notch" spin color="dark" size="sm">
-  Busy
-</IconButton>
+<div className="d-flex justify-content-around m-3">
+  <IconButton icon="circle-notch" spin color="primary" size="sm">
+    Busy
+  </IconButton>
+  <br />
+  <IconButton icon="circle-notch" spin size="sm">
+    Busy
+  </IconButton>
+  <br />
+  <IconButton icon="circle-notch" spin color="secondary" size="sm">
+    Busy
+  </IconButton>
+  <br />
+  <IconButton icon="circle-notch" spin color="accent" size="sm">
+    Busy
+  </IconButton>
+  <br />
+  <IconButton icon="circle-notch" spin color="success" size="sm">
+    Busy
+  </IconButton>
+  <br />
+  <IconButton icon="circle-notch" spin color="info" size="sm">
+    Busy
+  </IconButton>
+  <br />
+  <IconButton icon="circle-notch" spin color="warning" size="sm">
+    Busy
+  </IconButton>
+  <br />
+  <IconButton icon="circle-notch" spin color="danger" size="sm">
+    Busy
+  </IconButton>
+  <br />
+  <IconButton icon="circle-notch" spin color="light" size="sm">
+    Busy
+  </IconButton>
+  <br />
+  <IconButton icon="circle-notch" spin color="dark" size="sm">
+    Busy
+  </IconButton>
+</div>
 
 ## Props
 
 <PropTable docgen={Docgen.Button} />
 
 ## Examples
+
+### CaresButton
+
+<div className="my-3">
+  <CaresButton solid>Success</CaresButton> <CaresButton>Cancel</CaresButton>
+</div>
+
+```jsx
+<CaresButton solid>Success</Button>
+<CaresButton>Cancel</Button>
+```
+
+### Buttons
 
 Buttons take a color prop which should be one of the thematic color values:
 
