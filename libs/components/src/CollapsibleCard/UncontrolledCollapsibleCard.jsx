@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import CollapsibleCard from './CollapsibleCard'
 
 class UncontrolledCollapsibleCard extends Component {
-  state = { isOpen: true }
   constructor(props) {
     super(props)
+    this.state = { isOpen: !props.initialClosed }
     this.handleToggle = this.handleToggle.bind(this)
   }
   handleToggle(e) {
