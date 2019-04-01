@@ -9,6 +9,7 @@ import {
   ButtonGroup,
   Card,
   CardBody,
+  CaresButton,
   CardHeader,
   CardTitle,
   Col,
@@ -64,6 +65,14 @@ export class ToggleDemos extends Component {
     ['color="primary" size="sm"', { color: 'primary', size: 'sm' }],
     ['color="primary" size="lg"', { color: 'primary', size: 'lg' }],
   ]
+  combinationsCares = [
+    ['Cares default', {}],
+    ['Cares solid', { solid: true }],
+    ['Cares default size="sm"', { size: 'sm' }],
+    ['Cares default" size="lg"', { size: 'lg' }],
+    ['Cares solid size="sm"', { solid: true, size: 'sm' }],
+    ['Cares solid size="lg"', { solid: true, size: 'lg' }],
+  ]
   state = {
     radioValue: undefined,
     value2: undefined,
@@ -74,21 +83,21 @@ export class ToggleDemos extends Component {
   render() {
     return (
       <Page
-        title="Toggles"
+        title="Buttons"
         Breadcrumb={
           <Breadcrumb>
             <BreadcrumbItem>
               <Link to="/">Home</Link>
             </BreadcrumbItem>
             <BreadcrumbItem>Demos</BreadcrumbItem>
-            <BreadcrumbItem active>Toggles</BreadcrumbItem>
+            <BreadcrumbItem active>Buttons</BreadcrumbItem>
           </Breadcrumb>
         }
       >
         <div>
           <Card>
             <CardHeader>
-              <CardTitle>Toggles</CardTitle>
+              <CardTitle>Buttons</CardTitle>
             </CardHeader>
             <CardBody>
               <Row className="mb-2">
@@ -115,6 +124,23 @@ export class ToggleDemos extends Component {
                       <Button {...props} disabled>
                         Disabled
                       </Button>
+                    </Col>
+                  </Row>
+                )
+              })}
+              {this.combinationsCares.map(([name, props], index) => {
+                return (
+                  <Row key={index} className="mb-2">
+                    <Col sm={2}>{name}</Col>
+                    <Col />
+                    <Col>
+                      <CaresButton {...props}>Cares Button</CaresButton>{' '}
+                      <CaresButton {...props} active>
+                        Cares Active
+                      </CaresButton>{' '}
+                      <CaresButton {...props} disabled>
+                        Cares Disabled
+                      </CaresButton>
                     </Col>
                   </Row>
                 )
