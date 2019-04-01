@@ -1,53 +1,66 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Button, ButtonGroup, Page } from '@cwds/components'
+import cn from 'classnames'
+import {
+  Button,
+  Container,
+  Row,
+  Col,
+  PageTitle,
+  Banner,
+  Footer,
+} from '@cwds/components'
 import SideNav from './ArticleSideNav'
 import Breadcrumb from './ArticleBreadcrumb'
+import PageStyles from '@cwds/components/src/Layouts/Layout.module.scss'
 
 class Article extends Component {
-  state = {
-    layout: 'subroutes',
+  state = { showNav: true }
+
+  toggleSideNav = () => this.setState({ showNav: !this.state.showNav })
+
+  getColWidths() {
+    if (this.state.showNav) {
+      return {
+        nav: { sm: 5, md: 3 },
+        main: { sm: 7, md: 9 },
+      }
+    } else {
+      return { nav: {}, main: {} }
+    }
   }
 
-  handleToggleClick = layout => _ => this.setState({ layout })
-
   render() {
-    const isSubRoute = this.state.layout === 'subroutes'
-    const { title, main, sidebar, breadcrumbs } = this.props
+    const { main: Main } = this.props
+    const { nav: navColProps, main: mainColProps } = this.getColWidths()
+    if (!Main) return null
     return (
-      <Page
-        title={title}
-        layout={this.state.layout}
-        Breadcrumb={
-          <Breadcrumb items={[{ title: 'Home', path: '/' }, ...breadcrumbs]} />
-        }
-        main={main}
-        sidenav={<SideNav routes={sidebar} />}
-        PageActions={
-          <ButtonGroup>
-            <Button
-              active={isSubRoute}
-              aria-label="Side Nav"
-              aria-pressed={isSubRoute}
-              color="primary"
-              onClick={this.handleToggleClick('subroutes')}
-              size="sm"
-            >
-              Side Nav
+      <div className={cn('h-100', 'd-flex', 'flex-column', PageStyles.Page)}>
+        <Banner
+          PageTitle={<PageTitle>{this.props.title}</PageTitle>}
+          PageActions={
+            <Button size="sm" color="info" onClick={this.toggleSideNav}>
+              {this.state.showNav ? 'Hide' : 'Show'} SideNav
             </Button>
-            <Button
-              active={!isSubRoute}
-              aria-label="Full Width"
-              aria-pressed={!isSubRoute}
-              color="primary"
-              size="sm"
-              onClick={this.handleToggleClick('dashboard')}
-            >
-              Full Width
-            </Button>
-          </ButtonGroup>
-        }
-      />
+          }
+          Breadcrumb={<Breadcrumb items={this.props.breadcrumbs} />}
+        />
+        <div className={cn(PageStyles.Body)}>
+          <Container>
+            <Row>
+              {this.state.showNav && (
+                <Col role="navigation" {...navColProps}>
+                  <SideNav routes={this.props.sidebar} />
+                </Col>
+              )}
+              <Col role="main" {...mainColProps}>
+                <Main />
+              </Col>
+            </Row>
+          </Container>
+        </div>
+        <Footer />
+      </div>
     )
   }
 }

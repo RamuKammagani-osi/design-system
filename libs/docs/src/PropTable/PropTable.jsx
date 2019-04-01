@@ -1,6 +1,13 @@
 import React from 'react'
 import cn from 'classnames'
-import { Card, CardBody, Table, Badge } from '@cwds/components'
+import {
+  CardHeader,
+  CardTitle,
+  CardBody,
+  Table,
+  Badge,
+  UncontrolledCollapsibleCard as Card,
+} from '@cwds/components'
 import AnchorLink from '../AnchorLink'
 import Styles from './PropTable.module.scss'
 
@@ -75,7 +82,12 @@ const PropDocs = ({ docgen, headingLevel }) => (
 
 const PropTable = ({ docgen }) => {
   return (
-    <Card>
+    <Card initialClosed>
+      <CardHeader>
+        <CardTitle>
+          <code>{docgen.displayName}</code> Props
+        </CardTitle>
+      </CardHeader>
       <CardBody className="py-0">
         <PropDocs docgen={docgen} />
       </CardBody>

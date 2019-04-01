@@ -105,19 +105,23 @@ const routes = {
       title: 'DataGrid',
       path: '/datagrid',
       component: DataGridsPage,
+      noSort: true,
       children: [
         {
           title: 'Simple DataGrid',
+          label: 'Simple',
           path: '/simple',
           component: SimpleDataGrid,
         },
         {
           title: 'DataGrid with Basic Search',
+          label: 'Basic Search',
           path: '/basic-search',
           component: BasicSearchDataGrid,
         },
         {
-          title: 'DataGrid with Sub-components',
+          title: 'DataGrid with SubComponents',
+          label: 'SubComponents',
           path: '/subcomponent-render',
           component: SubcomponentDataGrid,
         },

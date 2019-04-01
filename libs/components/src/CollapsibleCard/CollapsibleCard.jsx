@@ -10,6 +10,7 @@ const CollapsibleCard = ({
   onToggle,
   children,
   isOpen,
+  initialClosed,
   ...props
 }) => {
   let header
@@ -29,7 +30,11 @@ const CollapsibleCard = ({
           <div className={cn(Styles.HeaderChildrenWrapper)}>
             {headerChildren}
           </div>
-          <Button className="bg-transparent border-0 ml-3" onClick={onToggle}>
+          <Button
+            size="sm"
+            className="bg-transparent border-0 ml-3"
+            onClick={onToggle}
+          >
             <Icon
               name="chevron-down"
               rotation={!isOpen ? undefined : Util.ROTATION.FLIP}
@@ -49,6 +54,7 @@ CollapsibleCard.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
   ]),
   isOpen: PropTypes.bool,
+  initialClosed: PropTypes.bool,
   onToggle: PropTypes.func,
 }
 

@@ -37,6 +37,11 @@ describe('getArticle', () => {
       expect(sidebar[0].title).toBe('B_TITLE')
       expect(sidebar[1].title).toBe('C_TITLE')
     })
+    it('supports noSort', () => {
+      const { sidebar } = getArticle('/a', { ...routes(), noSort: true })
+      expect(sidebar[0].title).toBe('C_TITLE')
+      expect(sidebar[1].title).toBe('B_TITLE')
+    })
   })
 
   describe('when child nodes are not present', () => {
@@ -49,6 +54,13 @@ describe('getArticle', () => {
     it('sorts the links', () => {
       const { sidebar } = getArticle('/a/c/e', routes())
       expect(sidebar[0].title).toBe('AAA')
+    })
+    it('supports noSort', () => {
+      const testRoutes = routes()
+      testRoutes.children[0].noSort = true
+      const { sidebar } = getArticle('/a/c/e', testRoutes)
+      expect(sidebar[0].title).toBe('D_TITLE')
+      expect(sidebar[2].title).toBe('AAA')
     })
   })
 })
