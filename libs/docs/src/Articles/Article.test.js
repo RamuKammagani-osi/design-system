@@ -1,44 +1,50 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { mount, shallow } from 'enzyme'
 import Article from './Article'
-import Breadcrumb from './ArticleBreadcrumb'
 import SideNav from './ArticleSideNav'
-import { ButtonGroup, Page } from '@cwds/components'
+import { Banner, Button } from '@cwds/components'
+
+const DummyArticle = () => <div>My Article</div>
 
 describe('Article', () => {
-  it('wraps returns a Page', () => {
-    const wrapper = shallow(<Article component={() => <div>Foobar</div>} />)
-    expect(wrapper.find(Page).length).toBe(1)
+  it('has a layout toggler', () => {
+    const wrapper = mount(<Article main={DummyArticle} />)
+    const ToggleBtn = wrapper
+      .find(Banner)
+      .find(Button)
+      .last()
+    expect(ToggleBtn.text()).toContain('Hide SideNav')
+    expect(wrapper.find(SideNav).length).toBe(1)
+    ToggleBtn.simulate('click')
+    expect(ToggleBtn.text()).toBe('Show SideNav')
+    expect(wrapper.find(SideNav).length).toBe(0)
   })
-  describe('renders props', () => {
-    const wrapper = mount(<Article />)
-
-    it('pageAction with ButtonGroup', () => {
-      expect(wrapper.find(ButtonGroup).length).toBe(1)
-    })
-    it('sideNav with SideNav component', () => {
-      expect(wrapper.find(SideNav).length).toBe(1)
-    })
-    it('BreadCrumb with BreadCrumb component', () => {
-      expect(wrapper.find(Breadcrumb).length).toBe(1)
-    })
+  it('has a breadcrumb', () => {
+    const myBreadcrumbs = [
+      { title: 'Foo', path: '/foo' },
+      { title: 'Bar', path: '/foo/bar' },
+    ]
+    const wrapper = shallow(
+      <Article main={DummyArticle} breadcrumbs={myBreadcrumbs} />
+    )
+    expect(wrapper.find(Banner).prop('Breadcrumb').props.items).toBe(
+      myBreadcrumbs
+    )
   })
-  describe('changes the layout', () => {
-    const wrapper = mount(<Article />)
-    it('initialize as subroutes', () => {
-      expect(wrapper.state('layout')).toEqual('subroutes')
-      expect(
-        wrapper.find('Button [aria-label="Side Nav"]').hasClass('active')
-      ).toBe(true)
-      expect(wrapper.find(SideNav).length).toBe(1)
-    })
-    it('from subroutes to dashboard', () => {
-      wrapper.find('Button [aria-label="Full Width"]').simulate('click')
-      expect(
-        wrapper.find('Button [aria-label="Full Width"]').hasClass('active')
-      ).toBe(true)
-      expect(wrapper.state('layout')).toEqual('dashboard')
-      expect(wrapper.find(SideNav).length).toBe(0)
-    })
+  it('does not lose state on layout change', () => {
+    class MyStatefulComponent extends Component {
+      state = { value: 'OFF' }
+      render() {
+        return <div>{this.state.value}</div>
+      }
+    }
+    const wrapper = mount(<Article main={MyStatefulComponent} />)
+    expect(wrapper.find(MyStatefulComponent).text()).toBe('OFF')
+    wrapper.find(MyStatefulComponent).setState({ value: 'ON' })
+    expect(wrapper.find(SideNav).length).toBe(1)
+    wrapper.setState({ showNav: false })
+    expect(wrapper.find(SideNav).length).toBe(0)
+    expect(wrapper.find(MyStatefulComponent).state('value')).toEqual('ON')
+    expect(wrapper.find(MyStatefulComponent).text()).toBe('ON')
   })
 })
