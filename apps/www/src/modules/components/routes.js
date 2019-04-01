@@ -235,7 +235,7 @@ const routes = {
           component: FormsRadioArticle,
         },
         {
-          title: 'Select (WiP)',
+          title: 'Select',
           path: '/select',
           component: FormsSelectArticle,
         },

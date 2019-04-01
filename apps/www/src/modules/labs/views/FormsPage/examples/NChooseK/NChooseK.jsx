@@ -7,8 +7,8 @@ import {
   FormFeedback,
   FormGroup,
   Label,
-  Select,
 } from '@cwds/components'
+import { Select } from '@cwds/forms'
 
 export default () => (
   <Formik

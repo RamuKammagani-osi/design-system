@@ -13,7 +13,6 @@ import {
   Col,
   Input,
   Label,
-  Select,
   Icon,
   FormFeedback,
 } from '@cwds/components'
@@ -23,6 +22,7 @@ import {
   LOCATION_OPTIONS,
   VISIT_TYPE_OPTIONS,
 } from './contactsFormEnums'
+import { Select } from '@cwds/forms'
 import initialValues from './contactsFormInitialValues'
 import validate from './contactsFormValidate'
 
