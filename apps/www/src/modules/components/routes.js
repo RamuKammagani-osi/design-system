@@ -27,7 +27,6 @@ import FormsIndexArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/For
 import InputArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/InputArticle.mdx'
 import FormFieldArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormFieldArticle.mdx'
 import FormsKitchenSinkArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsKitchenSinkArticle.mdx'
-import FormsStructureArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsStructureArticle.mdx'
 import FormsRadioArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsRadioArticle.mdx'
 import FormsSelectArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsSelectArticle.mdx'
 import FormsTextAreaArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsTextAreaArticle.mdx'
@@ -209,13 +208,7 @@ const routes = {
           component: FormsKitchenSinkArticle,
         },
         {
-          title: 'Basic Form Structure (WiP)',
-          label: 'Basic Structure (WiP)',
-          path: '/basic-structure',
-          component: FormsStructureArticle,
-        },
-        {
-          title: 'Form Field (WiP)',
+          title: 'Form Field',
           path: '/form-field',
           component: FormFieldArticle,
         },
