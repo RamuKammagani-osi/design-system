@@ -15,7 +15,7 @@ const SideNav = ({ routes }) => {
           tag={Link}
           to={route.path}
         >
-          {route.title}
+          {route.label || route.title}
         </ListGroupItem>
       ))}
     </ListGroup>

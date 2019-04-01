@@ -8,11 +8,11 @@ const ArticleBreadcrumb = ({ items }) => (
     {items.map((d, i, arr) => {
       return i + 1 < arr.length ? (
         <BreadcrumbItem key={d.path}>
-          <Link to={d.path}>{d.title}</Link>
+          <Link to={d.path}>{d.label || d.title}</Link>
         </BreadcrumbItem>
       ) : (
         <BreadcrumbItem key={d.path} active>
-          {d.title}
+          {d.label || d.title}
         </BreadcrumbItem>
       )
     })}

@@ -9,7 +9,7 @@ class Article extends Component {
     layout: 'subroutes',
   }
 
-  handleToggleClick = layout => _ => this.setState({ layout })
+  handleToggleClick = layout => () => this.setState({ layout })
 
   render() {
     const isSubRoute = this.state.layout === 'subroutes'

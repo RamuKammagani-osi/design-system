@@ -39,7 +39,7 @@ function getBreadcrumbs(node, parents) {
     return [
       ...acc,
       {
-        title: d.title,
+        ...d,
         path: `${arr
           .slice(0, i)
           .map(d => d.path)
@@ -49,30 +49,38 @@ function getBreadcrumbs(node, parents) {
   }, [])
 }
 
+function getSidebar(node, parents) {
+  switch (nodeType(node, parents)) {
+    case 'parent':
+      return getChildLinks(node, parents)
+    case 'sibling':
+      return getSiblingLinks(node, parents)
+    default:
+      return []
+  }
+}
+
 function getChildLinks(node, parents) {
-  return node.children.map(child => ({
-    title: child.title,
+  const links = node.children.map(child => ({
+    ...child,
     path: `${[...parents, node].map(d => d.path).join('')}${child.path}`,
     active: node.path === child.path,
   }))
+  return node.noSort ? links : sortBy(links, ['title'])
 }
 
 function getSiblingLinks(node, parents) {
-  return parents[parents.length - 1].children.map(child => ({
-    title: child.title,
+  const parent = parents[parents.length - 1]
+  const links = parent.children.map(child => ({
+    ...child,
     path: `${parents.map(d => d.path).join('')}${child.path}`,
     active: node.path === child.path,
   }))
+  return parent.noSort ? links : sortBy(links, ['title'])
 }
 
-function getSidebar(node, parents) {
-  const sidebarlinks = (() => {
-    if (node.children) {
-      return getChildLinks(node, parents)
-    } else if (parents.length && parents[parents.length - 1].children) {
-      return getSiblingLinks(node, parents)
-    }
-    return []
-  })()
-  return sortBy(sidebarlinks, ['title'])
+function nodeType(node, parents) {
+  if (node.children) return 'parent'
+  if (parents.length && parents[parents.length - 1].children) return 'sibling'
+  return undefined
 }
