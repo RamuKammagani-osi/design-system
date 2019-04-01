@@ -1,0 +1,22 @@
+import SimpleCheckboxBankExample from "../Checkboxes/examples/SimpleCheckboxBankExample.jsx";
+import SimpleSelectExample from "./examples/SimpleSelectExample";
+
+## Forms
+
+asdfasdfasdf
+
+### Render Interoperability
+
+Certain classes of form controls are interchangeable with respect to the rendered component. This is possible becase the underlying data structures for _value tracking_ and _options domain_ are generic.
+
+For example, an **N_pick_K** use case uses a `Map<{[K: string]: any}>` structure for _value tracking_ and an interface `Array<{ id: string, [K: string]: any}>` for the _options domain_.
+
+This allows the `CheckboxBank`, and the `Select` <tt>FormControl</tt>s to be interchangeable:
+
+<SimpleCheckboxBankExample noDebug />
+
+_or_
+
+<SimpleSelectExample noDebug />
+
+These could even be combined to control the _SAME_ chunk of form state...

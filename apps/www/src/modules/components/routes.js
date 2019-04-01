@@ -23,8 +23,15 @@ import Page from '!babel-loader!@mdx-js/loader!./articles/Page/Page.mdx'
 import CaresProvider from '!babel-loader!@mdx-js/loader!./articles/CaresProvider/CaresProvider.mdx'
 import Tile from '!babel-loader!@mdx-js/loader!./articles/Tile/Tile.mdx'
 import Checkboxes from '!babel-loader!@mdx-js/loader!./articles/Checkboxes/Checkboxes.mdx'
-import Forms from '!babel-loader!@mdx-js/loader!./articles/Forms/Forms.mdx'
+import FormsIndexArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsIndexArticle.mdx'
 import InputArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/InputArticle.mdx'
+import FormFieldArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormFieldArticle.mdx'
+import FormsKitchenSinkArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsKitchenSinkArticle.mdx'
+import FormsStructureArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsStructureArticle.mdx'
+import FormsRadioArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsRadioArticle.mdx'
+import FormsSelectArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsSelectArticle.mdx'
+import FormsTextAreaArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsTextAreaArticle.mdx'
+import FormsDatePickerArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsDatePickerArticle.mdx'
 
 const routes = {
   title: 'Component Library',
@@ -126,7 +133,8 @@ const routes = {
           component: SubcomponentDataGrid,
         },
         // {
-        //   title: 'Advanced Search (WiP)',
+        //   title: 'DataGrid with Advanced Search',
+        //   label: 'Advanced Search',
         //   path: '/advanced-search',
         //   component: AdvancedSearchDataGrid,
         // },
@@ -137,22 +145,6 @@ const routes = {
       path: '/menu',
       component: MenuPage,
     },
-    // {
-    //   title: 'Field',
-    //   path: '/field',
-    // },
-    // {
-    //   title: 'FormFeedback',
-    //   path: '/formfeedback',
-    // },
-    // {
-    //   title: 'FormGroup',
-    //   path: '/formgroup',
-    // },
-    // {
-    //   title: 'Forms',
-    //   path: '/forms',
-    // },
     {
       title: 'Grid',
       path: '/grid',
@@ -169,18 +161,6 @@ const routes = {
       component: Infotip,
     },
     // {
-    //   title: 'Input',
-    //   path: '/input',
-    // },
-    // {
-    //   title: 'InputGroup',
-    //   path: '/inputgroup',
-    // },
-    // {
-    //   title: 'InputGroupAddon',
-    //   path: '/inputgroupaddon',
-    // },
-    // {
     //   title: 'JumpToTop',
     //   path: '/jumptotop',
     // },
@@ -192,46 +172,14 @@ const routes = {
     //   title: 'Layouts',
     //   path: '/layouts',
     // },
-    // {
-    //   title: 'Legend',
-    //   path: '/legend',
-    // },
-    // {
-    //   title: 'ListGroups',
-    //   path: '/listgroups',
-    // },
-    // {
-    //   title: 'Logo',
-    //   path: '/logo',
-    // },
     {
       title: 'Modal',
       path: '/modal',
       component: Modal,
     },
     // {
-    //   title: 'Nav',
-    //   path: '/nav',
-    // },
-    // {
-    //   title: 'PageHeader',
-    //   path: '/pageheader',
-    // },
-    // {
     //   title: 'Popover',
     //   path: '/popover',
-    // },
-    // {
-    //   title: 'RadioGroup',
-    //   path: '/radiogroup',
-    // },
-    // {
-    //   title: 'Select',
-    //   path: '/select',
-    // },
-    // {
-    //   title: 'Toggle',
-    //   path: '/toggle',
     // },
     {
       title: 'Tooltip',
@@ -251,19 +199,25 @@ const routes = {
     {
       title: 'Forms',
       path: '/forms',
-      component: Forms,
+      component: FormsIndexArticle,
+      noSort: true,
       children: [
         {
-          title: 'About',
-          path: '/forms',
+          title: 'Forms: The Kitchen Sink (WiP)',
+          label: 'Kitchen Sink',
+          path: '/kitchen-sink',
+          component: FormsKitchenSinkArticle,
+        },
+        {
+          title: 'Basic Form Structure (WiP)',
+          label: 'Basic Structure (WiP)',
+          path: '/basic-structure',
+          component: FormsStructureArticle,
         },
         {
           title: 'Form Field (WiP)',
           path: '/form-field',
-        },
-        {
-          title: 'Kitchen Sink (WiP)',
-          path: '/kitchen-sink',
+          component: FormFieldArticle,
         },
         {
           title: 'Input',
@@ -278,10 +232,22 @@ const routes = {
         {
           title: 'Radios (WiP)',
           path: '/radios',
+          component: FormsRadioArticle,
         },
         {
           title: 'Select (WiP)',
           path: '/select',
+          component: FormsSelectArticle,
+        },
+        {
+          title: 'TextArea',
+          path: '/text-area',
+          component: FormsTextAreaArticle,
+        },
+        {
+          title: 'Date Picker',
+          path: '/date-picker',
+          component: FormsDatePickerArticle,
         },
       ],
     },

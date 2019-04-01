@@ -1,12 +1,14 @@
+import cn from "classnames";
 import { Input } from "@cwds/forms";
-import { DemoCard, PropTable } from "@cwds/docs";
+import { DemoCard, PropTable, ReferenceCard } from "@cwds/docs";
+import { Card, CardBody, Row, Col } from "@cwds/components";
 
 ## Synopsis
 
-Use an `Input` in to capture uers input in forms
+Use an `Input` in to capture text or number input in forms.
 
 <DemoCard>
-  <Input placeholder="I am simple Input" />
+  <Input placeholder="Placeholder..." />
 </DemoCard>
 
 ```jsx
@@ -23,33 +25,70 @@ TODO
 
 ## Examples
 
+asdlfkjasdlfj
+
+<ReferenceCard>
+  wrapped in a _white_ container b/c that's how you'll see 'em
+</ReferenceCard>
+
 ### Types
 
-with `type="tel"`
+asdfasdfasdf
 
-<Input type="tel" />
-
-<Input type="password" />
-
-<Input type="number" />
+<Card>
+  <CardBody>
+    {["tel", "password", "number", "color", "date"].map((d, i) => (
+      <Row
+        key={d}
+        className={cn("d-flex align-items-center", {
+          "mt-2": i > 0
+        })}
+      >
+        <Col>
+          <code>type="{d}"</code>
+        </Col>
+        <Col>
+          <Input type={d} />
+        </Col>
+      </Row>
+    ))}
+  </CardBody>
+</Card>
 
 ### FormControl States
 
-with `valid`:
+asdfasdf
 
-<Input valid defaultValue="Melhouse" />
-
-with `invalid`:
-
-<Input invalid defaultValue="Oh No's" />
-
-with `disabled`:
-
-<Input disabled defaultValue="I am disabled" />
-
-with `readOnly`:
-
-<Input readOnly value="I am readonly" />
+<Card>
+  <CardBody>
+    {[
+      {},
+      { placeholder: "Placeholder..." },
+      { valid: true, defaultValue: "valid" },
+      { invalid: true, defaultValue: "invalid" },
+      { disabled: true, defaultValue: "disabled" },
+      { readOnly: true, defaultValue: "readOnly" }
+    ].map((d, i) => {
+      return (
+        <Row
+          key={i}
+          className={cn("d-flex align-items-center", {
+            "mt-2": i > 0
+          })}
+        >
+          <Col>
+            <code>
+              {Object.keys(d).length ? JSON.stringify(d, null, 2) : "(default)"}
+            </code>
+          </Col>
+          <Col>
+            <Input {...d} />
+          </Col>
+        </Row>
+      );
+    })}
+  </CardBody>
+</Card>
 
 ## Related Articles
 
