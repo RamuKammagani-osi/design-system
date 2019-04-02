@@ -11,9 +11,13 @@ const defaultProps = {
   ...PrimalButton.defaultProps,
 }
 
-const Button = ({ primary, ...props }) => (
-  <PrimalButton {...props} outline={!primary} color="primary" />
-)
+const Button = ({ primary, ...props }) => {
+  if (props.color === 'primary') {
+    // Backwards compat
+    return <PrimalButton {...props} outline={false} color="primary" />
+  }
+  return <PrimalButton {...props} outline={!primary} color="primary" />
+}
 
 Button.propTypes = propTypes
 Button.defaultProps = defaultProps
