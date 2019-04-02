@@ -9,7 +9,7 @@ import {
   CardBody,
   Row,
   Col,
-  Button,
+  PrimitiveButton as Button,
   Page,
   JumpNav,
 } from '@cwds/components'

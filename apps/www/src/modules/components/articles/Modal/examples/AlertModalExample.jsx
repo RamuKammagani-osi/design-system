@@ -5,7 +5,7 @@ import {
   Modal,
   ModalBody,
   ModalHeader,
-  Button,
+  PrimitiveButton as Button,
 } from '@cwds/components'
 
 export default class AlertModalExample extends Component {

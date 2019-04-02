@@ -1,0 +1,83 @@
+import { PrimitiveButton } from "@cwds/components";
+import { DemoCard, PropTable, ReferenceCard } from "@cwds/docs";
+
+### PrimitiveButtons
+
+<ReferenceCard>
+  The <code>Button</code> component exported from <code>@cwds/components</code>{" "}
+  is an abstraction on top of the <code>Button</code> from{" "}
+  <code>reactstrap</code>. We've done this promote consistency of button usage
+  in CWDS service modules. If you <em>must</em> drop down into{" "}
+  <code>reactstrap</code>'s <code>Button</code>, it is exported as{" "}
+  <code>PrimitiveButton</code>.
+</ReferenceCard>
+
+Buttons take a color prop which should be one of the thematic color values:
+
+<div className="my-3">
+  <PrimitiveButton color="primary">primary</PrimitiveButton>{" "}
+  <PrimitiveButton color="secondary">secondary</PrimitiveButton>
+</div>
+
+```jsx
+<PrimitiveButton color="primary">primary</PrimitiveButton>
+<PrimitiveButton>secondary</PrimitiveButton>
+```
+
+### Contextual Colors
+
+<div className="my-3">
+  <PrimitiveButton color="success">success</PrimitiveButton>{" "}
+  <PrimitiveButton color="info">info</PrimitiveButton>{" "}
+  <PrimitiveButton color="warning">warning</PrimitiveButton>{" "}
+  <PrimitiveButton color="danger">danger</PrimitiveButton>
+</div>
+
+```jsx
+<PrimitiveButton color="success">success</PrimitiveButton>
+<PrimitiveButton color="info">info</PrimitiveButton>
+<PrimitiveButton color="warning">warning</PrimitiveButton>
+<PrimitiveButton color="danger">danger</PrimitiveButton>
+```
+
+### Light/Dark
+
+<div className="my-3">
+  <PrimitiveButton color="light">light</PrimitiveButton>{" "}
+  <PrimitiveButton color="dark">dark</PrimitiveButton>
+</div>
+
+```jsx
+<PrimitiveButton color="light">light</PrimitiveButton
+<PrimitiveButton color="dark">dark</PrimitiveButton>
+```
+
+### Links
+
+<div className="my-3">
+  <PrimitiveButton color="link" href="#links">
+    link
+  </PrimitiveButton>
+</div>
+
+```jsx
+<PrimitiveButton color="link" href="#links">
+  link
+</PrimitiveButton>
+```
+
+and
+
+<div className="my-3">
+  <PrimitiveButton color="light">light</PrimitiveButton>{" "}
+  <PrimitiveButton color="dark">dark</PrimitiveButton>{" "}
+  <PrimitiveButton color="link" href="/">
+    link
+  </PrimitiveButton>
+</div>
+
+```jsx
+<PrimitiveButton color="light">light</PrimitiveButton>{' '}
+<PrimitiveButton color="dark">dark</PrimitiveButton>{' '}
+<PrimitiveButton color="link" href="/">link</PrimitiveButton>
+```

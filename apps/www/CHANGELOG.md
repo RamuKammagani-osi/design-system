@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/ca-cwds/design-system/compare/v1.1.5...v1.2.0) (2019-04-02)
+
+
+### Bug Fixes
+
+* **components,www:** rename PrimalButton to PrimitiveButton ([#524](https://github.com/ca-cwds/design-system/issues/524)) ([3f9bb19](https://github.com/ca-cwds/design-system/commit/3f9bb19))
+* **docs:** add noSort and label to Article router ([#516](https://github.com/ca-cwds/design-system/issues/516)) ([3352bf9](https://github.com/ca-cwds/design-system/commit/3352bf9))
+* **www:** Update docs, demos, examples ([db24168](https://github.com/ca-cwds/design-system/commit/db24168))
+
+
+### Features
+
+* **components:** Add CaresButton component ([#509](https://github.com/ca-cwds/design-system/issues/509)) ([ad2e26e](https://github.com/ca-cwds/design-system/commit/ad2e26e))
+
+
+
+
+
 ## [1.1.5](https://github.com/ca-cwds/design-system/compare/v1.1.4...v1.1.5) (2019-03-28)
 
 **Note:** Version bump only for package www

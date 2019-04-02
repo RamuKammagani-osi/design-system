@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/ca-cwds/design-system/compare/v1.1.5...v1.2.0) (2019-04-02)
+
+
+### Bug Fixes
+
+* **components:** Fix backwards compat ([a86e06b](https://github.com/ca-cwds/design-system/commit/a86e06b))
+* **components:** improve Button DX, log warnings ([f94bdf3](https://github.com/ca-cwds/design-system/commit/f94bdf3))
+* **components,www:** rename PrimalButton to PrimitiveButton ([#524](https://github.com/ca-cwds/design-system/issues/524)) ([3f9bb19](https://github.com/ca-cwds/design-system/commit/3f9bb19))
+* **docs:** Article state survives layout change ([#517](https://github.com/ca-cwds/design-system/issues/517)) ([d280de7](https://github.com/ca-cwds/design-system/commit/d280de7))
+* **docs,components:** collapsible PropTables ([#518](https://github.com/ca-cwds/design-system/issues/518)) ([2af2cfa](https://github.com/ca-cwds/design-system/commit/2af2cfa))
+
+
+### Features
+
+* **components:** Add CaresButton component ([#509](https://github.com/ca-cwds/design-system/issues/509)) ([ad2e26e](https://github.com/ca-cwds/design-system/commit/ad2e26e))
+* **components:** Move CaresButton to Button ([254e1f0](https://github.com/ca-cwds/design-system/commit/254e1f0))
+
+
+
+
+
 ## [1.1.5](https://github.com/ca-cwds/design-system/compare/v1.1.4...v1.1.5) (2019-03-28)
 
 **Note:** Version bump only for package @cwds/components

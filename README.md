@@ -5,6 +5,8 @@
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 [![slack](https://img.shields.io/badge/chat-slack-53b390.svg?logo=slack)](https://slack.com/app_redirect?channel=C34SC4BMF)
+[![Maintainability](https://api.codeclimate.com/v1/badges/51d44c66c9996fea4d90/maintainability)](https://codeclimate.com/github/ca-cwds/design-system/maintainability)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2cff6c13-0298-47d9-aaf3-8faded367f97/deploy-status)](https://app.netlify.com/sites/cws-cares/deploys)
 
 Monorepo for CWDS design system
 

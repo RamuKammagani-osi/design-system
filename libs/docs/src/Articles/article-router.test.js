@@ -25,6 +25,22 @@ describe('getArticle', () => {
     expect(breadcrumbs[1].title).toBe('B_TITLE')
   })
 
+  it('omits articles with noShow', () => {
+    const { sidebar } = getArticle('/a', {
+      title: 'root',
+      path: '/a',
+      component: 'A_COMPONENT',
+      children: [
+        { title: 'T1', path: '/1', component: 'C1' },
+        { title: 'T2', path: '/2', component: 'C2' },
+        { title: 'T3', path: '/3', component: 'C3', noShow: true },
+        { title: 'T4', path: '/4', component: 'C4' },
+      ],
+    })
+    expect(sidebar.length).toBe(3)
+    expect(sidebar.map(d => d.title)).not.toContain('T3')
+  })
+
   describe('when child nodes present', () => {
     it('returns a sidebar of child routes', () => {
       const { sidebar } = getArticle('/a/c', routes())

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {
-  Button,
+  PrimitiveButton as Button,
   CollapsibleCard,
   UncontrolledCollapsibleCard,
   CardBody,

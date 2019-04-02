@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/ca-cwds/design-system/compare/v1.1.5...v1.2.0) (2019-04-02)
+
+**Note:** Version bump only for package @cwds/icons
+
+
+
+
+
 ## [1.1.5](https://github.com/ca-cwds/design-system/compare/v1.1.4...v1.1.5) (2019-03-28)
 
 **Note:** Version bump only for package @cwds/icons

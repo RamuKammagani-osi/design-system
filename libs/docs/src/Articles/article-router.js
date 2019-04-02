@@ -52,12 +52,16 @@ function getBreadcrumbs(node, parents) {
 function getSidebar(node, parents) {
   switch (nodeType(node, parents)) {
     case 'parent':
-      return getChildLinks(node, parents)
+      return omitNowShows(getChildLinks(node, parents))
     case 'sibling':
-      return getSiblingLinks(node, parents)
+      return omitNowShows(getSiblingLinks(node, parents))
     default:
       return []
   }
+}
+
+function omitNowShows(items) {
+  return items.filter(({ noShow }) => !noShow)
 }
 
 function getChildLinks(node, parents) {

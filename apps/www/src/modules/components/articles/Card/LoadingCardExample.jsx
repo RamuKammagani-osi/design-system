@@ -5,7 +5,7 @@ import {
   CardTitle,
   CardBody,
   Placeholder,
-  Button,
+  PrimitiveButton as Button,
 } from '@cwds/components'
 
 class Example extends Component {

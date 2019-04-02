@@ -4,7 +4,7 @@ import {
   CardHeader,
   CardTitle,
   CardBody,
-  Button,
+  PrimitiveButton as Button,
   DataGrid,
   Input,
   InputGroup,

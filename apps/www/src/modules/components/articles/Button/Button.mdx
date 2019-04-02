@@ -1,65 +1,34 @@
+import { Link } from "react-router-dom";
 import {
+  PrimitiveButton,
   Button,
-  CaresButton,
   Icon,
   IconButton,
   Card,
   CardBody
 } from "@cwds/components";
-import { DemoCard, PropTable } from "@cwds/docs";
+import { DemoCard, PropTable, ReferenceCard } from "@cwds/docs";
 import Docgen from "../ReactDogenInfo.js";
 
 ## Synopsis
 
-`CaresButton` should be use in most CARES Application unless a button is a different theme or customize
+`Button` should be use in most CARES Application unless a button is a different theme or customize
 
 <DemoCard>
-  <div className="d-flex justify-content-around">
-    <div className="text-center">
-      <CaresButton solid>Submit</CaresButton>
-      <div>Solid</div>
-    </div>
-    <div className="text-center">
-      <CaresButton>Cancel</CaresButton>
-      <div>Outline (default)</div>
-    </div>
+  <div>
+    <Button primary>Click Me</Button> <Button>Go Back</Button>
   </div>
-</DemoCard>
-
-```jsx
-import { CaresButton } from "@cwds/components";
-```
-
-`Button`s indicate an opportunity for users to trigger a system response when activated.
-
-<DemoCard>
-  <Button color="primary">Click Me</Button>
 </DemoCard>
 
 ```jsx
 import { Button } from "@cwds/components";
 ```
 
-The `Button` is the dominant component for indicating Call To Action (CTA) opportunties to the user. Within a particular context, there may exist multiple CTAs and
-
-<DemoCard>
-  <div className="d-flex justify-content-around">
-    <div className="text-center">
-      <Button color="primary">Submit</Button>
-      <div>Primary</div>
-    </div>
-    <div className="text-center">
-      <Button>Cancel</Button>
-      <div>Secondary (default)</div>
-    </div>
-    <div className="text-center">
-      <Button color="warning">Detonate</Button>
-      <div>Warning</div>
-    </div>
-  </div>
-</DemoCard>
+`Button`s indicate an opportunity for users to trigger a system response when activated.
 
 ## Usage Guidelines
+
+The `Button` is the dominant component for indicating Call To Action (CTA) opportunties to the user. Within a particular context, there may exist multiple CTAs and
 
 ### Primary Buttons
 
@@ -70,136 +39,21 @@ The `Button` is the dominant component for indicating Call To Action (CTA) oppor
 
 - Secondary buttons should be used for secondary actions, semi-destructive actions such as "Cancel," or to discourage usage.
 
-### Buttons with Icon
-
-- Buttons with Icon may be used when you want to draw more attention to the button, or when an icon helps to clarify or convey more meaning.
-
-<div className="d-flex justify-content-around m-3">
-  <IconButton icon="circle-notch" spin color="primary" size="sm">
-    Busy
-  </IconButton>
-  <br />
-  <IconButton icon="circle-notch" spin size="sm">
-    Busy
-  </IconButton>
-  <br />
-  <IconButton icon="circle-notch" spin color="secondary" size="sm">
-    Busy
-  </IconButton>
-  <br />
-  <IconButton icon="circle-notch" spin color="accent" size="sm">
-    Busy
-  </IconButton>
-  <br />
-  <IconButton icon="circle-notch" spin color="success" size="sm">
-    Busy
-  </IconButton>
-  <br />
-  <IconButton icon="circle-notch" spin color="info" size="sm">
-    Busy
-  </IconButton>
-  <br />
-  <IconButton icon="circle-notch" spin color="warning" size="sm">
-    Busy
-  </IconButton>
-  <br />
-  <IconButton icon="circle-notch" spin color="danger" size="sm">
-    Busy
-  </IconButton>
-  <br />
-  <IconButton icon="circle-notch" spin color="light" size="sm">
-    Busy
-  </IconButton>
-  <br />
-  <IconButton icon="circle-notch" spin color="dark" size="sm">
-    Busy
-  </IconButton>
-</div>
-
 ## Props
 
 <PropTable docgen={Docgen.Button} />
 
 ## Examples
 
-### CaresButton
+### Button
 
 <div className="my-3">
-  <CaresButton solid>Success</CaresButton> <CaresButton>Cancel</CaresButton>
+  <Button primary>Primary</Button> <Button>Default</Button>
 </div>
 
 ```jsx
-<CaresButton solid>Success</Button>
-<CaresButton>Cancel</Button>
-```
-
-### Buttons
-
-Buttons take a color prop which should be one of the thematic color values:
-
-<div className="my-3">
-  <Button color="primary">primary</Button>{" "}
-  <Button color="secondary">secondary</Button>
-</div>
-
-```jsx
-<Button color="primary">primary</Button>
-<Button>secondary</Button>
-```
-
-### Contextual Colors
-
-<div className="my-3">
-  <Button color="success">success</Button> <Button color="info">info</Button>{" "}
-  <Button color="warning">warning</Button>{" "}
-  <Button color="danger">danger</Button>
-</div>
-
-```jsx
-<Button color="success">success</Button>
-<Button color="info">info</Button>
-<Button color="warning">warning</Button>
-<Button color="danger">danger</Button>
-```
-
-### Light/Dark
-
-<div className="my-3">
-  <Button color="light">light</Button> <Button color="dark">dark</Button>
-</div>
-
-```jsx
-<Button color="light">light</Button
-<Button color="dark">dark</Button>
-```
-
-### Links
-
-<div className="my-3">
-  <Button color="link" href="#links">
-    link
-  </Button>
-</div>
-
-```jsx
-<Button color="link" href="#links">
-  link
-</Button>
-```
-
-and
-
-<div className="my-3">
-  <Button color="light">light</Button> <Button color="dark">dark</Button>{" "}
-  <Button color="link" href="/">
-    link
-  </Button>
-</div>
-
-```jsx
-<Button color="light">light</Button>{' '}
-<Button color="dark">dark</Button>{' '}
-<Button color="link" href="/">link</Button>
+<Button primary>Primary</Button>
+<Button>Default</Button>
 ```
 
 <!--
@@ -210,3 +64,13 @@ and
 ### Components
 
 @TODO -->
+
+## Related Articles
+
+### Components
+
+<ul>
+  <li>
+    <Link to="/components/primitive-button">PrimitiveButton</Link>
+  </li>
+</ul>

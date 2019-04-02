@@ -6,7 +6,7 @@ import {
   CardTitle,
   CardBody,
   CardFooter,
-  Button,
+  PrimitiveButton as Button,
   Collapse,
   FormGroup,
   Row,

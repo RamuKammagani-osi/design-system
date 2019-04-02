@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 import {
-  Button,
+  PrimitiveButton as Button,
   Container,
   Row,
   Col,
