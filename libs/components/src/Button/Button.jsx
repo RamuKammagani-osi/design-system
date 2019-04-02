@@ -38,13 +38,10 @@ export default Button
  * @returns {Object}
  */
 function transformProps({ primary, color, outline, className, ...props }) {
-  if (color || outline) {
-    if (typeof console !== 'undefined') {
-      console.warn(
-        'Do not pass `color` or `outline` to `Button`! Use the boolean prop `primary` or use a `PrimalButton` instead!'
-      )
-    }
-  }
+  if (color || outline)
+    warn(
+      'Do not pass `color` or `outline` to `Button`! Use the boolean prop `primary` or use a `PrimalButton` instead!'
+    )
   return {
     ...props,
     color: 'primary',
@@ -53,4 +50,8 @@ function transformProps({ primary, color, outline, className, ...props }) {
         ? className
         : cn(className, Styles.Secondary),
   }
+}
+
+function warn(msg) {
+  if (typeof console !== 'undefined') console.warn(msg)
 }
