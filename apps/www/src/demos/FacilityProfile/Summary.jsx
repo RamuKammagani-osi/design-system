@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Formik } from 'formik'
 import get from 'lodash.get'
 import {
-  PrimalButton as Button,
+  PrimitiveButton as Button,
   Card,
   CardBody,
   CardHeader,

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import {
   Page,
-  PrimalButton as Button,
+  PrimitiveButton as Button,
   Breadcrumb,
   BreadcrumbItem,
   PageTitle,

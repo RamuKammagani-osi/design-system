@@ -5,7 +5,7 @@ export {
   Badge,
   Breadcrumb,
   BreadcrumbItem,
-  Button as PrimalButton,
+  Button as PrimitiveButton,
   ButtonDropdown,
   ButtonGroup,
   ButtonToolbar,

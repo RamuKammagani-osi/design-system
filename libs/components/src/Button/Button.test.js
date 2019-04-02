@@ -1,18 +1,18 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import Button from './Button'
-import { Button as PrimalButton } from '@cwds/reactstrap'
+import { Button as PrimitiveButton } from '@cwds/reactstrap'
 
 describe('Button', () => {
   it('renders a Button', () => {
     const wrapper = shallow(<Button />)
-    expect(wrapper.find(PrimalButton).length).toBe(1)
+    expect(wrapper.find(PrimitiveButton).length).toBe(1)
     expect(!!wrapper).toBe(true)
   })
 
   it('renders a default Button', () => {
     const wrapper = shallow(<Button />)
-    const primalBtn = wrapper.find(PrimalButton)
+    const primalBtn = wrapper.find(PrimitiveButton)
     expect(primalBtn.prop('className')).toContain('Secondary')
     expect(primalBtn.prop('outline')).not.toBeDefined()
     expect(primalBtn.prop('color')).toBe('primary')
@@ -20,7 +20,7 @@ describe('Button', () => {
 
   it('renders a primary button', () => {
     const wrapper = shallow(<Button primary />)
-    const primalBtn = wrapper.find(PrimalButton)
+    const primalBtn = wrapper.find(PrimitiveButton)
     expect(primalBtn.prop('outline')).not.toBeDefined()
     expect(primalBtn.prop('color')).toBe('primary')
   })

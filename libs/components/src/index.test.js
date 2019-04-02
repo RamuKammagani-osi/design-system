@@ -10,7 +10,7 @@ describe('@cwds/components', () => {
     ${'Breadcrumb'}
     ${'BreadcrumbItem'}
     ${'Button'}
-    ${'PrimalButton'}
+    ${'PrimitiveButton'}
     ${'ButtonGroup'}
     ${'ButtonToolbar'}
     ${'Card'}

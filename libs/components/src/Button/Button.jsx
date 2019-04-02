@@ -1,21 +1,21 @@
 import React from 'react'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
-import { Button as PrimalButton } from '@cwds/reactstrap'
+import { Button as PrimitiveButton } from '@cwds/reactstrap'
 import Styles from './Button.module.scss'
 
 const propTypes = {
-  ...PrimalButton.propTypes,
+  ...PrimitiveButton.propTypes,
   primary: PropTypes.bool,
 }
 
 const defaultProps = {
-  ...PrimalButton.defaultProps,
+  ...PrimitiveButton.defaultProps,
   color: undefined,
   outline: undefined,
 }
 
-const Button = props => <PrimalButton {...transformProps(props)} />
+const Button = props => <PrimitiveButton {...transformProps(props)} />
 
 Button.propTypes = propTypes
 Button.defaultProps = defaultProps
@@ -40,7 +40,7 @@ export default Button
 function transformProps({ primary, color, outline, className, ...props }) {
   if (color || outline)
     warn(
-      'Do not pass `color` or `outline` to `Button`! Use the boolean prop `primary` or use a `PrimalButton` instead!'
+      'Do not pass `color` or `outline` to `Button`! Use the boolean prop `primary` or use a `PrimitiveButton` instead!'
     )
   return {
     ...props,

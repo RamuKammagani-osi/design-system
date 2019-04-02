@@ -5,7 +5,7 @@ import {
   Alert,
   Breadcrumb,
   BreadcrumbItem,
-  PrimalButton as Button,
+  PrimitiveButton as Button,
   ButtonGroup,
   Card,
   CardBody,

@@ -4,7 +4,7 @@ import {
   ModalBody,
   ModalHeader,
   CardTitle,
-  PrimalButton as Button,
+  PrimitiveButton as Button,
 } from '@cwds/components'
 
 export default class BasicModalExample extends Component {

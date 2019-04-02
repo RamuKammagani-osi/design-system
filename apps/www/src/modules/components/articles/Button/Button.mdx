@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import {
-  PrimalButton,
+  PrimitiveButton,
   Button,
   Icon,
   IconButton,
@@ -38,52 +39,6 @@ The `Button` is the dominant component for indicating Call To Action (CTA) oppor
 
 - Secondary buttons should be used for secondary actions, semi-destructive actions such as "Cancel," or to discourage usage.
 
-### Buttons with Icon
-
-- Buttons with Icon may be used when you want to draw more attention to the button, or when an icon helps to clarify or convey more meaning.
-
-<div className="d-flex justify-content-around m-3">
-  <IconButton icon="circle-notch" spin color="primary" size="sm">
-    Busy
-  </IconButton>
-  <br />
-  <IconButton icon="circle-notch" spin size="sm">
-    Busy
-  </IconButton>
-  <br />
-  <IconButton icon="circle-notch" spin color="secondary" size="sm">
-    Busy
-  </IconButton>
-  <br />
-  <IconButton icon="circle-notch" spin color="accent" size="sm">
-    Busy
-  </IconButton>
-  <br />
-  <IconButton icon="circle-notch" spin color="success" size="sm">
-    Busy
-  </IconButton>
-  <br />
-  <IconButton icon="circle-notch" spin color="info" size="sm">
-    Busy
-  </IconButton>
-  <br />
-  <IconButton icon="circle-notch" spin color="warning" size="sm">
-    Busy
-  </IconButton>
-  <br />
-  <IconButton icon="circle-notch" spin color="danger" size="sm">
-    Busy
-  </IconButton>
-  <br />
-  <IconButton icon="circle-notch" spin color="light" size="sm">
-    Busy
-  </IconButton>
-  <br />
-  <IconButton icon="circle-notch" spin color="dark" size="sm">
-    Busy
-  </IconButton>
-</div>
-
 ## Props
 
 <PropTable docgen={Docgen.Button} />
@@ -101,87 +56,6 @@ The `Button` is the dominant component for indicating Call To Action (CTA) oppor
 <Button>Default</Button>
 ```
 
-### PrimalButtons
-
-<ReferenceCard>
-  The <code>Button</code> component exported from <code>@cwds/components</code>{" "}
-  is an abstraction on top of the <code>Button</code> from{" "}
-  <code>reactstrap</code>. We've done this promote consistency of button usage
-  in CWDS service modules. If you <em>must</em> drop down into{" "}
-  <code>reactstrap</code>'s <code>Button</code>, it is exported as{" "}
-  <code>PrimalButton</code>.
-</ReferenceCard>
-
-Buttons take a color prop which should be one of the thematic color values:
-
-<div className="my-3">
-  <PrimalButton color="primary">primary</PrimalButton>{" "}
-  <PrimalButton color="secondary">secondary</PrimalButton>
-</div>
-
-```jsx
-<PrimalButton color="primary">primary</PrimalButton>
-<PrimalButton>secondary</PrimalButton>
-```
-
-### Contextual Colors
-
-<div className="my-3">
-  <PrimalButton color="success">success</PrimalButton>{" "}
-  <PrimalButton color="info">info</PrimalButton>{" "}
-  <PrimalButton color="warning">warning</PrimalButton>{" "}
-  <PrimalButton color="danger">danger</PrimalButton>
-</div>
-
-```jsx
-<PrimalButton color="success">success</PrimalButton>
-<PrimalButton color="info">info</PrimalButton>
-<PrimalButton color="warning">warning</PrimalButton>
-<PrimalButton color="danger">danger</PrimalButton>
-```
-
-### Light/Dark
-
-<div className="my-3">
-  <PrimalButton color="light">light</PrimalButton>{" "}
-  <PrimalButton color="dark">dark</PrimalButton>
-</div>
-
-```jsx
-<PrimalButton color="light">light</PrimalButton
-<PrimalButton color="dark">dark</PrimalButton>
-```
-
-### Links
-
-<div className="my-3">
-  <PrimalButton color="link" href="#links">
-    link
-  </PrimalButton>
-</div>
-
-```jsx
-<PrimalButton color="link" href="#links">
-  link
-</PrimalButton>
-```
-
-and
-
-<div className="my-3">
-  <PrimalButton color="light">light</PrimalButton>{" "}
-  <PrimalButton color="dark">dark</PrimalButton>{" "}
-  <PrimalButton color="link" href="/">
-    link
-  </PrimalButton>
-</div>
-
-```jsx
-<PrimalButton color="light">light</PrimalButton>{' '}
-<PrimalButton color="dark">dark</PrimalButton>{' '}
-<PrimalButton color="link" href="/">link</PrimalButton>
-```
-
 <!--
 ### Patterns
 
@@ -190,3 +64,13 @@ and
 ### Components
 
 @TODO -->
+
+## Related Articles
+
+### Components
+
+<ul>
+  <li>
+    <Link to="/components/primitive-button">PrimitiveButton</Link>
+  </li>
+</ul>
