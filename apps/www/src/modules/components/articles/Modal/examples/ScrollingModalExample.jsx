@@ -4,7 +4,7 @@ import {
   Modal,
   ModalBody,
   ModalHeader,
-  Button,
+  PrimalButton as Button,
 } from '@cwds/components'
 
 export default class ScrollingModalExample extends Component {

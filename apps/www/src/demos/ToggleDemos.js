@@ -5,11 +5,10 @@ import {
   Alert,
   Breadcrumb,
   BreadcrumbItem,
-  Button,
+  PrimalButton as Button,
   ButtonGroup,
   Card,
   CardBody,
-  CaresButton,
   CardHeader,
   CardTitle,
   Col,
@@ -134,13 +133,13 @@ export class ToggleDemos extends Component {
                     <Col sm={2}>{name}</Col>
                     <Col />
                     <Col>
-                      <CaresButton {...props}>Cares Button</CaresButton>{' '}
-                      <CaresButton {...props} active>
+                      <Button {...props}>Cares Button</Button>{' '}
+                      <Button {...props} active>
                         Cares Active
-                      </CaresButton>{' '}
-                      <CaresButton {...props} disabled>
+                      </Button>{' '}
+                      <Button {...props} disabled>
                         Cares Disabled
-                      </CaresButton>
+                      </Button>
                     </Col>
                   </Row>
                 )

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import {
   Breadcrumb,
   BreadcrumbItem,
-  Button,
+  PrimalButton as Button,
   ButtonGroup,
   Card,
   CardBody,

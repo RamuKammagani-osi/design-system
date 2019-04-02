@@ -1,65 +1,33 @@
 import {
+  PrimalButton,
   Button,
-  CaresButton,
   Icon,
   IconButton,
   Card,
   CardBody
 } from "@cwds/components";
-import { DemoCard, PropTable } from "@cwds/docs";
+import { DemoCard, PropTable, ReferenceCard } from "@cwds/docs";
 import Docgen from "../ReactDogenInfo.js";
 
 ## Synopsis
 
-`CaresButton` should be use in most CARES Application unless a button is a different theme or customize
+`Button` should be use in most CARES Application unless a button is a different theme or customize
 
 <DemoCard>
-  <div className="d-flex justify-content-around">
-    <div className="text-center">
-      <CaresButton solid>Submit</CaresButton>
-      <div>Solid</div>
-    </div>
-    <div className="text-center">
-      <CaresButton>Cancel</CaresButton>
-      <div>Outline (default)</div>
-    </div>
+  <div>
+    <Button primary>Click Me</Button> <Button>Go Back</Button>
   </div>
-</DemoCard>
-
-```jsx
-import { CaresButton } from "@cwds/components";
-```
-
-`Button`s indicate an opportunity for users to trigger a system response when activated.
-
-<DemoCard>
-  <Button color="primary">Click Me</Button>
 </DemoCard>
 
 ```jsx
 import { Button } from "@cwds/components";
 ```
 
-The `Button` is the dominant component for indicating Call To Action (CTA) opportunties to the user. Within a particular context, there may exist multiple CTAs and
-
-<DemoCard>
-  <div className="d-flex justify-content-around">
-    <div className="text-center">
-      <Button color="primary">Submit</Button>
-      <div>Primary</div>
-    </div>
-    <div className="text-center">
-      <Button>Cancel</Button>
-      <div>Secondary (default)</div>
-    </div>
-    <div className="text-center">
-      <Button color="warning">Detonate</Button>
-      <div>Warning</div>
-    </div>
-  </div>
-</DemoCard>
+`Button`s indicate an opportunity for users to trigger a system response when activated.
 
 ## Usage Guidelines
+
+The `Button` is the dominant component for indicating Call To Action (CTA) opportunties to the user. Within a particular context, there may exist multiple CTAs and
 
 ### Primary Buttons
 
@@ -122,84 +90,96 @@ The `Button` is the dominant component for indicating Call To Action (CTA) oppor
 
 ## Examples
 
-### CaresButton
+### Button
 
 <div className="my-3">
-  <CaresButton solid>Success</CaresButton> <CaresButton>Cancel</CaresButton>
+  <Button primary>Primary</Button> <Button>Default</Button>
 </div>
 
 ```jsx
-<CaresButton solid>Success</Button>
-<CaresButton>Cancel</Button>
+<Button primary>Primary</Button>
+<Button>Default</Button>
 ```
 
-### Buttons
+### PrimalButtons
+
+<ReferenceCard>
+  The <code>Button</code> component exported from <code>@cwds/components</code>{" "}
+  is an abstraction on top of the <code>Button</code> from{" "}
+  <code>reactstrap</code>. We've done this promote consistency of button usage
+  in CWDS service modules. If you <em>must</em> drop down into{" "}
+  <code>reactstrap</code>'s <code>Button</code>, it is exported as{" "}
+  <code>PrimalButton</code>.
+</ReferenceCard>
 
 Buttons take a color prop which should be one of the thematic color values:
 
 <div className="my-3">
-  <Button color="primary">primary</Button>{" "}
-  <Button color="secondary">secondary</Button>
+  <PrimalButton color="primary">primary</PrimalButton>{" "}
+  <PrimalButton color="secondary">secondary</PrimalButton>
 </div>
 
 ```jsx
-<Button color="primary">primary</Button>
-<Button>secondary</Button>
+<PrimalButton color="primary">primary</PrimalButton>
+<PrimalButton>secondary</PrimalButton>
 ```
 
 ### Contextual Colors
 
 <div className="my-3">
-  <Button color="success">success</Button> <Button color="info">info</Button>{" "}
-  <Button color="warning">warning</Button>{" "}
-  <Button color="danger">danger</Button>
+  <PrimalButton color="success">success</PrimalButton>{" "}
+  <PrimalButton color="info">info</PrimalButton>{" "}
+  <PrimalButton color="warning">warning</PrimalButton>{" "}
+  <PrimalButton color="danger">danger</PrimalButton>
 </div>
 
 ```jsx
-<Button color="success">success</Button>
-<Button color="info">info</Button>
-<Button color="warning">warning</Button>
-<Button color="danger">danger</Button>
+<PrimalButton color="success">success</PrimalButton>
+<PrimalButton color="info">info</PrimalButton>
+<PrimalButton color="warning">warning</PrimalButton>
+<PrimalButton color="danger">danger</PrimalButton>
 ```
 
 ### Light/Dark
 
 <div className="my-3">
-  <Button color="light">light</Button> <Button color="dark">dark</Button>
+  <PrimalButton color="light">light</PrimalButton>{" "}
+  <PrimalButton color="dark">dark</PrimalButton>
 </div>
 
 ```jsx
-<Button color="light">light</Button
-<Button color="dark">dark</Button>
+<PrimalButton color="light">light</PrimalButton
+<PrimalButton color="dark">dark</PrimalButton>
 ```
 
 ### Links
 
 <div className="my-3">
-  <Button color="link" href="#links">
+  <PrimalButton color="link" href="#links">
     link
-  </Button>
+  </PrimalButton>
 </div>
 
 ```jsx
-<Button color="link" href="#links">
+<PrimalButton color="link" href="#links">
   link
-</Button>
+</PrimalButton>
 ```
 
 and
 
 <div className="my-3">
-  <Button color="light">light</Button> <Button color="dark">dark</Button>{" "}
-  <Button color="link" href="/">
+  <PrimalButton color="light">light</PrimalButton>{" "}
+  <PrimalButton color="dark">dark</PrimalButton>{" "}
+  <PrimalButton color="link" href="/">
     link
-  </Button>
+  </PrimalButton>
 </div>
 
 ```jsx
-<Button color="light">light</Button>{' '}
-<Button color="dark">dark</Button>{' '}
-<Button color="link" href="/">link</Button>
+<PrimalButton color="light">light</PrimalButton>{' '}
+<PrimalButton color="dark">dark</PrimalButton>{' '}
+<PrimalButton color="link" href="/">link</PrimalButton>
 ```
 
 <!--

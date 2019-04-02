@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {
   Page,
-  Button,
+  PrimalButton as Button,
   Card,
   CardHeader,
   CardBody,
