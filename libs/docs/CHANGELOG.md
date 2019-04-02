@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/ca-cwds/design-system/compare/v1.1.5...v1.2.0) (2019-04-02)
+
+
+### Bug Fixes
+
+* **components,www:** rename PrimalButton to PrimitiveButton ([#524](https://github.com/ca-cwds/design-system/issues/524)) ([3f9bb19](https://github.com/ca-cwds/design-system/commit/3f9bb19))
+* **docs:** add noShow option to article router ([#525](https://github.com/ca-cwds/design-system/issues/525)) ([0acb9b9](https://github.com/ca-cwds/design-system/commit/0acb9b9))
+* **docs:** add noSort and label to Article router ([#516](https://github.com/ca-cwds/design-system/issues/516)) ([3352bf9](https://github.com/ca-cwds/design-system/commit/3352bf9))
+* **docs:** Article state survives layout change ([#517](https://github.com/ca-cwds/design-system/issues/517)) ([d280de7](https://github.com/ca-cwds/design-system/commit/d280de7))
+* **docs:** use correct Button ([f14e74c](https://github.com/ca-cwds/design-system/commit/f14e74c))
+* **docs,components:** collapsible PropTables ([#518](https://github.com/ca-cwds/design-system/issues/518)) ([2af2cfa](https://github.com/ca-cwds/design-system/commit/2af2cfa))
+
+
+
+
+
 ## [1.1.5](https://github.com/ca-cwds/design-system/compare/v1.1.4...v1.1.5) (2019-03-28)
 
 **Note:** Version bump only for package @cwds/docs
