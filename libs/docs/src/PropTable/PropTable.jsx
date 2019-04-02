@@ -11,10 +11,6 @@ import {
 import AnchorLink from '../AnchorLink'
 import Styles from './PropTable.module.scss'
 
-const ResponsiveTag = props => (
-  <div {...props} style={{ overflowX: 'scroll', marginTop: '-1px' }} />
-)
-
 const PropDoc = ({ propDef, tag: Tag = 'h4' }) => {
   const { description, defaultValue, name, required, type } = propDef
   return (
@@ -23,13 +19,7 @@ const PropDoc = ({ propDef, tag: Tag = 'h4' }) => {
         {name}
       </AnchorLink>
 
-      <Table
-        className="mb-0 mt-2"
-        size="sm"
-        bordered
-        responsive
-        responsiveTag={ResponsiveTag}
-      >
+      <Table className="mb-0 mt-2" size="sm" bordered responsive>
         <tbody>
           <tr>
             <td style={{ width: '20%' }}>Type</td>
