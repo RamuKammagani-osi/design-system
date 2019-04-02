@@ -10,13 +10,36 @@ describe('Button', () => {
     expect(!!wrapper).toBe(true)
   })
 
-  it('renders a default outline button', () => {
+  it('renders a default Button', () => {
     const wrapper = shallow(<Button />)
-    expect(wrapper.find(PrimalButton).prop('outline')).toBe(true)
+    const primalBtn = wrapper.find(PrimalButton)
+    expect(primalBtn.prop('className')).toContain('Secondary')
+    expect(primalBtn.prop('outline')).not.toBeDefined()
+    expect(primalBtn.prop('color')).toBe('primary')
   })
 
   it('renders a primary button', () => {
     const wrapper = shallow(<Button primary />)
-    expect(wrapper.find(PrimalButton).prop('outline')).toBe(false)
+    const primalBtn = wrapper.find(PrimalButton)
+    expect(primalBtn.prop('outline')).not.toBeDefined()
+    expect(primalBtn.prop('color')).toBe('primary')
+  })
+
+  it('logs a warning if used with deprecated prop `color`', () => {
+    const spy = jest
+      .spyOn(global.console, 'warn')
+      .mockImplementationOnce(() => {})
+    shallow(<Button color="primary">Hi</Button>)
+    expect(spy.mock.calls.length).toBe(1)
+    spy.mockRestore()
+  })
+
+  it('logs a warning if used with deprecated prop `outline`', () => {
+    const spy = jest
+      .spyOn(global.console, 'warn')
+      .mockImplementationOnce(() => {})
+    shallow(<Button outline>Hi</Button>)
+    expect(spy.mock.calls.length).toBe(1)
+    spy.mockRestore()
   })
 })

@@ -1,0 +1,25 @@
+@import "~@cwds/core/scss/base";
+
+.Primary {
+  // Nothing Here
+}
+
+.Secondary {
+  @include button-variant($white, $primary);
+  color: $primary !important;
+
+  &:focus,
+  &.focus {
+    box-shadow: 0 0 0 $btn-focus-width theme-color($key: accent);
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    box-shadow: none;
+    &:focus {
+      box-shadow: 0 0 0 $btn-focus-width theme-color($key: accent);
+    }
+  }
+
+  box-shadow: none;
+}
