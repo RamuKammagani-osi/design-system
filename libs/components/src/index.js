@@ -1,6 +1,4 @@
 import * as Utils from './utils'
-// export * from '@cwds/reactstrap'
-// from @cwds/reactstrap
 export {
   Badge,
   Breadcrumb,
@@ -56,7 +54,7 @@ export {
   UncontrolledDropdown,
   UncontrolledTooltip,
   Util,
-} from 'reactstrap'
+} from '@cwds/reactstrap'
 
 export { default as DataGrid } from '@cwds/datagrid'
 export { default as Rolodex } from './Rolodex'
