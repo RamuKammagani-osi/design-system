@@ -209,14 +209,12 @@ describe('Rolodex', () => {
           </Card>
         </Rolodex>
       )
-      const el = wrapper
-        .find('[data-test="a-header"][role="button"]')
-        .hostNodes()
+      const cardHeaderEl = wrapper.find('[data-test="a-header"]').hostNodes()
+      expect(cardHeaderEl.length).toBe(1)
+      expect(cardHeaderEl.prop('role')).toEqual('button')
       expect(handleKeyDownSpy).toHaveBeenCalledTimes(0)
-      el.simulate('keydown', { which: keyCodes.esc })
+      cardHeaderEl.simulate('keydown', { which: keyCodes.esc })
       expect(handleKeyDownSpy).toHaveBeenCalledTimes(1)
-      expect(handleKeyDownSpy).toHaveReturned(undefined)
-
       handleKeyDownSpy.mockRestore()
     })
     it('cycles focused [role="button"] on up/down arrow keyDown', () => {
