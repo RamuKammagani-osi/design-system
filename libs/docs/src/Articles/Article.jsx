@@ -43,7 +43,11 @@ class Article extends Component {
               {this.state.showNav ? 'Hide' : 'Show'} SideNav
             </Button>
           }
-          Breadcrumb={<Breadcrumb items={this.props.breadcrumbs} />}
+          Breadcrumb={
+            <Breadcrumb
+              items={[{ title: 'Home', path: '/' }, ...this.props.breadcrumbs]}
+            />
+          }
         />
         <div className={cn(PageStyles.Body)}>
           <Container>
