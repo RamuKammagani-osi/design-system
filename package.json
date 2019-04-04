@@ -30,7 +30,7 @@
     "lint:apps": "eslint --ext .jsx,.js apps/www/src/",
     "lint:fix": "yarn lint --fix",
     "prebuild": "lerna bootstrap",
-    "build:www": "lerna run --stream --scope www build",
+    "build:www": "yarn --cwd apps/www build",
     "build:libs": "NODE_ENV=production lerna run --scope @cwds/* --stream build",
     "build": "yarn build:libs && yarn build:www"
   },
