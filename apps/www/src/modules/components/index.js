@@ -10,8 +10,18 @@ export default props => {
     <Route
       path={`${relativeRootUrl}(.*)?`}
       render={props => {
-        const article = articleUtils.getArticle(props.match.url, routes)
-        return !article ? <ArticleNotFound /> : <Article {...article} />
+        const { breadcrumbs, ...article } = articleUtils.getArticle(
+          props.match.url,
+          routes
+        )
+        return !article ? (
+          <ArticleNotFound />
+        ) : (
+          <Article
+            {...article}
+            breadcrumbs={[{ title: 'Home', path: '/' }, ...breadcrumbs]}
+          />
+        )
       }}
     />
   )
