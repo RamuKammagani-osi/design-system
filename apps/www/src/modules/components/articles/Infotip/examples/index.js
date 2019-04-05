@@ -1,4 +1,12 @@
-export { default as InfotipExample } from './InfotipExample'
+/* eslint-disable import/no-webpack-loader-syntax,import/no-duplicates */
+import InfotipExample from './InfotipExample'
+import InfotipExampleSrc from '!raw-loader!./InfotipExample'
+import UncontrolledInfotipExample from './UncontrolledInfotipExample'
+import UncontrolledInfotipExampleSrc from '!raw-loader!./UncontrolledInfotipExample'
+
 export {
-  default as UncontrolledInfotipExample,
-} from './UncontrolledInfotipExample'
+  InfotipExample,
+  InfotipExampleSrc,
+  UncontrolledInfotipExample,
+  UncontrolledInfotipExampleSrc,
+}

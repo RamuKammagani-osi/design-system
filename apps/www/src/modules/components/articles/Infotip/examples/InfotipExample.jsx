@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import { Infotip, PopoverBody } from '@cwds/components'
+import { Card, CardBody, CardTitle, Infotip } from '@cwds/components'
 
 export default class Example extends Component {
-  static defaultProps = {
-    delay: 350,
-  }
+  // eslint-disable-next-line no-magic-numbers
+  DELAY = 350
   state = {
     hasFocus: false,
     hasHover: false,
@@ -17,7 +16,7 @@ export default class Example extends Component {
     if (!this.isOpen) {
       this._timeout = setTimeout(
         () => this.setState({ hasHover: true }),
-        this.props.delay
+        this.DELAY
       )
     }
   }
@@ -29,7 +28,7 @@ export default class Example extends Component {
     if (!this.isOpen) {
       this._timeout = setTimeout(
         () => this.setState({ hasFocus: true }),
-        this.props.delay
+        this.DELAY
       )
     }
   }
@@ -39,29 +38,25 @@ export default class Example extends Component {
   }
   render() {
     return (
-      <Infotip
-        id="my-infotip-example"
-        isOpen={this.isOpen}
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}
-        onFocus={this.handleFocus}
-        onBlur={this.handleBlur}
-      >
-        <PopoverBody>
-          <p>
-            The quick brown fox jumps over the lazy dog. The quick brown fox
-            jumps over the lazy dog.
-          </p>
-          <p>
-            The quick brown fox jumps over the lazy dog. The quick brown fox
-            jumps over the lazy dog.
-          </p>
-          <p className="mb-0">
-            The quick brown fox jumps over the lazy dog. The quick brown fox
-            jumps over the lazy dog.
-          </p>
-        </PopoverBody>
-      </Infotip>
+      <Card className={this.props.className}>
+        <CardBody>
+          <CardTitle>
+            Something Ambiguous
+            <Infotip
+              id={this.props.id}
+              isOpen={this.isOpen}
+              onMouseEnter={this.handleMouseEnter}
+              onMouseLeave={this.handleMouseLeave}
+              onFocus={this.handleFocus}
+              onBlur={this.handleBlur}
+            >
+              <p className="mb-0">
+                Here is some helpful text to help people that may need help!
+              </p>
+            </Infotip>
+          </CardTitle>
+        </CardBody>
+      </Card>
     )
   }
 }
