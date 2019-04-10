@@ -1,0 +1,82 @@
+import cn from "classnames";
+import Docgen from "../ReactDogenInfo.js";
+import { Select } from "@cwds/forms";
+import { DemoCard, PropTable, ReferenceCard } from "@cwds/docs";
+import { Alert, Card, CardBody, Row, Col } from "@cwds/components";
+import { toppings as TOPPINGS } from "../Checkboxes/examples/toppings-data";
+import SimpleSelectExample from "./examples/SimpleSelectExample";
+
+## Synopsis
+
+Use a `Multi Select` to pick n from an option of values. For more docs [react-select](https://react-select.com/home#getting-started)
+
+<DemoCard>
+  <SimpleSelectExample options={TOPPINGS} />
+</DemoCard>
+
+```jsx
+import { Select } from "@cwds/forms";
+```
+
+## Props
+
+<!-- <PropTable docgen={Docgen.Select} /> -->
+
+use `isMulti` prop and set it to `true` to transform the a simple `Select` to `Multi Select`
+
+## Usage Guidelines
+
+Use `Multi Select` when a large list of options are available and picking n values.
+
+## Examples
+
+<ReferenceCard>
+  wrapped in a _white_ container b/c that's how you'll see 'em
+</ReferenceCard>
+
+<Card>
+  <CardBody>
+    <SimpleSelectExample options={TOPPINGS} />
+  </CardBody>
+</Card>
+
+### FormControl States
+
+<Card>
+  <CardBody>
+    {[
+      {},
+      { placeholder: "Seclect Multiple Options..." },
+      { isSearchable: true },
+      { isClearable: true },
+      { isDisabled: true, defaultValue: TOPPINGS[4] }
+    ].map((d, i) => {
+      return (
+        <Row
+          key={i}
+          className={cn("d-flex align-items-center", {
+            "mt-2": i > 0
+          })}
+        >
+          <Col>
+            <code>
+              {Object.keys(d).length ? JSON.stringify(d, null, 2) : "(default)"}
+            </code>
+          </Col>
+          <Col>
+            <Select isMulti {...d} options={TOPPINGS} />
+          </Col>
+        </Row>
+      );
+    })}
+  </CardBody>
+</Card>
+
+## Related Articles
+
+### Component
+
+- [`Checkboxes`](/components/forms/checkboxes)
+- [`Kitchen`](/components/forms/kitchen-sink)
+- [`Radios`](/components/forms/radios)
+- [`Select`](/components/forms/select)
