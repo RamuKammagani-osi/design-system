@@ -18,22 +18,20 @@ describe('Icon', () => {
     const wrapper = mount(<Icon icon="check" />)
     expect(wrapper.find('svg').prop('focusable')).toBe('false')
   })
-  it('has a default color', () => {
+  it('does NOT have a default color', () => {
     const wrapper = mount(<Icon name="check" />)
-    expect(wrapper.find('svg').prop('color')).toBeDefined()
+    expect(wrapper.find('svg').prop('color')).not.toBeDefined()
   })
-  it('transforms `color=<themeColor>` to color value', () => {
-    const themeColors = { key: 'value' }
-    expect(
-      shallow(<Icon name="check" color="key" themeColors={themeColors} />)
-        .find(FontAwesomeIcon)
-        .prop('color')
-    ).toEqual('value')
-    expect(
-      shallow(<Icon name="check" color="nope" themeColors={themeColors} />)
-        .find(FontAwesomeIcon)
-        .prop('color')
-    ).toEqual('nope')
+  it('appends the className with BS4 fn utility class', () => {
+    const warnSpy = jest
+      .spyOn(global.console, 'warn')
+      .mockImplementation(() => {})
+    const wrapper = shallow(<Icon name="check" color="primary" />)
+    expect(wrapper.find(FontAwesomeIcon).prop('className')).toContain(
+      'text-primary'
+    )
+    expect(warnSpy).toHaveBeenCalledTimes(1)
+    warnSpy.mockRestore()
   })
   describe('arg normalization', () => {
     it('aliases the `icon` prop as `name`', () => {

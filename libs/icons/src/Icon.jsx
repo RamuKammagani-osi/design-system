@@ -1,19 +1,20 @@
 import React from 'react'
+import cn from 'classnames'
 import PropTypes from 'prop-types'
-import { themeColors } from '@cwds/core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Icon = props => {
-  const { name, icon, color, set, themeColors, ...restProps } = props
+  const { name, icon, set, color, className, ...restProps } = props
   return (
     <FontAwesomeIcon
       focusable="false"
       icon={normalizeIconDef({ name, icon, set })}
-      color={themeColors[color] || color}
+      {...extractColor({ className, color })}
       {...restProps}
     />
   )
 }
+
 Icon.propTypes = {
   ...FontAwesomeIcon.propTypes,
   /** Alias for `icon` */
@@ -22,24 +23,30 @@ Icon.propTypes = {
     PropTypes.array,
     PropTypes.object,
   ]),
-  /** Either a key in `themeColors` or a valid color */
-  color: PropTypes.string,
-  /** Mapping of thematic colors to valid color values */
-  themeColors: PropTypes.object,
   /** The Fontawesome subset (e.g.; `fas`, `far`) */
   set: PropTypes.string,
 }
-Icon.defaultProps = {
-  ...FontAwesomeIcon.defaultProps,
-  color: 'info',
-  themeColors: themeColors,
-}
+
+Icon.defaultProps = { ...FontAwesomeIcon.defaultProps }
 
 export default Icon
 
 //
 // Helper functions
 //
+
+const themeColors = [
+  'primary',
+  'secondary',
+  'accent',
+  'breath',
+  'success',
+  'info',
+  'warning',
+  'danger',
+  'light',
+  'dark',
+]
 
 function normalizeIconDef({ icon, name, set }) {
   const iconArg = icon || name
@@ -51,4 +58,25 @@ function normalizeIconDef({ icon, name, set }) {
     if (typeof iconArg === 'string') return [set, iconArg]
   }
   return iconArg
+}
+
+function colorToClassName(color) {
+  return `text-${color}`
+}
+
+function extractColor({ color, className }) {
+  if (!color) return { className }
+  if (themeColors.includes(color)) {
+    warn(
+      'Do not pass `color=<themeColorName>` to `Icon`! Use the global functional CSS class `text-<themeColorName>` instead!'
+    )
+    const colorClass = colorToClassName(color)
+    return { className: cn(className, colorClass) }
+  }
+  return { color, className }
+}
+
+function warn(msg) {
+  // eslint-disable-next-line no-console
+  if (typeof console !== 'undefined') console.warn(msg)
 }
