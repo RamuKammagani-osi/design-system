@@ -1,5 +1,9 @@
 @import "~bootstrap/scss/dropdown";
 
+.dropdown {
+  position: static;
+}
+
 .dropdown-item {
   &:not([disabled]) {
     cursor: pointer;

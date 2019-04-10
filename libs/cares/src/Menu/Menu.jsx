@@ -99,6 +99,9 @@ function getDropdownToggleProps(props) {
 
 function getDropdownMenuProps(props) {
   return {
+    modifiers: {
+      preventOverflow: { escapeWithReference: true },
+    },
     ...pick(props, Object.keys(DropdownMenu.propTypes)),
   }
 }
