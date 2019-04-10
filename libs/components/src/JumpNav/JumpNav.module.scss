@@ -1,7 +1,0 @@
-@import '~@cwds/core/scss/base';
-
-.JumpNav {
-  @include media-breakpoint-up(sm) {
-    position: fixed;
-  }
-}

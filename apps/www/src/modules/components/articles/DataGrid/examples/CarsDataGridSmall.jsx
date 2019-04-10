@@ -1,14 +1,31 @@
 import React from 'react'
 import {
   Card,
-  CardHeader,
   CardBody,
+  CardHeader,
   CardTitle,
   DataGrid,
+  UncontrolledMenu as Menu,
+  MenuItem,
 } from '@cwds/components'
 import { data, columns } from './mtcars.js'
 
 const subset = data.slice(0, 3)
+const subsetCol = columns.slice(0, 6)
+
+const ellipsisMenu = {
+  Header: 'Action',
+  accessor: 'progress',
+  Cell: row => (
+    <Menu>
+      <MenuItem>Alignment</MenuItem>
+      <MenuItem disabled>Disabled Option</MenuItem>
+      <MenuItem>Checkup</MenuItem>
+      <MenuItem>Engine light</MenuItem>
+      <MenuItem>Quote</MenuItem>
+    </Menu>
+  ),
+}
 
 const CarsDataGrid = () => (
   <Card>
@@ -16,7 +33,7 @@ const CarsDataGrid = () => (
       <CardTitle>Cars</CardTitle>
     </CardHeader>
     <CardBody className="pt-0">
-      <DataGrid data={subset} columns={columns} />
+      <DataGrid data={subset} columns={[...subsetCol, ellipsisMenu]} />
     </CardBody>
   </Card>
 )

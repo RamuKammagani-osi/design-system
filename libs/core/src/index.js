@@ -27,7 +27,7 @@ module.exports = sass
       // force hex, note: just fixing known broken vals here. Changing in scss could break here
       if (['whitesmoke', 'gray'].indexOf(coerced) > -1) {
         const { model, value } = ColorString.get(coerced)
-        coerced = ColorConvert[model].hex(value)
+        coerced = `#${ColorConvert[model].hex(value).toLowerCase()}`
       }
 
       return setWith(

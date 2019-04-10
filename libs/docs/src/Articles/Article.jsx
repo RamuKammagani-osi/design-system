@@ -12,7 +12,7 @@ import {
 } from '@cwds/components'
 import SideNav from './ArticleSideNav'
 import Breadcrumb from './ArticleBreadcrumb'
-import PageStyles from '@cwds/components/src/Layouts/Layout.module.scss'
+import PageStyles from '@cwds/cares/src/Layouts/Layout.module.scss'
 
 class Article extends Component {
   state = { showNav: true }

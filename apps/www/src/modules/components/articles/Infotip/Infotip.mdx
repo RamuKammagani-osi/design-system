@@ -1,4 +1,5 @@
-import {DemoCard, PropTable} from '@cwds/docs'
+import { Link } from "react-router-dom";
+import { DemoCard, PropTable, CodeBlock, ReferenceCard } from "@cwds/docs";
 import {
   Card,
   CardBody,
@@ -7,71 +8,105 @@ import {
   Infotip,
   UncontrolledInfotip
 } from "@cwds/components";
-import { InfotipExample, UncontrolledInfotipExample } from "./examples";
+import {
+  InfotipExample,
+  UncontrolledInfotipExample,
+  InfotipExampleSrc
+} from "./examples";
 import Docgen from "../ReactDogenInfo.js";
 
 ## Synopsis
 
-The `Infotip` is a great component.
+<p>
+  The <code>Infotip</code> is ideal for providing additional context (
+  <Link to="/">
+    <tt>Help Text</tt>
+  </Link>
+  ) in a way that is not obtrusive.
+</p>
 
 <DemoCard>
-  <Card>
-    <CardBody>
-      <CardTitle>
-        Something Ambiguous
-        <InfotipExample />
-      </CardTitle>
-    </CardBody>
-  </Card>
+  <InfotipExample id="my-infotip-example" />
 </DemoCard>
 
 ```jsx
 import { Infotip } from "@cwds/components";
 ```
 
-### Uncontrolled Infotip
+The `Infotip` is a higher-level abstraction of `Popover`.
 
-better
+<ReferenceCard>
+  You'll probably use <code>Infotip</code> instead of <code>Popover</code> for
+  most use cases in CARES apps. You'll probably use the{" "}
+  <code>UncontrolledInfotip</code> in most cases. See the example:{" "}
+  <a href="#uncontrolledinfotip">
+    <code>UncontrolledInfotip</code>
+  </a>{" "}
+  below.
+</ReferenceCard>
+
+## Props
+
+<PropTable docgen={Docgen["Infotip"]} />
+
+<!--
+## Usage Guidelines
+
+%CONTENT_NEEDED%
+
+-->
+
+## Examples
+
+### UncontrolledInfotip
+
+For a _controlled_ `Infotip` to function correctly, it requires event handlers to be passed in as props and focus/hover states to be managed. It is far more convenient to use the `UncontrolledInfotip` that does this for you.
 
 ```jsx
 import { UncontrolledInfotip } from "@cwds/components";
 ```
 
-outcome is
-
-<DemoCard>
-  <UncontrolledInfotip id="my-uncontrolled-infotip" placement="right">
-    <PopoverBody>
-      <p className="mb-0">
-        The quick brown fox jumps over the lazy dog. The quick brown fox jumps
-        over the lazy dog.
-      </p>
-    </PopoverBody>
-  </UncontrolledInfotip>
-</DemoCard>
-
-and usage is
+<Card>
+  <CardBody>
+    <CardTitle className="mb-0">
+      Simpler with UncontrolledTooltip?
+      <UncontrolledInfotip id="my-uncontrolled-infotip" placement="right">
+        <p className="mb-0">
+          The <code>UncontrolledInfotip</code> is here to keep it simple. If you
+          don't want to manage state, this is the way to go!
+        </p>
+      </UncontrolledInfotip>
+    </CardTitle>
+  </CardBody>
+</Card>
 
 ```jsx
-<UncontrolledInfotip id="my-uncontrolled-infotip" placement="right">
-  <PopoverBody>
-    <p>
-      The quick brown fox jumps over the lazy dog. The quick brown fox jumps
-      over the lazy dog.
+<CardTitle className="mb-0">
+  Simpler with UncontrolledTooltip?
+  <UncontrolledInfotip id="my-uncontrolled-infotip" placement="right">
+    <p className="mb-0">
+      The <code>UncontrolledInfotip</code> is here to keep it simple. If you
+      don't want to manage state, this is the way to go!
     </p>
-  </PopoverBody>
-</UncontrolledInfotip>
+  </UncontrolledInfotip>
+</CardTitle>
 ```
+
+### Controlled Infotip
+
+Here's an example of a _Controlled_ `Infotip`:
+
+<InfotipExample id="controlled-infotip-example" />
+
+There is a fair amount of boilerplate required to make the component work if you choose to manage state and callback registration on your own. We recommend using the `UncontrolledInfotip`.
+
+<CodeBlock>{InfotipExampleSrc}</CodeBlock>
 
 <!--
 ### Optional Supporting Section
 
 Additional introductory section or a gallery if there exist a wide range of instances that should be shown (e.g.; IconGallery)
 -->
-
-## Props
-
-<PropTable docgen={Docgen["Infotip"]} />
 
 <!--
 ## Usage Guidelines

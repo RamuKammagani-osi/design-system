@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/ca-cwds/design-system/compare/v1.2.0...v1.2.1) (2019-04-03)
+
+
+### Bug Fixes
+
+* **components:** Fix missing scss modules ([#528](https://github.com/ca-cwds/design-system/issues/528)) ([2c8f9d9](https://github.com/ca-cwds/design-system/commit/2c8f9d9))
+* **docs:** fix scrollbar in PropTable ([#526](https://github.com/ca-cwds/design-system/issues/526)) ([b437995](https://github.com/ca-cwds/design-system/commit/b437995))
+
+
+
+
+
 # [1.2.0](https://github.com/ca-cwds/design-system/compare/v1.1.5...v1.2.0) (2019-04-02)
 
 

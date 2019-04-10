@@ -1,25 +1,27 @@
-import { Icon, Alert, Button, IconButton, Badge } from "@cwds/components"
-import IconSquare from "./IconSquare"
-import IconGallery from "./IconGallery"
-import {DemoCard, PropTable, ReferenceCard} from "@cwds/docs"
-import Docgen from "../ReactDogenInfo.js"
+import { Icon, Alert, Button, IconButton, Badge } from "@cwds/components";
+import IconSquare from "./IconSquare";
+import IconGallery from "./IconGallery";
+import { DemoCard, PropTable, ReferenceCard } from "@cwds/docs";
+import Docgen from "../ReactDogenInfo.js";
 
 ## Synopsis
 
 The `Icon` is a visual cue to for various associations.
 
 <DemoCard>
-  <Icon name="arrow-up" />
+  <Icon className="text-info" name="cog" />
 </DemoCard>
 
 ```jsx
-import { Icon } from "@cwds/components"
+import { Icon } from "@cwds/components";
 ```
 
 ### Icon Library
 
 <Alert color="warning">
-  Please <strong>do not</strong> use unregistered icons in CARES apps!
+  Please <strong className="text-warning text-uppercase">do not</strong> use{" "}
+  <em>unregistered</em> icons in CARES apps! We maintain a subset of icons in a
+  library in order to promote consistent meaning in Iconography.
 </Alert>
 
 Here are the icons registered in the CARES icon library:
@@ -41,14 +43,6 @@ The CARES `Icon` component is a thin wrapper around
 
 The design system Iconography is most effective when used _consistently_!
 
-- DO's
-  - foo
-  - bar
-  - bizz
-- DON'T
-  - quo
-  - qux
-
 ### Accessibility
 
 The `Icon` renders an non-focusable `svg` element with the `[aria-role="hidden"]`. Provision of `alt` text is typically not required. Do ensure that if you are using an `Icon` within an interactive container that the parent element does have `alt` text and `aria-*` attributes as required.
@@ -60,7 +54,7 @@ The `Icon` renders an non-focusable `svg` element with the `[aria-role="hidden"]
 ### Icon Name
 
 <DemoCard>
-  <div>
+  <div className="text-info">
     <Icon className="mx-2" name="cog" size="2x" />
     <Icon className="mx-2" name="user" size="2x" />
     <Icon className="mx-2" name="comment-alt" size="2x" />
@@ -81,47 +75,32 @@ Thematic colors or valid color values may be specified using the `color` prop:
 
 <DemoCard>
   <div>
-    <Icon className="mx-2" name="comment-alt" size="2x" />
-    <Icon className="mx-2" name="comment-alt" color="primary" size="2x" />
-    <Icon className="mx-2" name="comment-alt" color="warning" size="2x" />
-    <Icon className="mx-2" name="comment-alt" color="danger" size="2x" />
-    <Icon className="mx-2" name="comment-alt" color="info" size="2x" />
-    <Icon className="mx-2" name="comment-alt" color="accent" size="2x" />
+    <Icon className="mx-2 text-primary" name="comment-alt" size="2x" />
+    <Icon className="mx-2 text-warning" name="comment-alt" size="2x" />
+    <Icon className="mx-2 text-danger" name="comment-alt" size="2x" />
+    <Icon className="mx-2 text-info" name="comment-alt" size="2x" />
+    <Icon className="mx-2 text-accent" name="comment-alt" size="2x" />
     <Icon className="mx-2" name="comment-alt" color="#b4da55" size="2x" />
   </div>
 </DemoCard>
 
 ```jsx
-<Icon name="comment-alt" size="2x" />
-<Icon name="comment-alt" color="primary" size="2x" />
-<Icon name="comment-alt" color="warning" size="2x" />
-<Icon name="comment-alt" color="danger" size="2x" />
-<Icon name="comment-alt" color="info" size="2x" />
-<Icon name="comment-alt" color="accent" size="2x" />
+<Icon className="text-primary" name="comment-alt" size="2x" />
+<Icon className="text-warning" name="comment-alt" size="2x" />
+<Icon className="text-danger" name="comment-alt" size="2x" />
+<Icon className="text-info" name="comment-alt" size="2x" />
+<Icon className="text-accent" name="comment-alt" size="2x" />
 <Icon name="comment-alt" color="#b4da55" size="2x" />
 ```
 
 ### Size
 
 <DemoCard>
-  <div className="d-flex align-items-center">
+  <div className="d-flex align-items-center text-info">
     <Icon className="m-2" name="cog" size="xs" />
     <Icon className="m-2" name="cog" size="sm" />
     <Icon className="m-2" name="cog" />
     <Icon className="m-2" name="cog" size="lg" />
-  </div>
-</DemoCard>
-
-```jsx
-<Icon name="cog" size="xs" />
-<Icon name="cog" size="sm" />
-<Icon name="cog" />
-<Icon name="cog" size="lg" />
-```
-
-<DemoCard>
-  <div className="d-flex align-items-center">
-    <Icon className="m-2" name="cog" size="1x" />
     <Icon className="m-2" name="cog" size="2x" />
     <Icon className="m-2" name="cog" size="3x" />
     <Icon className="m-2" name="cog" size="4x" />
@@ -130,7 +109,10 @@ Thematic colors or valid color values may be specified using the `color` prop:
 </DemoCard>
 
 ```jsx
-<Icon name="cog" size="1x" />
+<Icon name="cog" size="xs" />
+<Icon name="cog" size="sm" />
+<Icon name="cog" />
+<Icon name="cog" size="lg" />
 <Icon name="cog" size="2x" />
 <Icon name="cog" size="3x" />
 <Icon name="cog" size="4x" />
@@ -140,7 +122,7 @@ Thematic colors or valid color values may be specified using the `color` prop:
 ### Animating
 
 <DemoCard>
-  <Icon name="cog" size="lg" spin />
+  <Icon className="text-info" name="cog" size="lg" spin />
 </DemoCard>
 
 ```jsx

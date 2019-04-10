@@ -1,0 +1,11 @@
+@import "~@cwds/core/scss/base";
+
+.JumpNav {
+  @include media-breakpoint-up(sm) {
+    position: fixed;
+  }
+}
+
+.OffsetNavLink {
+  margin-left: -$nav-link-padding-x;
+}

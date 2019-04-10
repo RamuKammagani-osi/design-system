@@ -1,0 +1,78 @@
+@import "~@cwds/core/scss/base";
+
+$offset: $banner-height + map-get($spacers, 3);
+
+// Anchor link fix
+:global {
+  :target:before {
+    display: block;
+    content: " ";
+    margin-top: -($offset);
+    padding-top: $offset;
+    visibility: hidden;
+  }
+}
+
+// Layout Fixes
+:global {
+  html,
+  body,
+  #root {
+    height: 100% !important;
+  }
+}
+
+.Banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  height: $banner-height;
+  box-shadow: 0 1px 5px rgba(2, 2, 2, 0.35);
+
+  .AppBarContainer {
+    background-color: $info;
+    color: $white;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .PageHeaderContainer {
+    background-color: $banner-page-header-bg;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+  .BreadcrumbContainer {
+    align-items: center;
+    background-color: $body-bg;
+    display: flex;
+    height: 2rem;
+    -ms-overflow-style: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+}
+
+.Body {
+  flex: 1 0 auto; // Fix for IE browser
+  margin-top: $banner-height;
+  margin-bottom: map-get($spacers, 3);
+  padding-top: map-get($spacers, 3);
+}
+
+.Footer {
+  background-color: map-get($theme-colors, "info");
+}
+
+.Messages {
+  position: sticky;
+  top: $offset;
+  z-index: 99999;
+}

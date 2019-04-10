@@ -6,12 +6,12 @@
 
 $white:    #fff;
 $gray-100: hsl(0, 0, 96); // ($ray)
-$gray-200: hsl(0, 0, 91); // ($grouper)
-$gray-300: hsl(0, 0, 82); // ($trout)
+$gray-200: hsl(0, 0, 70); // hsl(0, 0, 91); // ($grouper)
+$gray-300: hsl(0, 0, 55); // hsl(0, 0, 82); // ($trout)
 $gray-400: hsl(0, 0, 60); //
 $gray-500: hsl(0, 0, 50); //
 $gray-600: hsl(0, 0, 40); //
-$gray-700: hsl(0, 0, 36); // ($wahoo)
+$gray-700: hsl(0, 0, 36); // hsl(0, 0, 36); // ($wahoo)
 $gray-800: hsl(0, 0, 20); //
 $gray-900: hsl(0, 0, 10); // ($shark)
 $black:    #000;
@@ -29,13 +29,14 @@ $grays: (
 );
 
 
-$aspen:       #098e88;
+$aspen:       #00786d;
 $oak:         #601974;
-$fir:         #d8ecf0;
+$fir:         #e1f7fc;
 $elm:         #068347;
 $spruce:      #0d4f78;
 $hickory:     #e7740b;
 $maple:       #bb3709;
+$blue:        #006eb3;
 
 $primary:      $aspen;
 $secondary:    $gray-200;
@@ -43,6 +44,7 @@ $accent:       $oak;
 $breath:       $fir;
 $success:      $elm;
 $info:         $spruce;
+$tertiary:     $blue;
 $warning:      $hickory;
 $danger:       $maple;
 $light:        $gray-100;
@@ -55,6 +57,7 @@ $theme-colors: (
   "breath":       $breath,
   "success":      $success,
   "info":         $info,
+  "tertiary":     $tertiary,
   "warning":      $warning,
   "danger":       $danger,
   "light":        $light,
@@ -149,16 +152,18 @@ $component-active-color: $white;
 $component-active-bg: theme-color("primary");
 
 //
-// Fonts
+// Typography
 //
 
 $font-family-sans-serif: "Source Sans Pro", sans-serif;
 
 $font-size-base: 1rem;
 
+// $font-weight-lighter:         lighter !default;
 // $font-weight-light:           300 !default;
 // $font-weight-normal:          400 !default;
-$font-weight-bold: 600;
+$font-weight-bold:            700;
+// $font-weight-bolder:          bolder !default;
 
 // TODO: Remove the heading size overrides in styles.scss... do it here!
 $h1-font-size: $font-size-base * 1.75;
@@ -245,3 +250,4 @@ $avatar-sizes: (
 // Banner
 
 $banner-height: 8.5rem;
+$banner-page-header-bg: map-get($theme-colors, 'tertiary');

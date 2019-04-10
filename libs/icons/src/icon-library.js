@@ -25,6 +25,10 @@ import {
   faTasks,
   faList,
   faChartBar,
+  faAngleLeft,
+  faAngleDoubleLeft,
+  faAngleRight,
+  faAngleDoubleRight,
 } from '@fortawesome/free-solid-svg-icons'
 import { faCommentAlt as farFaCommentAlt } from '@fortawesome/free-regular-svg-icons'
 
@@ -54,7 +58,11 @@ library.add(
   faTrashAlt,
   faTasks,
   faList,
-  faChartBar
+  faChartBar,
+  faAngleLeft,
+  faAngleDoubleLeft,
+  faAngleRight,
+  faAngleDoubleRight
 )
 
 export const ICON_NAMES = [

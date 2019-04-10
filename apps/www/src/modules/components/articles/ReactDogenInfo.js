@@ -2,7 +2,7 @@ import docgenComposed from '../../../macros/docgen-composed.macro'
 
 export default {
   Alert: docgenComposed('reactstrap/src/Alert.js'),
-  Avatar: docgenComposed('@cwds/components/src/Avatar/Avatar.jsx'),
+  Avatar: docgenComposed('@cwds/cares/src/Avatar/Avatar.jsx'),
   Badge: docgenComposed('reactstrap/src/Badge.js'),
   Breadcrumb: docgenComposed('reactstrap/src/Breadcrumb.js'),
   BreadcrumbItem: docgenComposed('reactstrap/src/BreadcrumbItem.js'),
@@ -11,8 +11,8 @@ export default {
   Card: docgenComposed('reactstrap/src/Card.js'),
   Col: docgenComposed('reactstrap/src/Col.js'),
   Container: docgenComposed('reactstrap/src/Container.js'),
-  Infotip: docgenComposed('@cwds/components/src/Infotip/Infotip.jsx'),
-  InputMask: docgenComposed('@cwds/components/src/InputMask/InputMask.jsx'),
+  Infotip: docgenComposed('@cwds/cares/src/Infotip/Infotip.jsx'),
+  InputMask: docgenComposed('@cwds/cares/src/InputMask/InputMask.jsx'),
   Icon: docgenComposed(
     '@cwds/icons/src/Icon.jsx',
     '@cwds/icons/src/fontawesome.props'
@@ -26,11 +26,11 @@ export default {
     'reactstrap/src/TooltipPopoverWrapper.js'
   ),
   Page: docgenComposed(
-    '@cwds/components/src/Layouts/Page/Page.jsx',
-    '@cwds/components/src/Layouts/Page/Page.props'
+    '@cwds/cares/src/Layouts/Page/Page.jsx',
+    '@cwds/cares/src/Layouts/Page/Page.props'
   ),
-  Tile: docgenComposed('@cwds/components/src/Tile/Tile.jsx'),
+  Tile: docgenComposed('@cwds/cares/src/Tile/Tile.jsx'),
   CaresProvider: docgenComposed(
-    '@cwds/components/src/CaresContext/CaresProvider.props'
+    '@cwds/cares/src/CaresContext/CaresProvider.props'
   ),
 }
