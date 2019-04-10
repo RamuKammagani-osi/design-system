@@ -1,5 +1,13 @@
 import React from 'react'
-import { AnchorLink, CodeBlock } from '@cwds/docs'
+import {
+  AnchorLink,
+  CodeBlock,
+  Header,
+  Title,
+  Subheader,
+  Paragraph,
+  MDXArticleWrapper,
+} from '@cwds/docs'
 
 const getLanguage = (classNames, RE = /^language-/) =>
   classNames
@@ -9,9 +17,10 @@ const getLanguage = (classNames, RE = /^language-/) =>
 
 export default {
   h1: props => <AnchorLink {...props} tag="h1" />,
-  h2: props => <AnchorLink {...props} tag="h2" />,
-  h3: props => <AnchorLink {...props} tag="h3" />,
-  h4: props => <AnchorLink {...props} tag="h4" />,
+  h2: props => <AnchorLink {...props} tag={Header} />,
+  h3: props => <AnchorLink {...props} tag={Title} />,
+  h4: props => <AnchorLink {...props} tag={Subheader} />,
+  p: Paragraph,
   pre: props => {
     let code
     try {
@@ -25,4 +34,5 @@ export default {
       </CodeBlock>
     )
   },
+  wrapper: MDXArticleWrapper,
 }

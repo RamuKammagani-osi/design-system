@@ -7,7 +7,9 @@ import Styles from './JumpNav.module.scss'
 const DefaulItemTag = ({ path, title, children, ...props }) => {
   return (
     <NavItem {...props}>
-      <NavLink href={path}>{title}</NavLink>
+      <NavLink href={path} className={Styles.OffsetNavLink}>
+        {title}
+      </NavLink>
     </NavItem>
   )
 }

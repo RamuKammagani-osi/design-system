@@ -24,6 +24,16 @@ const Brand = () => (
 
 const UserMenu = () => (
   <UncontrolledUserMenu>
+    <MenuItem
+      tag="a"
+      href="https://github.com/ca-cwds/design-system"
+      target="_blank"
+    >
+      GitHub
+    </MenuItem>
+    <MenuItem tag="a" href="slack://channel?team=T0FSW5RLH&id=CFA951KEK">
+      Slack
+    </MenuItem>
     <MenuItem onClick={() => alert('logout!')}>Logout</MenuItem>
   </UncontrolledUserMenu>
 )

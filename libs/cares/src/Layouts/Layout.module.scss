@@ -31,7 +31,7 @@ $offset: $banner-height + map-get($spacers, 3);
   display: flex;
   flex-direction: column;
   height: $banner-height;
-  box-shadow: 0 1px 5px rgba(2, 2, 2, 0.25);
+  box-shadow: 0 1px 5px rgba(2, 2, 2, 0.35);
 
   .AppBarContainer {
     background-color: $info;
@@ -42,7 +42,7 @@ $offset: $banner-height + map-get($spacers, 3);
   }
 
   .PageHeaderContainer {
-    @include gradient-x($info, $primary);
+    background-color: $banner-page-header-bg;
     display: flex;
     align-items: center;
     flex-grow: 1;

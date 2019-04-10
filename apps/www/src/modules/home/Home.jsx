@@ -11,39 +11,11 @@ import {
   Row,
   Col,
 } from '@cwds/components'
-import githubLogo from '../status/GitHub-Mark-Light-64px.png'
-
-const MyPageActions = (
-  <Button
-    color="info"
-    size="sm"
-    href="https://github.com/ca-cwds/design-system"
-    style={{
-      height: '36px',
-      display: 'inline-flex',
-      flexDirection: 'row',
-      alignItems: 'center',
-    }}
-    target="_blank"
-  >
-    <img
-      src={githubLogo}
-      style={{
-        display: 'block',
-        maxHeight: '22px',
-        marginRight: '0.5rem',
-      }}
-      alt="github logo"
-    />
-    GitHub
-  </Button>
-)
 
 export default () => (
   <Page
     layout="dashboard"
     title="Design System"
-    PageActions={MyPageActions}
     Breadcrumb={<em>Welcome to the CARES Design System guide!</em>}
     main={props => (
       <Row>

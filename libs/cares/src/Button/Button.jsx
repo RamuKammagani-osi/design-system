@@ -53,5 +53,6 @@ function transformProps({ primary, color, outline, className, ...props }) {
 }
 
 function warn(msg) {
+  // eslint-disable-next-line no-console
   if (typeof console !== 'undefined') console.warn(msg)
 }
