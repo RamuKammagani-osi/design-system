@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/ca-cwds/design-system/compare/v1.2.1...v1.3.0) (2019-04-11)
+
+
+### Bug Fixes
+
+* **core,docs:** update grays, theme-colors, spacing, and type ([#536](https://github.com/ca-cwds/design-system/issues/536)) ([955cf26](https://github.com/ca-cwds/design-system/commit/955cf26))
+* **www:** Add Home Link in Article Breadcrumbs ([#532](https://github.com/ca-cwds/design-system/issues/532)) ([43e25e9](https://github.com/ca-cwds/design-system/commit/43e25e9))
+* **www:** reverts [#532](https://github.com/ca-cwds/design-system/issues/532), add crumb in www ([#534](https://github.com/ca-cwds/design-system/issues/534)) ([fd7172f](https://github.com/ca-cwds/design-system/commit/fd7172f))
+
+
+### Features
+
+* **icons,docs:** allow Icon to inherit color ([#539](https://github.com/ca-cwds/design-system/issues/539)) ([d38ca4c](https://github.com/ca-cwds/design-system/commit/d38ca4c))
+
+
+
+
+
 ## [1.2.1](https://github.com/ca-cwds/design-system/compare/v1.2.0...v1.2.1) (2019-04-03)
 
 

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/ca-cwds/design-system/compare/v1.2.1...v1.3.0) (2019-04-11)
+
+
+### Bug Fixes
+
+* **datagrid:** downgrade react-table to fix bug ([#543](https://github.com/ca-cwds/design-system/issues/543)) ([9dca634](https://github.com/ca-cwds/design-system/commit/9dca634))
+
+
+### Features
+
+* **datagrid:** add go to first/last pagination ctrls ([#531](https://github.com/ca-cwds/design-system/issues/531)) ([8ace0e3](https://github.com/ca-cwds/design-system/commit/8ace0e3))
+
+
+
+
+
 ## [1.2.1](https://github.com/ca-cwds/design-system/compare/v1.2.0...v1.2.1) (2019-04-03)
 
 **Note:** Version bump only for package @cwds/datagrid

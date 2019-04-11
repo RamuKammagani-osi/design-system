@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/ca-cwds/design-system/compare/v1.2.1...v1.3.0) (2019-04-11)
+
+
+### Bug Fixes
+
+* **core:** revert PageHeader solid to gradient ([#544](https://github.com/ca-cwds/design-system/issues/544)) ([f02ab7e](https://github.com/ca-cwds/design-system/commit/f02ab7e))
+* **core,cares:** fix Menu overflows Datagrid ([#538](https://github.com/ca-cwds/design-system/issues/538)) ([ba2c7da](https://github.com/ca-cwds/design-system/commit/ba2c7da))
+* **core,docs:** update grays, theme-colors, spacing, and type ([#536](https://github.com/ca-cwds/design-system/issues/536)) ([955cf26](https://github.com/ca-cwds/design-system/commit/955cf26))
+* **datagrid:** downgrade react-table to fix bug ([#543](https://github.com/ca-cwds/design-system/issues/543)) ([9dca634](https://github.com/ca-cwds/design-system/commit/9dca634))
+* **icons:** add single and double angle icons ([#530](https://github.com/ca-cwds/design-system/issues/530)) ([1e1734d](https://github.com/ca-cwds/design-system/commit/1e1734d))
+* **www:** Add Home Link in Article Breadcrumbs ([#532](https://github.com/ca-cwds/design-system/issues/532)) ([43e25e9](https://github.com/ca-cwds/design-system/commit/43e25e9))
+* **www:** handle unresolved article routes ([#542](https://github.com/ca-cwds/design-system/issues/542)) ([b791b2c](https://github.com/ca-cwds/design-system/commit/b791b2c))
+* **www:** reverts [#532](https://github.com/ca-cwds/design-system/issues/532), add crumb in www ([#534](https://github.com/ca-cwds/design-system/issues/534)) ([fd7172f](https://github.com/ca-cwds/design-system/commit/fd7172f))
+
+
+### Features
+
+* **components:** InfoTip children to PopoverBody ([#533](https://github.com/ca-cwds/design-system/issues/533)) ([a8266eb](https://github.com/ca-cwds/design-system/commit/a8266eb))
+* **datagrid:** add go to first/last pagination ctrls ([#531](https://github.com/ca-cwds/design-system/issues/531)) ([8ace0e3](https://github.com/ca-cwds/design-system/commit/8ace0e3))
+* **icons,docs:** allow Icon to inherit color ([#539](https://github.com/ca-cwds/design-system/issues/539)) ([d38ca4c](https://github.com/ca-cwds/design-system/commit/d38ca4c))
+
+
+
+
+
 ## [1.2.1](https://github.com/ca-cwds/design-system/compare/v1.2.0...v1.2.1) (2019-04-03)
 
 
