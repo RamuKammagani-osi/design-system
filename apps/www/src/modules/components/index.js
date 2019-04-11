@@ -10,16 +10,13 @@ export default props => {
     <Route
       path={`${relativeRootUrl}(.*)?`}
       render={props => {
-        const { breadcrumbs, ...article } = articleUtils.getArticle(
-          props.match.url,
-          routes
-        )
+        const article = articleUtils.getArticle(props.match.url, routes)
         return !article ? (
           <ArticleNotFound />
         ) : (
           <Article
             {...article}
-            breadcrumbs={[{ title: 'Home', path: '/' }, ...breadcrumbs]}
+            breadcrumbs={[{ title: 'Home', path: '/' }, ...article.breadcrumbs]}
           />
         )
       }}

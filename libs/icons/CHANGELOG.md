@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/ca-cwds/design-system/compare/v1.2.1...v1.3.0) (2019-04-11)
+
+
+### Bug Fixes
+
+* **icons:** add single and double angle icons ([#530](https://github.com/ca-cwds/design-system/issues/530)) ([1e1734d](https://github.com/ca-cwds/design-system/commit/1e1734d))
+
+
+### Features
+
+* **icons,docs:** allow Icon to inherit color ([#539](https://github.com/ca-cwds/design-system/issues/539)) ([d38ca4c](https://github.com/ca-cwds/design-system/commit/d38ca4c))
+
+
+
+
+
 ## [1.2.1](https://github.com/ca-cwds/design-system/compare/v1.2.0...v1.2.1) (2019-04-03)
 
 **Note:** Version bump only for package @cwds/icons

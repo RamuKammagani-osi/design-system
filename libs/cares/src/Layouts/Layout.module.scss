@@ -42,7 +42,7 @@ $offset: $banner-height + map-get($spacers, 3);
   }
 
   .PageHeaderContainer {
-    background-color: $banner-page-header-bg;
+    @include gradient-x($info, $primary);
     display: flex;
     align-items: center;
     flex-grow: 1;
