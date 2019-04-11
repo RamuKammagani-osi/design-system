@@ -39,7 +39,7 @@
     "lodash.omit": "^4.5.0",
     "lodash.uniqueid": "^4.0.1",
     "react-select": "^2.1.1",
-    "react-table": "^6.8.6"
+    "react-table": "6.8.6"
   },
   "devDependencies": {
     "react": "^16.4"
