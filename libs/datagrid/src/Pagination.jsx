@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
-import classnames from 'classnames'
+import cn from 'classnames'
+import { Button } from '@cwds/cares'
 import { Input, Util } from '@cwds/reactstrap'
+import { Icon } from '@cwds/icons'
 import Select from 'react-select'
 import uniqueId from 'lodash.uniqueid'
 
 // From react-table@6.8.6
 // See https://github.com/react-tools/react-table/blob/f55ce620411c619855a2fe2f081407e4f82727b9/src/pagination.js
 const { keyCodes } = Util
-const defaultButton = props => (
-  <button type="button" {...props} className="-btn">
-    {props.children}
-  </button>
-)
 
 class Pagination extends Component {
   uniqueId = uniqueId('datagrid_pagination_')
@@ -67,8 +64,6 @@ class Pagination extends Component {
       canNext,
       onPageSizeChange,
       className,
-      PreviousComponent = defaultButton,
-      NextComponent = defaultButton,
       manual,
       loading,
     } = this.props
@@ -79,90 +74,121 @@ class Pagination extends Component {
 
     const options = pageSizeOptions.map((option, i) => ({
       value: option,
-      label: `${option} ${this.props.rowsText}`,
+      label: [option, this.props.rowsText].join(' '),
     }))
 
     const value = options.find(({ value }) => value === pageSize)
 
     return (
-      <div
-        className={classnames(className, '-pagination')}
+      <nav
+        aria-label="pagination"
+        className={cn(
+          'd-flex',
+          'justify-content-center',
+          'align-items-center',
+          'mt-3',
+          'pb-1',
+          className,
+          '-paginaiton'
+        )}
         style={this.props.style}
       >
-        <div className="-previous">
-          <PreviousComponent
-            onClick={() => {
-              if (!canPrevious) return
-              this.changePage(page - 1)
-            }}
-            disabled={!canPrevious}
-          >
-            {this.props.previousText}
-          </PreviousComponent>
-        </div>
-        <div className="-center">
-          <div className="-pageInfo d-none d-md-inline-flex align-items-center">
-            <span className="mr-1">{this.props.pageText}</span>
-            {showPageJump ? (
-              <div className="-pageJump">
-                <Input
-                  id={`${this.uniqueId}_pageJump`}
-                  aria-label="Page Jump"
-                  type={this.state.page === '' ? 'text' : 'number'}
-                  onChange={e => {
-                    const val = e.target.value
-                    const page = val - 1
-                    if (val === '') {
-                      return this.setState({ page: val })
-                    }
-                    this.setState({ page: this.getSafePage(page) })
-                    return undefined
-                  }}
-                  value={this.state.page === '' ? '' : this.state.page + 1}
-                  onBlur={this.applyPage}
-                  onKeyPress={e => {
-                    if (
-                      e.which === keyCodes.enter ||
-                      e.keyCode === keyCodes.enter
-                    ) {
-                      this.applyPage()
-                    }
-                  }}
-                />
-              </div>
-            ) : (
-              <span className="-currentPage">{page + 1}</span>
-            )}{' '}
-            <span className="mx-1">{this.props.ofText}</span>
-            <span className="-totalPages">{pages || 1}</span>
-          </div>
-          {showPageSizeOptions && (
-            <div className="select-wrap -pageSizeOptions">
-              <Select
-                aria-label="Page Size"
-                value={value}
-                style={{ textAlign: 'left' }}
-                options={options}
-                onChange={({ value }) => onPageSizeChange(Number(value))}
-                clearable={false}
-                searchable={false}
-                menuPlacement="auto"
-              />
-            </div>
+        <Button
+          className="mr-1 px-2"
+          disabled={!canPrevious}
+          aria-label="first page"
+          onClick={() => {
+            if (!canPrevious) return
+            this.changePage(0)
+          }}
+        >
+          <Icon fixedWidth name="angle-double-left" />
+        </Button>
+        <Button
+          className="px-2"
+          aria-label="previous page"
+          onClick={() => {
+            if (!canPrevious) return
+            this.changePage(page - 1)
+          }}
+          disabled={!canPrevious}
+        >
+          <Icon fixedWidth name="angle-left" />
+        </Button>
+        <div className="d-none d-md-flex align-items-center ml-2">
+          <span className="mr-1 px-2">{this.props.pageText}</span>
+          {showPageJump ? (
+            <Input
+              id={`${this.uniqueId}_pageJump`}
+              className="d-inline-block text-center"
+              style={{
+                width: '3em',
+              }}
+              aria-label="Page Jump"
+              type={this.state.page === '' ? 'text' : 'number'}
+              onChange={e => {
+                const val = e.target.value
+                const page = val - 1
+                if (val === '') {
+                  return this.setState({ page: val })
+                }
+                this.setState({ page: this.getSafePage(page) })
+                return undefined
+              }}
+              value={this.state.page === '' ? '' : this.state.page + 1}
+              onBlur={this.applyPage}
+              onKeyPress={e => {
+                if (
+                  e.which === keyCodes.enter ||
+                  e.keyCode === keyCodes.enter
+                ) {
+                  this.applyPage()
+                }
+              }}
+            />
+          ) : (
+            <span className="-currentPage">{page + 1}</span>
           )}
+          <span className="mx-1">{this.props.ofText}</span>
+          <span className="-totalPages">{pages || 1}</span>
         </div>
-        <div className="-next">
-          <NextComponent
-            onClick={() => {
-              if (!canNext) return
-              this.changePage(page + 1)
-            }}
-            disabled={!canNext}
-          >
-            {this.props.nextText}
-          </NextComponent>
-        </div>
-      </div>
+        {showPageSizeOptions && (
+          <div style={{ width: '10rem' }}>
+            <Select
+              className="mx-3"
+              aria-label="Page Size"
+              value={value}
+              options={options}
+              onChange={({ value }) => onPageSizeChange(Number(value))}
+              clearable={false}
+              searchable={false}
+              menuPlacement="auto"
+            />
+          </div>
+        )}
+        <Button
+          className="mr-1 px-2"
+          aria-label="next page"
+          onClick={() => {
+            if (!canNext) return
+            this.changePage(page + 1)
+          }}
+          disabled={!canNext}
+        >
+          <Icon fixedWidth name="angle-right" />
+        </Button>{' '}
+        <Button
+          className="px-2"
+          aria-label="last page"
+          disabled={!canNext}
+          onClick={() => {
+            if (!canNext) return
+            this.changePage(pages)
+          }}
+        >
+          <Icon fixedWidth name="angle-double-right" />
+        </Button>
+      </nav>
     )
   }
 }
