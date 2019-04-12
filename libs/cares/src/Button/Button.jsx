@@ -2,7 +2,7 @@ import React from 'react'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 import { Button as PrimitiveButton } from '@cwds/reactstrap'
-import Styles from './Button.module.scss'
+import Styles from '@cwds/core/scss/bootstrap-cares.module.scss'
 
 const propTypes = {
   ...PrimitiveButton.propTypes,
@@ -48,7 +48,7 @@ function transformProps({ primary, color, outline, className, ...props }) {
     className:
       primary || color === 'primary'
         ? className
-        : cn(className, Styles.Secondary),
+        : cn(className, Styles.ButtonCustomSecondary),
   }
 }
 
