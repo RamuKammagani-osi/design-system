@@ -6,7 +6,7 @@ import {
   CardBody,
   Table,
   Badge,
-  UncontrolledCollapsibleCard as Card,
+  UncontrolledCollapsibleCard as CollapsibleCard,
 } from '@cwds/components'
 import AnchorLink from '../AnchorLink'
 import Styles from './PropTable.module.scss'
@@ -72,7 +72,7 @@ const PropDocs = ({ docgen, headingLevel }) => (
 
 const PropTable = ({ docgen }) => {
   return (
-    <Card initialClosed>
+    <CollapsibleCard initialClosed>
       <CardHeader>
         <CardTitle>
           <code>{docgen.displayName}</code> Props
@@ -81,7 +81,7 @@ const PropTable = ({ docgen }) => {
       <CardBody className="py-0">
         <PropDocs docgen={docgen} />
       </CardBody>
-    </Card>
+    </CollapsibleCard>
   )
 }
 

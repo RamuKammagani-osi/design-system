@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/ca-cwds/design-system/compare/v1.3.0...v1.3.1) (2019-04-12)
+
+
+### Bug Fixes
+
+* **cares,core,docs:** fix Button style ([#546](https://github.com/ca-cwds/design-system/issues/546)) ([b6cc2e9](https://github.com/ca-cwds/design-system/commit/b6cc2e9))
+
+
+
+
+
 # [1.3.0](https://github.com/ca-cwds/design-system/compare/v1.2.1...v1.3.0) (2019-04-11)
 
 

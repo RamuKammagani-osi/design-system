@@ -35,6 +35,9 @@ const CollapsibleCard = ({
             className="bg-transparent border-0 ml-3"
             onClick={onToggle}
           >
+            <span className="sr-only">
+              {isOpen ? 'Collapse' : 'Expand'} Card
+            </span>
             <Icon
               name="chevron-down"
               rotation={!isOpen ? undefined : Util.ROTATION.FLIP}

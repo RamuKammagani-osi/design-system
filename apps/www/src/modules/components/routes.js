@@ -10,6 +10,7 @@ import Badge from '!babel-loader!@mdx-js/loader!./articles/Badge/Badge.mdx'
 import Breadcrumbs from '!babel-loader!@mdx-js/loader!./articles/Breadcrumbs/Breadcrumbs.mdx'
 import BreadcrumbItem from '!babel-loader!@mdx-js/loader!./articles/BreadcrumbItem/BreadcrumbItem.mdx'
 import Button from '!babel-loader!@mdx-js/loader!./articles/Button/Button.mdx'
+import ButtonSplat from './articles/Button/Button.splat'
 import PrimitiveButton from '!babel-loader!@mdx-js/loader!./articles/Button/PrimitiveButton.mdx'
 import ButtonGroup from '!babel-loader!@mdx-js/loader!./articles/ButtonGroup/ButtonGroup.mdx'
 import Card from '!babel-loader!@mdx-js/loader!./articles/Card/Card.mdx'
@@ -69,6 +70,12 @@ const routes = {
       title: 'Button',
       path: '/button',
       component: Button,
+    },
+    {
+      path: '/button/splat',
+      title: 'Button Splats',
+      noShow: true,
+      component: ButtonSplat,
     },
     {
       title: 'Primitive Button',

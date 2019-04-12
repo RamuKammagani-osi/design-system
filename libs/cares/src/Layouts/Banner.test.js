@@ -1,7 +1,7 @@
 import React from 'react'
-import Banner from '../Banner/Banner'
-import AppBar from '../../AppBar'
-import PageHeader from '../../PageHeader'
+import Banner from './Banner'
+import AppBar from '../AppBar'
+import PageHeader from '../PageHeader'
 import { shallow } from 'enzyme'
 
 describe('Banner', () => {

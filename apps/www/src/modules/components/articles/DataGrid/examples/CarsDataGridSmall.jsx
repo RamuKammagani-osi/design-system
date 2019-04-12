@@ -14,10 +14,10 @@ const subset = data.slice(0, 3)
 const subsetCol = columns.slice(0, 6)
 
 const ellipsisMenu = {
-  Header: 'Action',
+  Header: '',
   accessor: 'progress',
   Cell: row => (
-    <Menu>
+    <Menu className="text-right">
       <MenuItem>Alignment</MenuItem>
       <MenuItem disabled>Disabled Option</MenuItem>
       <MenuItem>Checkup</MenuItem>

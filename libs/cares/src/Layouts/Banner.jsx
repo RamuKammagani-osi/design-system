@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import cn from 'classnames'
 import pick from 'lodash.pick'
 import { Container } from '@cwds/reactstrap'
-import AppBar from '../../AppBar'
-import PageHeader from '../../PageHeader'
-import Styles from '../Layout.module.scss'
-import { renderElementOrComponent } from '../../utils/renderElementOrComponent'
+import AppBar from '../AppBar'
+import PageHeader from '../PageHeader'
+import Styles from './Layout.module.scss'
+import { renderElementOrComponent } from '../utils/renderElementOrComponent'
 
 const Banner = props => {
   return (
