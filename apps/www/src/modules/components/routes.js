@@ -26,6 +26,7 @@ import Tile from '!babel-loader!@mdx-js/loader!./articles/Tile/Tile.mdx'
 import Checkboxes from '!babel-loader!@mdx-js/loader!./articles/Checkboxes/Checkboxes.mdx'
 import FormsIndexArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsIndexArticle.mdx'
 import InputArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/InputArticle.mdx'
+import InputMaskArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/InputMaskArticle.mdx'
 import FormFieldArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormFieldArticle.mdx'
 import FormsKitchenSinkArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsKitchenSinkArticle.mdx'
 import FormsRadioArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsRadioArticle.mdx'
@@ -224,6 +225,11 @@ const routes = {
           title: 'Input',
           path: '/input',
           component: InputArticle,
+        },
+        {
+          title: 'Input Mask',
+          path: '/inputMask',
+          component: InputMaskArticle,
         },
         {
           title: 'Checkboxes',

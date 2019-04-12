@@ -1,0 +1,151 @@
+import cn from "classnames";
+import { Input } from "@cwds/forms";
+import { MaskedInput } from "@cwds/forms";
+import { DemoCard, ReferenceCard } from "@cwds/docs";
+import { Alert, Card, CardBody, Row, Col } from "@cwds/components";
+
+## Synopsis
+
+Use an `Input Mask` in to capture phone numbers, dates, social security input in forms.
+
+<DemoCard>
+  <MaskedInput
+    mask={[
+      "(",
+      /[1-9]/,
+      /\d/,
+      /\d/,
+      ")",
+      " ",
+      /\d/,
+      /\d/,
+      /\d/,
+      "-",
+      /\d/,
+      /\d/,
+      /\d/,
+      /\d/
+    ]}
+    render={(ref, props) => <Input innerRef={ref} {...props} />}
+    showMask
+  />
+</DemoCard>
+
+```jsx
+import { MaskedInput } from "@cwds/forms";
+```
+
+## Props
+
+<Alert color="warning">
+  Sorry, we don't have a way to document our components
+</Alert>
+
+## Usage Guidelines
+
+<Alert color="warning">
+  <strong>TODO</strong>: NEED CONTENT FROM DESIGN
+</Alert>
+
+## Examples
+
+<ReferenceCard>
+  wrapped in a _white_ container b/c that's how you'll see 'em
+</ReferenceCard>
+
+### Types
+
+Sample of Input Mask
+
+<Card>
+  <CardBody>
+    <MaskedInput
+      mask={[/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]}
+      render={(ref, props) => <Input innerRef={ref} {...props} />}
+      placeholder="Enter Birthdate"
+    />
+  </CardBody>
+</Card>
+
+```jsx
+<MaskedInput
+  mask={[/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]}
+  render={(ref, props) => <Input innerRef={ref} {...props} />}
+  placeholder="Enter Birthdate"
+/>
+```
+
+<Card>
+  <CardBody>
+    <MaskedInput
+      mask={[/[1-9]/, /\d/, /\d/, "-", /\d/, /\d/, "-", /\d/, /\d/, /\d/]}
+      render={(ref, props) => <Input innerRef={ref} {...props} />}
+      showMask
+    />
+  </CardBody>
+</Card>
+
+```jsx
+<MaskedInput
+  mask={[/[1-9]/, /\d/, /\d/, "-", /\d/, /\d/, "-", /\d/, /\d/, /\d/]}
+  render={(ref, props) => <Input innerRef={ref} {...props} />}
+  showMask
+/>
+```
+
+### FormControl States
+
+Different form states
+
+<Card>
+  <CardBody>
+    {[
+      {},
+      { placeholder: "Placeholder..." },
+      { valid: true, defaultValue: "valid" },
+      { invalid: true, defaultValue: "invalid" },
+      { disabled: true, defaultValue: "disabled" },
+      { readOnly: true, defaultValue: "readOnly" }
+    ].map((d, i) => {
+      return (
+        <Row
+          key={i}
+          className={cn("d-flex align-items-center", {
+            "mt-2": i > 0
+          })}
+        >
+          <Col xs="8">
+            <code>
+              {Object.keys(d).length ? JSON.stringify(d, null, 2) : "(default)"}
+            </code>
+          </Col>
+          <Col xs="4">
+            <MaskedInput
+              mask={[
+                /[1-9]/,
+                /\d/,
+                /\d/,
+                "-",
+                /\d/,
+                /\d/,
+                "-",
+                /\d/,
+                /\d/,
+                /\d/
+              ]}
+              {...d}
+              render={(ref, props) => <Input innerRef={ref} {...props} />}
+            />
+          </Col>
+        </Row>
+      );
+    })}
+  </CardBody>
+</Card>
+
+## Related Articles
+
+### Component
+
+- [`Input`](/components/forms/input)
+- [`Kitchen`](/components/forms/kitchen-sink)
