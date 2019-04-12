@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 import pick from 'lodash.pick'
-import PageTitle from '../../PageTitle'
-import Styles from '../Layout.module.scss'
-import Banner from '../Banner'
-import Body from '../Body'
-import Footer from '../Footer'
-import { renderElementOrComponent } from '../../utils'
+import PageTitle from '../PageTitle'
+import Banner from './Banner'
+import Body from './Body'
+import Footer from './Footer'
+import { renderElementOrComponent } from '../utils'
+import Styles from './Layout.module.scss'
 
 /**
  * @todo throw a warning if `main` and `children` are passed
@@ -52,6 +52,7 @@ Page.propTypes = {
   // PageTitle: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   // title: PropTypes.string,
 }
+
 Page.defaultProps = {}
 
 export default Page

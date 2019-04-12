@@ -1,9 +1,9 @@
 import React from 'react'
-import Page from './Page'
-import Banner from '../Banner'
-import Body from '../Body'
-import Footer from '../Footer'
 import { shallow } from 'enzyme'
+import Page from './Page'
+import Banner from './Banner'
+import Body from './Body'
+import Footer from './Footer'
 
 describe('Page', () => {
   it('has style', () => {

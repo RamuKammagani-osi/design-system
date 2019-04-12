@@ -9,6 +9,7 @@ import {
   PageTitle,
   Banner,
   Footer,
+  JumpToTop,
 } from '@cwds/components'
 import SideNav from './ArticleSideNav'
 import Breadcrumb from './ArticleBreadcrumb'
@@ -55,6 +56,7 @@ class Article extends Component {
               )}
               <Col role="main" {...mainColProps}>
                 <Main />
+                <JumpToTop />
               </Col>
             </Row>
           </Container>

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { MDXProvider } from '@mdx-js/tag'
-import { CaresProvider, JumpToTop } from '@cwds/components'
+import { CaresProvider } from '@cwds/components'
 import componentMap from './MDXComponentProviderMappings'
 import appConfig from './config'
 
@@ -48,7 +48,6 @@ class App extends Component {
                   path="/__examples__/page-templates"
                   component={PageTemplates}
                 />
-                <JumpToTop />
               </Fragment>
             </ScrollToTop>
           </Router>

@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 import { Container, Row, Col } from '@cwds/reactstrap'
-import { renderElementOrComponent } from '../../utils'
-import Styles from '../Layout.module.scss'
+import JumpToTop from '../JumpToTop'
+import { renderElementOrComponent } from '../utils'
+import Styles from './Layout.module.scss'
 
 const Body = ({ layout, sidenav: SideNav, main: Main, children, message }) => {
   return (
@@ -11,6 +12,7 @@ const Body = ({ layout, sidenav: SideNav, main: Main, children, message }) => {
       <Container>
         {layout === 'dashboard' && (
           <div role="main">
+            <JumpToTop />
             <div className={Styles.Messages}>{message}</div>
             {renderElementOrComponent(children || Main)}
           </div>
@@ -23,6 +25,7 @@ const Body = ({ layout, sidenav: SideNav, main: Main, children, message }) => {
             <Col role="main" sm={7} md={9}>
               <div className={Styles.Messages}>{message}</div>
               {renderElementOrComponent(children || Main)}
+              <JumpToTop />
             </Col>
           </Row>
         )}
@@ -34,6 +37,7 @@ const Body = ({ layout, sidenav: SideNav, main: Main, children, message }) => {
             <Col role="main" sm={7} md={9}>
               <div className={Styles.Messages}>{message}</div>
               {renderElementOrComponent(children || Main)}
+              <JumpToTop />
             </Col>
           </Row>
         )}
