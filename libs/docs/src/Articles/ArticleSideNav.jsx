@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { ListGroup, ListGroupItem } from '@cwds/components'
+import Styles from './ArticleSideNav.module.scss'
 
 const SideNav = ({ routes }) => {
   if (!routes.length) return null
@@ -12,10 +13,11 @@ const SideNav = ({ routes }) => {
           action
           active={route.active}
           key={route.path}
-          tag={Link}
-          to={route.path}
+          className="p-0"
         >
-          {route.label || route.title}
+          <Link className={Styles.ArticleSideNavLink} to={route.path}>
+            {route.label || route.title}
+          </Link>
         </ListGroupItem>
       ))}
     </ListGroup>
