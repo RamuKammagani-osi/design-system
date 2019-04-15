@@ -1,11 +1,7 @@
-import { Alert, AlertUncontrolled } from "@cwds/components";
-import { DemoCard, PropTable } from "@cwds/docs";
-import Docgen from "../ReactDogenInfo.js";
-import DismissableAlertExample from "./DismissableAlert.example.jsx";
-
-export const meta = {
-  authors: ["Danny Eck <danny.eck@osi.ca.gov>"]
-};
+import { Alert, AlertUncontrolled } from '@cwds/components'
+import { DemoCard, PropTable } from '@cwds/docs'
+import Docgen from '../ReactDogenInfo.js'
+import DismissableAlertExample from './DismissableAlert.example.jsx'
 
 ## Synopsis
 
@@ -16,7 +12,7 @@ Use an `Alert` to communicate important and task-sensitive contextual messages f
 </DemoCard>
 
 ```jsx
-import { Alert } from "@cwds/components";
+import { Alert } from '@cwds/components'
 ```
 
 ## Props
@@ -65,7 +61,7 @@ See [WAI-ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices/#ale
 
 ## Examples
 
-`Alert`s take a `color` prop which should be one of the [thematic `color`]() values:
+`Alert`s accept a `color` prop which should be one of the _contextual_ colors (provided on the static property `Alert.COLORS`). This is a _subset_ of the design system [thematic colors](/core-style#theme-colors).
 
 <Alert color="success">This is a success alert!</Alert>
 <Alert color="danger">This is a danger alert!</Alert>

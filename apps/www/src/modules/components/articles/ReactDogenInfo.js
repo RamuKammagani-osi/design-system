@@ -1,7 +1,10 @@
 import docgenComposed from '../../../macros/docgen-composed.macro'
 
 export default {
-  Alert: docgenComposed('reactstrap/src/Alert.js'),
+  Alert: docgenComposed(
+    '@cwds/cares/src/Alert/Alert.jsx',
+    'reactstrap/src/Alert.js'
+  ),
   Avatar: docgenComposed('@cwds/cares/src/Avatar/Avatar.jsx'),
   Badge: docgenComposed('reactstrap/src/Badge.js'),
   Breadcrumb: docgenComposed('reactstrap/src/Breadcrumb.js'),
