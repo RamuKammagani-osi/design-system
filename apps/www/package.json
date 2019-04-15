@@ -24,6 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:system": "jest -c test/system/jest.config.js",
     "eject": "react-scripts eject"
   },
   "browserslist": [

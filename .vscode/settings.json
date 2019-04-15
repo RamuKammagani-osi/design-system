@@ -26,5 +26,9 @@
   "files.trimTrailingWhitespace": true,
   "files.associations": {
     "Jenkinsfile*": "groovy"
-  }
+  },
+  "eslint.packageManager": "yarn",
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5",
+  "prettier.semi": false
 }
