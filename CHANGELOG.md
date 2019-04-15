@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/ca-cwds/design-system/compare/v1.3.1...v1.3.2) (2019-04-15)
+
+
+### Bug Fixes
+
+* **cares:** Allow only contextual colors in Alerts ([#556](https://github.com/ca-cwds/design-system/issues/556)) ([ad8a9fa](https://github.com/ca-cwds/design-system/commit/ad8a9fa))
+* **docs:** Fix a11y bug ListGroupItem missing li ([#552](https://github.com/ca-cwds/design-system/issues/552)) ([e8623c0](https://github.com/ca-cwds/design-system/commit/e8623c0))
+
+
+
+
+
 ## [1.3.1](https://github.com/ca-cwds/design-system/compare/v1.3.0...v1.3.1) (2019-04-12)
 
 
