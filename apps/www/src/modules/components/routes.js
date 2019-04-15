@@ -24,6 +24,7 @@ import Modal from '!babel-loader!@mdx-js/loader!./articles/Modal/Modal.mdx'
 import Page from '!babel-loader!@mdx-js/loader!./articles/Page/Page.mdx'
 import CaresProvider from '!babel-loader!@mdx-js/loader!./articles/CaresProvider/CaresProvider.mdx'
 import Tile from '!babel-loader!@mdx-js/loader!./articles/Tile/Tile.mdx'
+import BadgeSplats from './articles/Badge/Badge.splat'
 
 const routes = {
   title: 'Component Library',
@@ -44,6 +45,12 @@ const routes = {
       title: 'Badge',
       path: '/badge',
       component: Badge,
+    },
+    {
+      path: '/badge/splat',
+      title: 'Badge Splats',
+      noShow: true,
+      component: BadgeSplats,
     },
     {
       title: 'Breadcrumb',
