@@ -8,6 +8,7 @@ const AxeBuilder = require('axe-webdriverjs')
 
 const driver = new Builder().forBrowser('chrome').build()
 
+// See https://docs.docker.com/docker-for-mac/networking/#use-cases-and-workarounds
 const mkPath = mkPathFn({ host: 'host.docker.internal', port: '3000' })
 
 driver.get(mkPath('/components/button/splat')).then(() => {
