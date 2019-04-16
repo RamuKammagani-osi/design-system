@@ -64,7 +64,6 @@ export {
   IconButton,
   Infotip,
   UncontrolledInfotip,
-  InputMask,
   JumpNav,
   JumpToTop,
   Banner,
