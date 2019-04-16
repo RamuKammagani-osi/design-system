@@ -1,6 +1,6 @@
 {
   "name": "@cwds/docs",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "private": true,
   "description": "Documentation-only components for CWS-CARES",
   "keywords": [
@@ -26,8 +26,8 @@
     "react": "^16.4"
   },
   "dependencies": {
-    "@cwds/cares": "1.3.1",
-    "@cwds/components": "1.3.1",
+    "@cwds/cares": "1.3.2",
+    "@cwds/components": "1.3.2",
     "classnames": "^2.2.6",
     "lodash.set": "^4.3.2",
     "lodash.sortby": "^4.7.0",

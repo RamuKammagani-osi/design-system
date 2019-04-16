@@ -6,7 +6,9 @@ import BasicSearchDataGrid from '!babel-loader!@mdx-js/loader!./articles/DataGri
 import SubcomponentDataGrid from '!babel-loader!@mdx-js/loader!./articles/DataGrid/SubcomponentDataGrid.mdx'
 import Avatar from '!babel-loader!@mdx-js/loader!./articles/Avatar/Avatar.mdx'
 import Alert from '!babel-loader!@mdx-js/loader!./articles/Alert/Alert.mdx'
+import AlertSplats from './articles/Alert/Alert.splat'
 import Badge from '!babel-loader!@mdx-js/loader!./articles/Badge/Badge.mdx'
+import BadgeSplats from './articles/Badge/Badge.splat'
 import Breadcrumbs from '!babel-loader!@mdx-js/loader!./articles/Breadcrumbs/Breadcrumbs.mdx'
 import BreadcrumbItem from '!babel-loader!@mdx-js/loader!./articles/BreadcrumbItem/BreadcrumbItem.mdx'
 import Button from '!babel-loader!@mdx-js/loader!./articles/Button/Button.mdx'
@@ -47,6 +49,12 @@ const routes = {
       component: Alert,
     },
     {
+      title: 'Alert Splats',
+      path: '/alert/splat',
+      component: AlertSplats,
+      noShow: true,
+    },
+    {
       title: 'Avatar',
       path: '/avatar',
       component: Avatar,
@@ -55,6 +63,12 @@ const routes = {
       title: 'Badge',
       path: '/badge',
       component: Badge,
+    },
+    {
+      path: '/badge/splat',
+      title: 'Badge Splats',
+      noShow: true,
+      component: BadgeSplats,
     },
     {
       title: 'Breadcrumb',

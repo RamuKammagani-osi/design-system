@@ -1,5 +1,5 @@
-@import '~@cwds/core/scss/base';
-@import '~bootstrap/scss/close';
+@import "~@cwds/core/scss/base";
+@import "~bootstrap/scss/close";
 
 //
 // Base styles
@@ -72,16 +72,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-@each $color, $value in $theme-colors {
-  .alert-#{$color} .alert-icon-container {
-    background-color: $value;
-    border: $alert-border-width solid $value;
-    // @include alert-variant(
-    //   theme-color-level($color, $alert-bg-level),
-    //   theme-color-level($color, $alert-border-level),
-    //   theme-color-level($color, $alert-color-level)
-    // );
-  }
 }

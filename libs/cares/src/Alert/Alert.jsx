@@ -3,9 +3,14 @@ import PropTypes from 'prop-types'
 import cn from 'classnames'
 import { Fade, Util } from '@cwds/reactstrap'
 import { Icon, getIconFromContext } from '@cwds/icons'
+import core from '@cwds/core'
 import Styles from './Alert.module.scss'
 
 const mapToCssModules = Util.mapToCssModules
+
+const COLORS = Object.keys(core.themeColors).filter(d =>
+  ['success', 'info', 'warning', 'danger'].includes(d)
+)
 
 const propTypes = {
   children: PropTypes.node,
@@ -13,7 +18,7 @@ const propTypes = {
   closeClassName: PropTypes.string,
   closeAriaLabel: PropTypes.string,
   cssModule: PropTypes.object,
-  color: PropTypes.string,
+  color: PropTypes.oneOf(COLORS),
   isOpen: PropTypes.bool,
   toggle: PropTypes.func,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
@@ -40,7 +45,7 @@ function Alert(props) {
     closeAriaLabel,
     cssModule = Styles,
     tag: Tag,
-    color,
+    color: requestedColor,
     isOpen,
     toggle,
     children,
@@ -48,8 +53,12 @@ function Alert(props) {
     ...attributes
   } = props
 
+  const color = COLORS.includes(requestedColor)
+    ? requestedColor
+    : defaultProps.color
+
   const classes = mapToCssModules(
-    cn(className, 'alert', `alert-${color}`, {
+    cn(className, 'alert', {
       'alert-dismissible': toggle,
     }),
     cssModule
@@ -68,13 +77,19 @@ function Alert(props) {
     >
       <div
         className={mapToCssModules(
-          cn('alert-icon-container', {
-            'alert-dismissible': !!toggle,
-          }),
+          cn(
+            'alert-icon-container',
+            'text-white',
+            `bg-${color}`,
+            `border-${color}`,
+            {
+              'alert-dismissible': !!toggle,
+            }
+          ),
           Styles
         )}
       >
-        <Icon icon={getIconFromContext(color)} color="white" />
+        <Icon icon={getIconFromContext(color) || 'info-circle'} />
       </div>
       <div className={mapToCssModules(cn('alert-body'), Styles)}>
         {toggle ? (
@@ -96,5 +111,10 @@ function Alert(props) {
 
 Alert.propTypes = propTypes
 Alert.defaultProps = defaultProps
+
+Object.defineProperty(Alert, 'COLORS', {
+  value: COLORS,
+  writable: false,
+})
 
 export default Alert

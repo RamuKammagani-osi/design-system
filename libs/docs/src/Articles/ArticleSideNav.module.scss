@@ -1,0 +1,10 @@
+@import "~@cwds/core/scss/base";
+
+.ArticleSideNavLink {
+  display: block;
+  padding: $list-group-item-padding-y $list-group-item-padding-x;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

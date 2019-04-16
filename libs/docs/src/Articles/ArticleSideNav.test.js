@@ -1,6 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import SideNav from './ArticleSideNav'
+import { Link } from 'react-router-dom'
 import { ListGroup, ListGroupItem } from '@cwds/components'
 
 describe('SideNav', () => {
@@ -20,11 +21,12 @@ describe('SideNav', () => {
     expect(wrapper.find(ListGroupItem).length).toBe(3)
 
     const activeItem = wrapper.find(ListGroupItem).at(1)
+    const activeLink = activeItem.find(Link)
     const activeRoute = routes[1]
 
     expect(activeItem.prop('active')).toEqual(activeRoute.active)
     expect(activeItem.key()).toEqual(activeRoute.path)
-    expect(activeItem.prop('to')).toEqual(activeRoute.path)
-    expect(activeItem.prop('children')).toEqual(activeRoute.title)
+    expect(activeLink.prop('to')).toEqual(activeRoute.path)
+    expect(activeLink.prop('children')).toEqual(activeRoute.title)
   })
 })
