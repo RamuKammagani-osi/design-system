@@ -7,6 +7,7 @@ module.exports = {
   // },
   launch: {
     // dumpio: true,
-    headless: true, // false, // process.env.HEADLESS !== 'false',
+    headless: process.env.HEADLESS !== 'false',
+    devtools: true,
   },
 }

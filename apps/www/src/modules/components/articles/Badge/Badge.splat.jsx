@@ -34,10 +34,14 @@ const badgeInstances = (
   </Fragment>
 )
 
+// Beware: big permutations will probably cause axe to timeout!
+const getBackgrounds = includeThemeColors =>
+  includeThemeColors ? ['white', ...Object.keys(DS.themeColors)] : ['white']
+
 const BadgeSplats = () => {
   return (
     <div>
-      {['white', ...Object.keys(DS.themeColors)].map(color => (
+      {getBackgrounds().map(color => (
         <div key={color} className={cn('p-2', `bg-${color}`)}>
           {badgeInstances}
         </div>

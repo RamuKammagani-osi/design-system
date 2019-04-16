@@ -1,5 +1,6 @@
-const { Builder, By, Key, until } = require('selenium-webdriver')
+const { Builder } = require('selenium-webdriver')
 const AxeBuilder = require('axe-webdriverjs')
+const mkPathFn = require('../utils').mkPathFn
 
 // const APP_ENDPOINT = 'http://www.google.com/ncr'
 // const APP_ENDPOINT = 'https://dequeuniversity.com/demo/mars/'
@@ -19,11 +20,3 @@ driver.get(mkPath('/components/button/splat')).then(() => {
     console.log(results)
   })
 })
-
-//
-// Helpers
-//
-
-function mkPathFn({ proto = 'http', host, port }) {
-  return path => `${proto}://${host}${port ? `:${port}` : ''}${path}`
-}
