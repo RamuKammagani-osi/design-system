@@ -27,8 +27,7 @@ export default class BasicModalExample extends Component {
             <CardTitle>Modal title</CardTitle>
           </ModalHeader>
           <ModalBody>
-            Hi, I am Modal. You can dismiss me through multiple ways. Use
-            blur/click out or or click `x`
+            Hi, I am Modal. Only Clicking `X` will dismiss me.
           </ModalBody>
         </Modal>
       </div>

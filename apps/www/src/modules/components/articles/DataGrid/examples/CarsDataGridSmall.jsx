@@ -11,13 +11,13 @@ import {
 import { data, columns } from './mtcars.js'
 
 const subset = data.slice(0, 3)
-const subsetCol = columns.slice(0, 6)
+const subsetCol = columns.slice(0, 5)
 
 const ellipsisMenu = {
   Header: '',
   accessor: 'progress',
   Cell: row => (
-    <Menu className="text-right">
+    <Menu className="float-right" right>
       <MenuItem>Alignment</MenuItem>
       <MenuItem disabled>Disabled Option</MenuItem>
       <MenuItem>Checkup</MenuItem>
