@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.3](https://github.com/ca-cwds/design-system/compare/v1.3.2...v1.3.3) (2019-04-16)
+
+
+### Bug Fixes
+
+* **cares:** fix Infotip positioning bug ([#561](https://github.com/ca-cwds/design-system/issues/561)) ([15aa9aa](https://github.com/ca-cwds/design-system/commit/15aa9aa))
+
+
+
+
+
 ## [1.3.2](https://github.com/ca-cwds/design-system/compare/v1.3.1...v1.3.2) (2019-04-15)
 
 
