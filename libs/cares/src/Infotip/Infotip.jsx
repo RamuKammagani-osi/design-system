@@ -47,6 +47,7 @@ const Infotip = ({ children, id, isOpen, placement, ...props }) => {
           placement={placement}
           isOpen={isOpen}
           target={id}
+          boundariesElement="viewport"
         >
           <PopoverBody>{children}</PopoverBody>
         </Popover>
