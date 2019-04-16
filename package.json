@@ -19,6 +19,7 @@
     "test:libs": "yarn test --projects libs/*",
     "test:all": "CI=true lerna run --parallel test ",
     "test:www:a11y": "yarn --cwd apps/www test:a11y",
+    "test:www:a11y:debug": "yarn --cwd apps/www test:a11y:debug",
     "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
     "start": "yarn --cwd apps/www start",
     "predev": "lerna run --parallel --scope @cwds/* clean",

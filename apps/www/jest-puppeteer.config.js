@@ -8,6 +8,7 @@ module.exports = {
   launch: {
     // dumpio: true,
     headless: process.env.HEADLESS !== 'false',
-    devtools: true,
+    slowMo: process.env.HEADLESS !== 'false' ? 0 : 200,
+    // devtools: true,
   },
 }

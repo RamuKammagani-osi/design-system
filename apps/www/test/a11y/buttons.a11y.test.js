@@ -5,11 +5,6 @@ const path = mkPathFn({ port: 3000 })
 describe('Buttons', () => {
   it('are accessible', async () => {
     await page.goto(path('/components/button/splat'))
-    // await jestPuppeteer.debug()
-    // await page.evaluate(() => {
-    //   debugger
-    // })
-
     const title = await page.$eval('h1', $el => $el.textContent)
     expect(title).toBe('Button Splats')
     const results = await new AxePuppeteer(page).analyze()

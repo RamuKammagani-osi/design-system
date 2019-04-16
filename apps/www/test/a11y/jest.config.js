@@ -3,6 +3,6 @@
 
 module.exports = {
   preset: 'jest-puppeteer',
-  testRegex: './*\\.pptr\\.test\\.js$',
+  testRegex: './*\\.test\\.js$',
   setupFilesAfterEnv: ['./setupTests.js'],
 }

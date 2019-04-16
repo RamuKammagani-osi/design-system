@@ -24,7 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:a11y": "jest --runInBand --config test/a11y/jest.config.js",
+    "test:a11y": "jest --config test/a11y/jest.config.js",
+    "test:a11y:debug": "HEADLESS=false jest --runInBand --config test/a11y/jest.config.js",
     "eject": "react-scripts eject"
   },
   "browserslist": [
