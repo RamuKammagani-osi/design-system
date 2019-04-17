@@ -1,5 +1,9 @@
 declare module '@cwds/reactstrap' {
-  export { Input, FormGroup, Label } from 'reactstrap'
+  export { Input, Button, FormGroup, Label } from 'reactstrap'
+}
+
+declare module '@cwds/icons' {
+  export const Icon: any
 }
 
 declare module '*.scss' {

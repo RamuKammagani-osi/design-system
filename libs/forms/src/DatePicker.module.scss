@@ -1,0 +1,22 @@
+@import '~@cwds/core/scss/base';
+
+:global {
+  @import '~react-datepicker/src/stylesheets/datepicker.scss';
+  .react-datepicker__day.react-datepicker__day--selected {
+    background-color: $primary;
+  }
+
+  .react-datepicker__day.react-datepicker__day--keyboard-selected {
+    background-color: $primary;
+  }
+  .react-datepicker__day.react-datepicker__day {
+    cursor: pointer;
+    &:hover {
+      background-color: $secondary;
+    }
+  }
+
+  .react-datepicker__header {
+    font-weight: bold;
+  }
+}
