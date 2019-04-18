@@ -9,4 +9,4 @@ expect.extend({
   },
 })
 
-// jest.setTimeout(3600000)
+if (process.env.HEADLESS === 'false') jest.setTimeout(3600000)
