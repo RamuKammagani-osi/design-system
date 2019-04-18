@@ -1,7 +1,7 @@
 expect.extend({
   toBeA11yOk(axeReport) {
     const pass = !axeReport.violations.length
-    const message = `You suck!` // axeReport.violations
+    const message = JSON.stringify(axeReport.violations, null, 2)
     return {
       pass,
       message: () => message,
@@ -9,4 +9,4 @@ expect.extend({
   },
 })
 
-jest.setTimeout(3600000)
+// jest.setTimeout(3600000)
