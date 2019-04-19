@@ -10,6 +10,7 @@ import { toppings as options } from './toppings-data'
 const initialValues = ['3', '2', '5', '9']
 
 const BasicCheckboxBankExample = ({
+  className,
   noDebug,
   options,
   initialValues,
@@ -20,14 +21,7 @@ const BasicCheckboxBankExample = ({
 }) => {
   return (
     <Formik initialValues={{ [fieldName]: initialValues }} validate={validate}>
-      {({
-        values,
-        errors,
-        touched,
-        setFieldValue,
-        setFieldTouched,
-        className,
-      }) => (
+      {({ values, errors, touched, setFieldValue, setFieldTouched }) => (
         <Card className={className}>
           <CardBody>
             <FormGroup>

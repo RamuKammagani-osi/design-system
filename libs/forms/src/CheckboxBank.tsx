@@ -1,11 +1,8 @@
 import { IOption, IListType } from './types'
 import * as React from 'react'
 import PropTypes from 'prop-types'
-import cn from 'classnames'
-import { Input, FormGroup, Label } from '@cwds/reactstrap'
 import CheckboxControl from './CheckboxControl'
 import Fieldset from './Fieldset'
-import Legend from './Legend'
 const uniqueId = require('lodash.uniqueid')
 
 export interface CheckboxBankProps<T = any> extends IListType<T> {
@@ -68,6 +65,7 @@ class CheckboxBank extends React.Component<CheckboxBankProps> {
             <CheckboxControl
               key={opt.value}
               value={opt.value}
+              disabled={opt.disabled}
               checked={this.props.value.includes(opt.value)}
               onChange={this.handleChange}
               onBlur={this.handleBlur}

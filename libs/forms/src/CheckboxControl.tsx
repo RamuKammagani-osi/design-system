@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FormGroup, Input, Label } from '@cwds/reactstrap'
 import cn from 'classnames'
+import { FormGroup, Input, Label } from '@cwds/reactstrap'
+import { Icon } from '@cwds/icons'
 import Styles from './CheckboxControl.module.scss'
 
 interface CheckboxControlProps {
@@ -53,6 +54,16 @@ const CheckboxControl = (props: CheckboxControlProps) => {
         htmlFor={id}
       >
         {props.label}
+        <Icon
+          name={props.checked ? 'check-square' : ['far', 'square']}
+          className={cn(
+            Styles.FancyCheckbox,
+            getIconClassNames({
+              checked: props.checked,
+              disabled: !!props.disabled,
+            })
+          )}
+        />
       </Label>
     </FormGroup>
   )
@@ -62,3 +73,16 @@ CheckboxControl.propTypes = propTypes
 CheckboxControl.defaultProps = defaultProps
 
 export default CheckboxControl
+
+//
+// Helpers
+//
+
+function getIconClassNames(opts: { checked: boolean; disabled: boolean }) {
+  const { checked, disabled } = opts
+  return checked
+    ? disabled
+      ? Styles.DisabledChecked
+      : 'text-primary'
+    : Styles.Unchecked
+}

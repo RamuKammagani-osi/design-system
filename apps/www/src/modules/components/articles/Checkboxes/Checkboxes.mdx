@@ -1,14 +1,14 @@
-import { Alert } from "@cwds/components";
-import { Link } from "react-router-dom";
-import { CheckboxBank } from "@cwds/forms";
-import { DemoCard, PropTable } from "@cwds/docs";
-import { Form, FormGroup, Label, Input } from "@cwds/reactstrap";
-import Docgen from "../ReactDogenInfo.js";
-import CheckboxBankExample from "./examples/CheckboxBankExample";
-import StaticExample from "./examples/StaticExample";
-import CheckboxBankValidationExample from "./examples/CheckboxBankValidationExample";
-import SimpleCheckboxBankExample from "./examples/SimpleCheckboxBankExample";
-import BasicCheckboxBankExample from "./examples/BasicCheckboxBankExample";
+import { Alert } from '@cwds/components'
+import { Link } from 'react-router-dom'
+import { CheckboxBank } from '@cwds/forms'
+import { DemoCard, PropTable } from '@cwds/docs'
+import { Form, FormGroup, Label, Input } from '@cwds/reactstrap'
+import Docgen from '../ReactDogenInfo.js'
+import CheckboxBankExample from './examples/CheckboxBankExample'
+import StaticExample from './examples/StaticExample'
+import CheckboxBankValidationExample from './examples/CheckboxBankValidationExample'
+import SimpleCheckboxBankExample from './examples/SimpleCheckboxBankExample'
+import BasicCheckboxBankExample from './examples/BasicCheckboxBankExample'
 
 ## Synopsis
 
@@ -17,13 +17,14 @@ Use a `CheckboxBank`s in forms.
 <DemoCard>
   <BasicCheckboxBankExample
     options={[
-      { value: "foo", label: "Foo" },
-      { value: "bar", label: "Bar" },
-      { value: "bazz", label: "Bazz" },
-      { value: "quo", label: "Quo" },
-      { value: "qux", label: "Qux" }
+      { value: 'foo', label: 'Foo' },
+      { value: 'bar', label: 'Bar' },
+      { value: 'bizz', label: 'Bizz (disabled)', disabled: true },
+      { value: 'bazz', label: 'Bazz (disabled)', disabled: true },
+      { value: 'quo', label: 'Quo' },
+      { value: 'qux', label: 'Qux' },
     ]}
-    initialValues={["quo"]}
+    initialValues={['bar', 'bazz', 'quo']}
     label="Metasyntactic Variables"
     fieldName="metaVarNames"
     className="mb-0"
@@ -32,7 +33,7 @@ Use a `CheckboxBank`s in forms.
 </DemoCard>
 
 ```jsx
-import { CheckboxBank } from "@cwds/forms";
+import { CheckboxBank } from '@cwds/forms'
 ```
 
 ## Props

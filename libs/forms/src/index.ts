@@ -1,5 +1,3 @@
-import './PrettyStuff.scss'
-
 export { default as CheckboxBank } from './CheckboxBank'
 export { default as CheckboxControl } from './CheckboxControl'
 export { default as RadioGroup } from './RadioGroup'
