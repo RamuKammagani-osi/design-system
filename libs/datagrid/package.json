@@ -1,6 +1,6 @@
 {
   "name": "@cwds/datagrid",
-  "version": "1.3.2",
+  "version": "1.3.4",
   "description": "Datagrids for CWS-CARES",
   "keywords": [
     "react-table",
@@ -31,9 +31,9 @@
     "src"
   ],
   "dependencies": {
-    "@cwds/core": "1.3.2",
-    "@cwds/icons": "1.3.2",
-    "@cwds/reactstrap": "1.3.2",
+    "@cwds/core": "1.3.4",
+    "@cwds/icons": "1.3.4",
+    "@cwds/reactstrap": "1.3.4",
     "bootstrap": "^4.1.3",
     "classnames": "^2.2.6",
     "lodash.omit": "^4.5.0",

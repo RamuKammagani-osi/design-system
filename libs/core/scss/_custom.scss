@@ -36,7 +36,7 @@ $elm:         #068347;
 $spruce:      #0d4f78;
 $hickory:     #e7740b;
 $maple:       #bb3709;
-$blue:        #006eb3;
+$blue:        #40799a;
 
 $primary:      $aspen;
 $secondary:    $gray-200;
@@ -250,4 +250,4 @@ $avatar-sizes: (
 // Banner
 
 $banner-height: 8.5rem;
-$banner-page-header-bg: map-get($theme-colors, 'tertiary');
+$banner-page-header-bg: $tertiary;
