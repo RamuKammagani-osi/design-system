@@ -1,7 +1,7 @@
-import cn from "classnames";
-import { Input } from "@cwds/forms";
-import { DemoCard, PropTable, ReferenceCard } from "@cwds/docs";
-import { Card, CardBody, Row, Col } from "@cwds/components";
+import cn from 'classnames'
+import { Input } from '@cwds/forms'
+import { DemoCard, PropTable, ReferenceCard } from '@cwds/docs'
+import { Card, CardBody, Row, Col } from '@cwds/components'
 
 ## Synopsis
 
@@ -12,7 +12,7 @@ Use an `Input` in to capture text or number input in forms.
 </DemoCard>
 
 ```jsx
-import { Input } from "@cwds/forms";
+import { Input } from '@cwds/forms'
 ```
 
 ## Props
@@ -37,11 +37,11 @@ asdfasdfasdf
 
 <Card>
   <CardBody>
-    {["tel", "password", "number", "color", "date"].map((d, i) => (
+    {['tel', 'password', 'number', 'color', 'date'].map((d, i) => (
       <Row
         key={d}
-        className={cn("d-flex align-items-center", {
-          "mt-2": i > 0
+        className={cn('d-flex align-items-center', {
+          'mt-2': i > 0,
         })}
       >
         <Col>
@@ -63,32 +63,49 @@ asdfasdf
   <CardBody>
     {[
       {},
-      { placeholder: "Placeholder..." },
-      { valid: true, defaultValue: "valid" },
-      { invalid: true, defaultValue: "invalid" },
-      { disabled: true, defaultValue: "disabled" },
-      { readOnly: true, defaultValue: "readOnly" }
+      { placeholder: 'Placeholder...' },
+      { valid: true, defaultValue: 'valid' },
+      { invalid: true, defaultValue: 'invalid' },
+      { disabled: true, defaultValue: 'disabled' },
+      { readOnly: true, defaultValue: 'readOnly' },
     ].map((d, i) => {
       return (
         <Row
           key={i}
-          className={cn("d-flex align-items-center", {
-            "mt-2": i > 0
+          className={cn('d-flex align-items-center', {
+            'mt-2': i > 0,
           })}
         >
           <Col>
             <code>
-              {Object.keys(d).length ? JSON.stringify(d, null, 2) : "(default)"}
+              {Object.keys(d).length ? JSON.stringify(d, null, 2) : '(default)'}
             </code>
           </Col>
           <Col>
             <Input {...d} />
           </Col>
         </Row>
-      );
+      )
     })}
   </CardBody>
 </Card>
+
+### Textareas
+
+If a <em>long-form</em> text input is desired, use `type="textarea"`:
+
+<DemoCard>
+  <Input type="textarea" placeholder="Another Placeholder..." rows="5" />
+</DemoCard>
+
+```jsx
+<Input
+  type="textarea"
+  placeholder="Another Placeholder..."
+  rows="5"
+  resize="vertical"
+/>
+```
 
 ## Related Articles
 
