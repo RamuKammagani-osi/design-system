@@ -35,15 +35,17 @@ const Infotip = ({ children, id, isOpen, placement, ...props }) => {
     <div className={cn(Styles.InfotipContainer, 'ml-1')}>
       <Button
         id={id}
-        aria-describedby={containerId}
+        aria-describedby={isOpen ? containerId : undefined}
         {...eventHandlers}
         className="bg-transparent border-0 p-0 px-1" // shadow-none
       >
-        <Icon icon="info-circle" />
+        <span className="sr-only">More Info</span>
+        <Icon icon="info-circle" className="text-primary" />
       </Button>
       {children && (
         <Popover
           role="tooltip"
+          id={containerId}
           placement={placement}
           isOpen={isOpen}
           target={id}

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.5](https://github.com/ca-cwds/design-system/compare/v1.3.4...v1.3.5) (2019-04-22)
+
+
+### Bug Fixes
+
+* **cares:** add color to Infotip icons ([#574](https://github.com/ca-cwds/design-system/issues/574)) ([d49eb3d](https://github.com/ca-cwds/design-system/commit/d49eb3d))
+* **cares:** fix aria Infotip describedby ([#573](https://github.com/ca-cwds/design-system/issues/573)) ([46cae86](https://github.com/ca-cwds/design-system/commit/46cae86))
+
+
+
+
+
 ## [1.3.4](https://github.com/ca-cwds/design-system/compare/v1.3.3...v1.3.4) (2019-04-18)
 
 
