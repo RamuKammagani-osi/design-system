@@ -69,7 +69,7 @@ export default RadioGroup
 function getIconProps(opts: { checked: boolean; disabled: boolean }) {
   const { checked, disabled } = opts
   return checked
-    ? { name: 'dot-circle', className: cn('text-primary', Styles.RadioIcon) }
+    ? { name: 'circle', className: cn('text-primary', Styles.RadioIcon) }
     : {
         name: ['far', 'circle'],
         className: cn(Styles.RadioIconInactive, Styles.RadioIcon),
