@@ -27,7 +27,7 @@ const BasicCheckboxBankExample = ({
             <FormGroup>
               <Label>{label}</Label>
               <CheckboxBank
-                inline
+                inline={inline}
                 options={options}
                 value={get(values, fieldName)}
                 onChange={partial(setFieldValue, fieldName)}

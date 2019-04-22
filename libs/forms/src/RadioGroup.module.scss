@@ -1,0 +1,26 @@
+@import '~@cwds/core/scss/base';
+
+.RadioFormGroup {
+  padding: map-get($spacers, 1) 0;
+  padding-left: 2.75rem;
+
+  label {
+    cursor: pointer;
+  }
+  .RadioIconInactive {
+    color: $gray-200;
+  }
+  &:focus-within {
+    background-color: lighten(map-get($map: $theme-colors, $key: 'breath'), 2%);
+  }
+  input[type='radio'] {
+    opacity: 0;
+    text-indent: -99999rem;
+    position: absolute;
+  }
+  .RadioIcon {
+    position: absolute;
+    left: map-get($spacers, 3);
+    top: 0.5rem;
+  }
+}

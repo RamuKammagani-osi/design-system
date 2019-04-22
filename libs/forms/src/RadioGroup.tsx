@@ -1,11 +1,13 @@
 import * as React from 'react'
 import { IListType } from './types'
 import cn from 'classnames'
-const uniqueId = require('lodash.uniqueid')
 import { Input, FormGroup, Label } from '@cwds/reactstrap'
+import { Icon } from '@cwds/icons'
+import Styles from './RadioGroup.module.scss'
+import Fieldset from './Fieldset'
+const uniqueId = require('lodash.uniqueid')
 
-
-export interface RadioGroupProps<T> extends IListType<T> {
+export interface RadioGroupProps<T = string> extends IListType<T> {
   /** The currently selected value */
   value: T
   /** Name for the field. Used to generate unique id */
@@ -23,12 +25,16 @@ export interface RadioGroupProps<T> extends IListType<T> {
 const RadioGroup = (props: RadioGroupProps<any>) => {
   const grpId = `${props.name}-rdo${uniqueId()}`
   return (
-    <FormGroup tag="fieldset">
+    <Fieldset>
       <legend className="sr-only">{props.legend}</legend>
       {props.options.map(option => {
         const id = `${grpId}-${option.label}`
         return (
-          <FormGroup check key={option.value} className={cn('mx-2')}>
+          <FormGroup
+            check
+            key={option.value}
+            className={cn(Styles.RadioFormGroup)}
+          >
             <Label check>
               <Input
                 type="radio"
@@ -38,6 +44,12 @@ const RadioGroup = (props: RadioGroupProps<any>) => {
                 checked={props.value === option.value}
                 onChange={props.onChange}
               />
+              <Icon
+                {...getIconProps({
+                  checked: props.value === option.value,
+                  disabled: !!option.disabled,
+                })}
+              />
               <span className={cn({ 'text-muted': option.disabled })}>
                 {option.label}
               </span>
@@ -45,8 +57,21 @@ const RadioGroup = (props: RadioGroupProps<any>) => {
           </FormGroup>
         )
       })}
-    </FormGroup>
+    </Fieldset>
   )
 }
 
 export default RadioGroup
+
+//
+// Helpers
+//
+function getIconProps(opts: { checked: boolean; disabled: boolean }) {
+  const { checked, disabled } = opts
+  return checked
+    ? { name: 'dot-circle', className: cn('text-primary', Styles.RadioIcon) }
+    : {
+        name: ['far', 'circle'],
+        className: cn(Styles.RadioIconInactive, Styles.RadioIcon),
+      }
+}

@@ -5,8 +5,8 @@ import CheckboxControl from './CheckboxControl'
 import Fieldset from './Fieldset'
 const uniqueId = require('lodash.uniqueid')
 
-export interface CheckboxBankProps<T = any> extends IListType<T> {
-  /** The currently selected choices */
+export interface CheckboxBankProps<T = string> extends IListType<T> {
+  /** The currently selected choice(s) */
   value: T[]
   /** alksdfj */
   options: IOption<T>[]
@@ -70,6 +70,7 @@ class CheckboxBank extends React.Component<CheckboxBankProps> {
               onChange={this.handleChange}
               onBlur={this.handleBlur}
               label={opt.label}
+              inline={this.props.inline}
             />
           )
         })}

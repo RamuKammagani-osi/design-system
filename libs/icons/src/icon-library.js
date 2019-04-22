@@ -7,6 +7,7 @@ import {
   faCheckSquare,
   faChevronDown,
   faCircleNotch,
+  faDotCircle,
   faClipboard,
   faClock,
   faCog,
@@ -34,6 +35,7 @@ import {
 import {
   faCommentAlt as farFaCommentAlt,
   faSquare as farFaSquare,
+  faCircle as farFaCircle,
 } from '@fortawesome/free-regular-svg-icons'
 
 library.add(
@@ -45,6 +47,7 @@ library.add(
   farFaSquare,
   faChevronDown,
   faCircleNotch,
+  faDotCircle,
   faClipboard,
   faClock,
   faCog,
@@ -68,11 +71,13 @@ library.add(
   faAngleLeft,
   faAngleDoubleLeft,
   faAngleRight,
-  faAngleDoubleRight
+  faAngleDoubleRight,
+  farFaCircle
 )
 
 export const ICON_NAMES = [
   ...Object.keys(library.definitions.fas).map(name => ['fas', name]),
   [farFaCommentAlt.prefix, farFaCommentAlt.iconName],
   [farFaSquare.prefix, farFaSquare.iconName],
+  [farFaCircle.prefix, farFaCircle.iconName],
 ]
