@@ -27,6 +27,7 @@ import Page from '!babel-loader!@mdx-js/loader!./articles/Page/Page.mdx'
 import CaresProvider from '!babel-loader!@mdx-js/loader!./articles/CaresProvider/CaresProvider.mdx'
 import Tile from '!babel-loader!@mdx-js/loader!./articles/Tile/Tile.mdx'
 import Checkboxes from '!babel-loader!@mdx-js/loader!./articles/Checkboxes/Checkboxes.mdx'
+import FormsAddItemArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsAddItemArticle.mdx'
 import FormsIndexArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsIndexArticle.mdx'
 import InputArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/InputArticle.mdx'
 import InputMaskArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/InputMaskArticle.mdx'
@@ -236,6 +237,12 @@ const routes = {
           label: 'Kitchen Sink',
           path: '/kitchen-sink',
           component: FormsKitchenSinkArticle,
+        },
+        {
+          title: 'Add Item Pattern',
+          label: 'Add Item Pattern',
+          path: '/add-item',
+          component: FormsAddItemArticle,
         },
         {
           title: 'Form Field',
