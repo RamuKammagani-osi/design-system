@@ -11,7 +11,7 @@ export const data = [
     am: 1,
     gear: 4,
     carb: 4,
-    _row: 'Mazda RX4',
+    _row: 'aliquid',
   },
   {
     mpg: 21,
@@ -25,7 +25,7 @@ export const data = [
     am: 1,
     gear: 4,
     carb: 4,
-    _row: 'Mazda RX4 Wag',
+    _row: 'quidem',
   },
   {
     mpg: 22.8,
@@ -39,7 +39,7 @@ export const data = [
     am: 1,
     gear: 4,
     carb: 1,
-    _row: 'Datsun 710',
+    _row: 'ab',
   },
   {
     mpg: 21.4,
@@ -53,7 +53,7 @@ export const data = [
     am: 0,
     gear: 3,
     carb: 1,
-    _row: 'Hornet 4 Drive',
+    _row: 'nostrum',
   },
   {
     mpg: 18.7,
@@ -67,7 +67,7 @@ export const data = [
     am: 0,
     gear: 3,
     carb: 2,
-    _row: 'Hornet Sportabout',
+    _row: 'vel',
   },
   {
     mpg: 18.1,
@@ -81,7 +81,7 @@ export const data = [
     am: 0,
     gear: 3,
     carb: 1,
-    _row: 'Valiant',
+    _row: 'id',
   },
   {
     mpg: 14.3,
@@ -95,7 +95,7 @@ export const data = [
     am: 0,
     gear: 3,
     carb: 4,
-    _row: 'Duster 360',
+    _row: 'eum',
   },
   {
     mpg: 24.4,
@@ -109,7 +109,7 @@ export const data = [
     am: 0,
     gear: 4,
     carb: 2,
-    _row: 'Merc 240D',
+    _row: 'veritatis',
   },
   {
     mpg: 22.8,
@@ -123,7 +123,7 @@ export const data = [
     am: 0,
     gear: 4,
     carb: 2,
-    _row: 'Merc 230',
+    _row: 'repellendus',
   },
   {
     mpg: 19.2,
@@ -137,7 +137,7 @@ export const data = [
     am: 0,
     gear: 4,
     carb: 4,
-    _row: 'Merc 280',
+    _row: 'et',
   },
   {
     mpg: 17.8,
@@ -151,7 +151,7 @@ export const data = [
     am: 0,
     gear: 4,
     carb: 4,
-    _row: 'Merc 280C',
+    _row: 'suscipit',
   },
   {
     mpg: 16.4,
@@ -165,7 +165,7 @@ export const data = [
     am: 0,
     gear: 3,
     carb: 3,
-    _row: 'Merc 450SE',
+    _row: 'aut',
   },
   {
     mpg: 17.3,
@@ -179,7 +179,7 @@ export const data = [
     am: 0,
     gear: 3,
     carb: 3,
-    _row: 'Merc 450SL',
+    _row: 'vitae',
   },
   {
     mpg: 15.2,
@@ -193,7 +193,7 @@ export const data = [
     am: 0,
     gear: 3,
     carb: 3,
-    _row: 'Merc 450SLC',
+    _row: 'maiores',
   },
   {
     mpg: 10.4,
@@ -207,7 +207,7 @@ export const data = [
     am: 0,
     gear: 3,
     carb: 4,
-    _row: 'Cadillac Fleetwood',
+    _row: 'similique',
   },
   {
     mpg: 10.4,
@@ -221,7 +221,7 @@ export const data = [
     am: 0,
     gear: 3,
     carb: 4,
-    _row: 'Lincoln Continental',
+    _row: 'voluptatibus',
   },
   {
     mpg: 14.7,
@@ -235,7 +235,7 @@ export const data = [
     am: 0,
     gear: 3,
     carb: 4,
-    _row: 'Chrysler Imperial',
+    _row: 'commodi',
   },
   {
     mpg: 32.4,
@@ -249,7 +249,7 @@ export const data = [
     am: 1,
     gear: 4,
     carb: 1,
-    _row: 'Fiat 128',
+    _row: 'tempora',
   },
   {
     mpg: 30.4,
@@ -263,7 +263,7 @@ export const data = [
     am: 1,
     gear: 4,
     carb: 2,
-    _row: 'Honda Civic',
+    _row: 'autem',
   },
   {
     mpg: 33.9,
@@ -277,7 +277,7 @@ export const data = [
     am: 1,
     gear: 4,
     carb: 1,
-    _row: 'Toyota Corolla',
+    _row: 'assumenda',
   },
   {
     mpg: 21.5,
@@ -291,7 +291,7 @@ export const data = [
     am: 0,
     gear: 3,
     carb: 1,
-    _row: 'Toyota Corona',
+    _row: 'nobis',
   },
   {
     mpg: 15.5,
@@ -305,7 +305,7 @@ export const data = [
     am: 0,
     gear: 3,
     carb: 2,
-    _row: 'Dodge Challenger',
+    _row: 'veniam',
   },
   {
     mpg: 15.2,
@@ -319,7 +319,7 @@ export const data = [
     am: 0,
     gear: 3,
     carb: 2,
-    _row: 'AMC Javelin',
+    _row: 'quidem',
   },
   {
     mpg: 13.3,
@@ -333,7 +333,7 @@ export const data = [
     am: 0,
     gear: 3,
     carb: 4,
-    _row: 'Camaro Z28',
+    _row: 'eius',
   },
   {
     mpg: 19.2,
@@ -347,7 +347,7 @@ export const data = [
     am: 0,
     gear: 3,
     carb: 2,
-    _row: 'Pontiac Firebird',
+    _row: 'voluptatum',
   },
   {
     mpg: 27.3,
@@ -361,7 +361,7 @@ export const data = [
     am: 1,
     gear: 4,
     carb: 1,
-    _row: 'Fiat X1-9',
+    _row: 'atque',
   },
   {
     mpg: 26,
@@ -375,7 +375,7 @@ export const data = [
     am: 1,
     gear: 5,
     carb: 2,
-    _row: 'Porsche 914-2',
+    _row: 'mollitia',
   },
   {
     mpg: 30.4,
@@ -389,7 +389,7 @@ export const data = [
     am: 1,
     gear: 5,
     carb: 2,
-    _row: 'Lotus Europa',
+    _row: 'et',
   },
   {
     mpg: 15.8,
@@ -403,7 +403,7 @@ export const data = [
     am: 1,
     gear: 5,
     carb: 4,
-    _row: 'Ford Pantera L',
+    _row: 'non',
   },
   {
     mpg: 19.7,
@@ -417,7 +417,7 @@ export const data = [
     am: 1,
     gear: 5,
     carb: 6,
-    _row: 'Ferrari Dino',
+    _row: 'reprehenderit',
   },
   {
     mpg: 15,
@@ -431,7 +431,7 @@ export const data = [
     am: 1,
     gear: 5,
     carb: 8,
-    _row: 'Maserati Bora',
+    _row: 'eum',
   },
   {
     mpg: 21.4,
@@ -445,7 +445,7 @@ export const data = [
     am: 1,
     gear: 4,
     carb: 2,
-    _row: 'Volvo 142E',
+    _row: 'voluptas',
   },
 ]
 

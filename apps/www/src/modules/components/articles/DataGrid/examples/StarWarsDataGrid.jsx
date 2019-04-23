@@ -10,11 +10,6 @@ import PeopleService from './people-service'
 
 const columnConfig = [
   {
-    Header: 'Name',
-    accessor: 'name',
-    width: 300,
-  },
-  {
     Header: 'Gender',
     accessor: 'gender',
   },
@@ -90,7 +85,7 @@ export default class DataGridsExample extends Component {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>StarWars</CardTitle>
+          <CardTitle>Some Data</CardTitle>
         </CardHeader>
         <CardBody className="pt-0">
           <DataGrid
