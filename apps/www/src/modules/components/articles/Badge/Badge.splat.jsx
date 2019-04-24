@@ -1,5 +1,4 @@
-import React, { Fragment } from 'react'
-import cn from 'classnames'
+import React, { Component, Fragment } from 'react'
 import { Badge } from '@cwds/components'
 import DS from '@cwds/core'
 
@@ -34,16 +33,53 @@ const badgeInstances = (
   </Fragment>
 )
 
-const BadgeSplats = () => {
-  return (
-    <div>
-      {['white', ...Object.keys(DS.themeColors)].map(color => (
-        <div key={color} className={cn('p-2', `bg-${color}`)}>
-          {badgeInstances}
-        </div>
-      ))}
-    </div>
-  )
+// Beware: big permutations will probably cause axe to timeout!
+const getBackgrounds = includeThemeColors =>
+  includeThemeColors ? ['white', ...Object.keys(DS.themeColors)] : ['white']
+
+const BadgeSplats = React.memo(() => (
+  <div>
+    {getBackgrounds().map(color => (
+      <div key={color} className="p-2">
+        {badgeInstances}
+      </div>
+    ))}
+  </div>
+))
+
+class BadgeSplatContainer extends Component {
+  BG_COLORS = ['white', ...Object.keys(DS.themeColors)]
+  state = { bgColor: 'white' }
+  handleChangeBackgroundPicker = e => this.setState({ bgColor: e.target.value })
+  renderBackgroundPicker = () => {
+    return (
+      <div className="float-right mt-3 mr-3">
+        <label className="sr-only" htmlFor="a11y-badge-background-color-picker">
+          Background Color:
+        </label>
+        <select
+          id="a11y-badge-background-color-picker"
+          value={this.state.bgColor}
+          onChange={this.handleChangeBackgroundPicker}
+          onBlur={this.handleChangeBackgroundPicker}
+        >
+          {this.BG_COLORS.map(bgColor => (
+            <option key={bgColor} value={bgColor}>
+              {bgColor}
+            </option>
+          ))}
+        </select>
+      </div>
+    )
+  }
+  render() {
+    return (
+      <div className={`bg-${this.state.bgColor}`}>
+        {this.renderBackgroundPicker()}
+        <BadgeSplats />
+      </div>
+    )
+  }
 }
 
-export default BadgeSplats
+export default BadgeSplatContainer
