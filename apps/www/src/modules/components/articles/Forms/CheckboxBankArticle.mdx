@@ -1,4 +1,6 @@
-import { DemoCard, CodeBlock } from '@cwds/docs'
+import { Link } from 'react-router-dom'
+import { CheckboxBank } from '@cwds/forms'
+import { DemoCard, PropTable } from '@cwds/docs'
 import {
   Alert,
   CardBody,
@@ -10,28 +12,34 @@ import {
   Label,
   UncontrolledCollapsibleCard as CollapsibleCard,
 } from '@cwds/components'
-import RadioGroupExample from './examples/RadioGroupExample'
+import Docgen from '../ReactDogenInfo'
+import CheckboxBankValidationExample from './examples/CheckboxBankValidationExample'
+import BasicCheckboxBankExample from './examples/BasicCheckboxBankExample'
 
 ## Synopsis
 
-Use a `RadioGroup` in forms.
+Use a `CheckboxBank` in forms.
 
 <DemoCard>
-  <RadioGroupExample
-    label="Metasyntactic Variables"
+  <BasicCheckboxBankExample
     options={[
       { value: 'foo', label: 'Foo' },
       { value: 'bar', label: 'Bar' },
       { value: 'bizz', label: 'Bizz (disabled)', disabled: true },
-      { value: 'bazz', label: 'Bazz' },
+      { value: 'bazz', label: 'Bazz (disabled)', disabled: true },
+      { value: 'quo', label: 'Quo' },
+      { value: 'qux', label: 'Qux' },
     ]}
-    initialValues={'bar'}
+    initialValues={['bar', 'bazz', 'quo']}
+    label="Metasyntactic Variables"
+    fieldName="metaVarNames"
+    className="mb-0"
     noDebug
   />
 </DemoCard>
 
 ```jsx
-import { RadioGroup } from '@cwds/components'
+import { CheckboxBank } from '@cwds/forms'
 ```
 
 ## Props
@@ -39,7 +47,7 @@ import { RadioGroup } from '@cwds/components'
 <CollapsibleCard initialClosed>
   <CardHeader>
     <CardTitle>
-      <code>RadioGroup</code> Props
+      <code>CheckboxBank</code> Props
     </CardTitle>
   </CardHeader>
   <CardBody className="pb-0">
@@ -51,9 +59,9 @@ import { RadioGroup } from '@cwds/components'
     </Alert>
 
 ```ts
-interface RadioGroupProps<T> {
-  /** The currently selected value */
-  value: T
+interface CheckboxBankProps<T> {
+  /** The currently selected choice(s) */
+  value: T[]
   /** Possible choices */
   options: Array<{
     /** Visual label */
@@ -73,8 +81,6 @@ interface RadioGroupProps<T> {
   onChange: (values: T[]) => void
   /** Blur handler */
   onBlur: () => void
-  /** Legend */
-  legend: string
 }
 ```
 
@@ -83,6 +89,27 @@ interface RadioGroupProps<T> {
 
 ## Usage Guidelines
 
+`CheckboxBank`s are one of the <tt>N-pick-k</tt> type CARES <tt>FormControl</tt>s.
+
 ## Examples
 
+### Basic
+
+Used inside of <tt>form</tt>s, one typically will use `CheckboxBank`s in <Link to="/components/cards"><code>Cards</code></Link> aksjdfh
+
+<BasicCheckboxBankExample />
+
+<!--
+
+### Validation
+
+<CheckboxBankValidationExample />
+
+-->
+
 ## Related Articles
+
+### Components
+
+- [`Form`]()
+- [`Field`]()

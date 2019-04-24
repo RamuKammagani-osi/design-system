@@ -8,18 +8,16 @@ const uniqueId = require('lodash.uniqueid')
 export interface CheckboxBankProps<T = string> extends IListType<T> {
   /** The currently selected choice(s) */
   value: T[]
-  /** alksdfj */
-  options: IOption<T>[]
   /** Name for the field. Used to generate unique id */
   name: string
   /** Whether or not to enable the _entire_ field */
   disabled: boolean
   /** Use alternate layout */
   inline: boolean
-  /** Change handler (traditional callback) */
-  onChange: (x: string[]) => void | React.ChangeEventHandler
-  /** Blur handler (traditional callback) */
-  onBlur: React.EventHandler<any>
+  /** Change handler */
+  onChange: (values: T[]) => void
+  /** Blur handler */
+  onBlur: () => void
 }
 
 class CheckboxBank extends React.Component<CheckboxBankProps> {
@@ -49,7 +47,7 @@ class CheckboxBank extends React.Component<CheckboxBankProps> {
   }
 
   handleBlur = () => {
-    this.props.onBlur(true)
+    this.props.onBlur()
   }
 
   render() {

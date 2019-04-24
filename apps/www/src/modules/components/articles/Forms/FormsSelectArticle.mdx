@@ -1,20 +1,29 @@
-import cn from "classnames";
-import Docgen from "../ReactDogenInfo.js";
-import { Select } from "@cwds/forms";
-import { DemoCard, PropTable, ReferenceCard } from "@cwds/docs";
-import { Alert, Card, CardBody, Row, Col } from "@cwds/components";
-import { toppings as TOPPINGS } from "../Checkboxes/examples/toppings-data";
+import cn from 'classnames'
+import Docgen from '../ReactDogenInfo.js'
+import { Select } from '@cwds/forms'
+import { DemoCard, PropTable, ReferenceCard } from '@cwds/docs'
+import { Alert, Card, CardBody, Row, Col } from '@cwds/components'
+import { toppings as TOPPINGS } from './examples/toppings-data'
 
 ## Synopsis
 
 Use a `Select` to pick 1 from an option of values. For more docs [react-select](https://react-select.com/home#getting-started)
 
 <DemoCard>
-  <Select />
+  <Select
+    options={[
+      { value: 'foo', label: 'Foo' },
+      { value: 'bar', label: 'Bar' },
+      { value: 'bizz', label: 'Bizz (disabled)', disabled: true },
+      { value: 'bazz', label: 'Bazz (disabled)', disabled: true },
+      { value: 'quo', label: 'Quo' },
+      { value: 'qux', label: 'Qux' },
+    ]}
+  />
 </DemoCard>
 
 ```jsx
-import { Select } from "@cwds/forms";
+import { Select } from '@cwds/components'
 ```
 
 ## Props
@@ -47,28 +56,28 @@ Use `Select` when a large list of options are available and picking a 1 value.
   <CardBody>
     {[
       {},
-      { placeholder: "Placeholder..." },
+      { placeholder: 'Placeholder...' },
       { isSearchable: true },
       { isClearable: true },
-      { isDisabled: true, defaultValue: TOPPINGS[0] }
+      { isDisabled: true, defaultValue: TOPPINGS[0] },
     ].map((d, i) => {
       return (
         <Row
           key={i}
-          className={cn("d-flex align-items-center", {
-            "mt-2": i > 0
+          className={cn('d-flex align-items-center', {
+            'mt-2': i > 0,
           })}
         >
           <Col>
             <code>
-              {Object.keys(d).length ? JSON.stringify(d, null, 2) : "(default)"}
+              {Object.keys(d).length ? JSON.stringify(d, null, 2) : '(default)'}
             </code>
           </Col>
           <Col>
             <Select {...d} options={TOPPINGS} />
           </Col>
         </Row>
-      );
+      )
     })}
   </CardBody>
 </Card>

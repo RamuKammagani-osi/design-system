@@ -12,7 +12,7 @@ import {
 import { FormField, Fieldset, Input, Select } from '@cwds/forms'
 import uniqueId from 'lodash.uniqueid'
 import Styles from './AddItemExample.module.scss'
-import { toppings as TOPPINGS } from '../../Checkboxes/examples/toppings-data'
+import { toppings as TOPPINGS } from './toppings-data'
 
 const sortId = (a, b) => {
   const idA = a.id.toUpperCase()

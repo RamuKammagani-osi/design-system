@@ -14,10 +14,10 @@ export interface RadioGroupProps<T = string> extends IListType<T> {
   name: string
   /** Whether or not to enable the _entire_ field */
   disabled: boolean
-  /** Change handler (traditional callback) */
-  onChange: React.ChangeEventHandler
-  /** Blur handler (traditional callback) */
-  onBlur: React.EventHandler<any>
+  /** Change handler */
+  onChange: (value: T) => void
+  /** Blur handler */
+  onBlur: () => void
   /** Legend */
   legend: string
 }

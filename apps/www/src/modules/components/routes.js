@@ -26,11 +26,12 @@ import Modal from '!babel-loader!@mdx-js/loader!./articles/Modal/Modal.mdx'
 import Page from '!babel-loader!@mdx-js/loader!./articles/Page/Page.mdx'
 import CaresProvider from '!babel-loader!@mdx-js/loader!./articles/CaresProvider/CaresProvider.mdx'
 import Tile from '!babel-loader!@mdx-js/loader!./articles/Tile/Tile.mdx'
-import Checkboxes from '!babel-loader!@mdx-js/loader!./articles/Checkboxes/Checkboxes.mdx'
-import FormsAddItemArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsAddItemArticle.mdx'
+import CheckboxBankArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/CheckboxBankArticle.mdx'
+import FormPatternsArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormPatternsArticle.mdx'
 import FormsIndexArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsIndexArticle.mdx'
 import InputArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/InputArticle.mdx'
 import InputMaskArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/InputMaskArticle.mdx'
+import FormsAbstractArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsAbstractArticle.mdx'
 import FormFieldArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormFieldArticle.mdx'
 import FormsKitchenSinkArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsKitchenSinkArticle.mdx'
 import FormsRadioArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsRadioArticle.mdx'
@@ -233,19 +234,18 @@ const routes = {
       noSort: true,
       children: [
         {
-          title: 'Forms: The Kitchen Sink (WiP)',
+          title: 'Forms: The Kitchen Sink',
           label: 'Kitchen Sink',
           path: '/kitchen-sink',
           component: FormsKitchenSinkArticle,
         },
         {
-          title: 'Add Item Pattern',
-          label: 'Add Item Pattern',
-          path: '/add-item',
-          component: FormsAddItemArticle,
+          title: 'Abstract',
+          path: '/abstract',
+          component: FormsAbstractArticle,
         },
         {
-          title: 'Form Field',
+          title: 'FormField',
           path: '/form-field',
           component: FormFieldArticle,
         },
@@ -262,10 +262,10 @@ const routes = {
         {
           title: 'Checkboxes',
           path: '/checkboxes',
-          component: Checkboxes,
+          component: CheckboxBankArticle,
         },
         {
-          title: 'Radios (WiP)',
+          title: 'Radios',
           path: '/radios',
           component: FormsRadioArticle,
         },
@@ -288,6 +288,12 @@ const routes = {
           title: 'Date Picker',
           path: '/date-picker',
           component: FormsDatePickerArticle,
+        },
+        {
+          title: 'Form Patterns',
+          label: 'Patterns',
+          path: '/patterns',
+          component: FormPatternsArticle,
         },
       ],
     },

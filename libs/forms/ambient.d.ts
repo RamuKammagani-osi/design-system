@@ -1,5 +1,12 @@
 declare module '@cwds/reactstrap' {
-  export { Input, Button, FormGroup, Label } from 'reactstrap'
+  export {
+    Input,
+    Button,
+    FormGroup,
+    Label,
+    FormFeedback,
+    FormText,
+  } from 'reactstrap'
 }
 
 declare module '@cwds/icons' {

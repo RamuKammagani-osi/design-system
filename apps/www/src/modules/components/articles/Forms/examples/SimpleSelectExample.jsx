@@ -6,7 +6,7 @@ import get from 'lodash.get'
 import { Card, CardBody, FormGroup, Label } from '@cwds/components'
 import { Select } from '@cwds/forms'
 import { CodeBlock } from '@cwds/docs'
-import { toppings as TOPPINGS } from '../../Checkboxes/examples/toppings-data'
+import { toppings as TOPPINGS } from './toppings-data'
 
 const initialValues = {
   toppings: ['9', '8', '7', '4'],

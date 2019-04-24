@@ -7,6 +7,7 @@ const Select: React.FunctionComponent<{}> = props => <ReactSelect {...props} />
 console.log(DS)
 
 Select.defaultProps = {
+  isOptionDisabled: (option: { [K: string]: any }) => option.disabled,
   styles: {
     control: (base: any, { isDisabled, isFocused, theme }: any) => {
       return {
