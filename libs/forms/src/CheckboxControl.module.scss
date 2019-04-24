@@ -1,12 +1,9 @@
 @import '~@cwds/core/scss/base';
 
 .CheckboxControlFocus {
-  padding: map-get($spacers, 1) 0;
+  padding: map-get($spacers, 1) map-get($spacers, 3);
   padding-left: 2.75rem;
 
-  &:hover {
-    cursor: pointer;
-  }
   &:focus-within {
     background-color: lighten(map-get($map: $theme-colors, $key: 'breath'), 2%);
   }
@@ -17,14 +14,13 @@
     left: -99999rem;
   }
 
-  label {
+  input[type='checkbox']:not(:disabled):not(.disabled) + label {
     cursor: pointer;
   }
 
   input[type='checkbox']:focus + label .FancyCheckbox {
-    // box-shadow: 0 0 0 $btn-focus-width theme-color($key: accent);
-    // box-shadow: 0 0 2px 1px theme-color($key: accent);
-    outline: theme-color($key: accent) auto 3px;
+    outline: rgba(theme-color('accent'), 0.5) solid 0.2rem;
+    outline-offset: 1px;
   }
 }
 

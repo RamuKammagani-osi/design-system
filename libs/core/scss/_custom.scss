@@ -199,6 +199,16 @@ $card-cap-bg: $white;
 
 $table-border-color: $border-color;
 
+// Buttons + Forms
+
+$input-btn-focus-width:       .2rem;
+$input-btn-focus-color:       rgba(theme-color('accent'), .25);
+
+// Forms
+
+$input-focus-border-color:              $accent;
+// $input-focus-box-shadow:                0 0 0 $input-btn-focus-width $input-btn-focus-color;
+
 // Tooltips
 
 $tooltip-bg: $info;
