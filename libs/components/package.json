@@ -1,6 +1,6 @@
 {
   "name": "@cwds/components",
-  "version": "1.4.0-rc.0",
+  "version": "1.4.0-rc.1",
   "description": "> TODO: description",
   "author": "Danny Eck <danny.eck@osi.ca.gov>",
   "homepage": "https://cws-cares.netlify.com",
@@ -30,11 +30,11 @@
     "dev:esm": "yarn build:esm --watch"
   },
   "dependencies": {
-    "@cwds/cares": "^1.4.0-rc.0",
-    "@cwds/core": "^1.4.0-rc.0",
-    "@cwds/datagrid": "^1.4.0-rc.0",
-    "@cwds/icons": "^1.4.0-rc.0",
-    "@cwds/reactstrap": "^1.4.0-rc.0"
+    "@cwds/cares": "^1.4.0-rc.1",
+    "@cwds/core": "^1.4.0-rc.1",
+    "@cwds/datagrid": "^1.4.0-rc.1",
+    "@cwds/icons": "^1.4.0-rc.1",
+    "@cwds/reactstrap": "^1.4.0-rc.1"
   },
   "devDependencies": {
     "react": "^16.4"
