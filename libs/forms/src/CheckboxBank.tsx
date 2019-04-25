@@ -14,6 +14,8 @@ export interface CheckboxBankProps<T = string> extends IListType<T> {
   disabled: boolean
   /** Use alternate layout */
   inline: boolean
+  touched: boolean
+  error: string
   /** Change handler */
   onChange: (values: T[]) => void
   /** Blur handler */

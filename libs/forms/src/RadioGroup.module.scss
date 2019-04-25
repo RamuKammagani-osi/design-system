@@ -12,7 +12,7 @@
   }
   input[type='radio'] {
     opacity: 0;
-    text-indent: -99999rem;
+    left: -99999rem;
     position: absolute;
   }
   // TODO: this is hack. Fix the structure instead

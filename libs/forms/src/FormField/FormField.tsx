@@ -33,11 +33,12 @@ export interface FormFieldProps<T>
   Component: React.ComponentType<{
     innerRef?: React.Ref<any>
     invalid?: boolean
+    valid?: boolean
   }>
-  feedback: React.ReactNode
-  Feedback: React.ComponentType
   required: boolean
   helpText: string
+  // success: string
+  mapInnerRefName: string
 }
 
 export const FormField: React.FunctionComponent<
@@ -47,24 +48,41 @@ export const FormField: React.FunctionComponent<
     {
       className,
       label,
-      Component: Control,
-      feedback,
+      Component: FormControl,
       touched,
       error,
+      // success,
       helpText,
+      mapInnerRefName,
       ...props
     },
     ref
   ) => {
+    const innerRefMapping = { [mapInnerRefName]: ref }
     return (
       <FormGroup className={cn(className)}>
-        <Label>{label}</Label>
-        {props.required && <RequiredIndicator />}
-        <Control {...props} innerRef={ref} invalid={!!touched && !!error} />
-        <FormFeedback>
-          <Icon name="exclamation-triangle" className="mx-2" />
-          {error}
-        </FormFeedback>
+        <Label>
+          {label}
+          {props.required && <RequiredIndicator />}
+        </Label>
+        <FormControl
+          {...props}
+          {...innerRefMapping}
+          invalid={!!touched && !!error}
+          // valid={!!touched && !error}
+        />
+        {touched && error && (
+          <FormFeedback className="d-block">
+            <Icon name="exclamation-triangle" className="mx-2" />
+            {error}
+          </FormFeedback>
+        )}
+        {/* {success && (
+          <FormFeedback valid>
+            <Icon name="check" className="mx-2" />
+            {success}
+          </FormFeedback>
+        )} */}
         {helpText && <FormText>{helpText}</FormText>}
       </FormGroup>
     )
@@ -75,6 +93,7 @@ FormField.propTypes = {}
 
 FormField.defaultProps = {
   Component: Input,
+  mapInnerRefName: 'innerRef',
   onChange: () => {},
   onBlur: () => {},
 }

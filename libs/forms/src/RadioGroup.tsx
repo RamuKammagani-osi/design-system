@@ -1,53 +1,58 @@
-import * as React from 'react'
-import { IListType } from './types'
+import React, { Component } from 'react'
+import { IListType, IFormControl } from './types'
 import cn from 'classnames'
 import { Input, FormGroup, Label } from '@cwds/reactstrap'
 import { Icon } from '@cwds/icons'
 import Styles from './RadioGroup.module.scss'
 import Fieldset from './Fieldset'
-const uniqueId = require('lodash.uniqueid')
 
-export interface RadioGroupProps<T = string> extends IListType<T> {
-  /** The currently selected value */
-  value: T
-  /** Name for the field. Used to generate unique id */
-  name: string
-  /** Whether or not to enable the _entire_ field */
-  disabled: boolean
-  /** Change handler */
-  onChange: (value: T) => void
-  /** Blur handler */
-  onBlur: () => void
-  /** Legend */
-  legend: string
-}
+export interface RadioGroupProps extends IListType, IFormControl {}
 
-const RadioGroup = (props: RadioGroupProps<any>) => {
-  const grpId = `${props.name}-rdo${uniqueId()}`
-  return (
-    <Fieldset>
-      <legend className="sr-only">{props.legend}</legend>
-      {props.options.map(option => {
-        const id = `${grpId}-${option.label}`
-        return (
+class RadioGroup extends Component<RadioGroupProps & { invalid: boolean }> {
+  handleChange: React.ChangeEventHandler<HTMLInputElement> = event => {
+    this.props.onChange(event)
+  }
+
+  handleBlur: React.FocusEventHandler<HTMLInputElement> = event => {
+    this.props.onBlur(event)
+  }
+
+  render() {
+    return (
+      <Fieldset
+        name={this.props.name}
+        /* Style an invalid group?
+        className={cn({
+          'border-danger border': this.props.invalid,
+        })}
+        */
+      >
+        {this.props.options.map(option => (
           <FormGroup
             check
             key={option.value}
             className={cn(Styles.RadioFormGroup)}
           >
-            <Label check>
+            <Label
+              check
+              className={cn({
+                'text-danger': !!this.props.invalid,
+              })}
+            >
               <Input
                 type="radio"
-                name={grpId}
+                name={this.props.name}
                 disabled={option.disabled}
                 value={option.value}
-                checked={props.value === option.value}
-                onChange={props.onChange}
+                checked={this.props.value === option.value}
+                onChange={this.handleChange}
+                onBlur={this.handleBlur}
               />
               <Icon
                 {...getIconProps({
-                  checked: props.value === option.value,
+                  checked: this.props.value === option.value,
                   disabled: !!option.disabled,
+                  invalid: this.props.invalid,
                 })}
               />
               <span className={cn({ 'text-muted': option.disabled })}>
@@ -55,10 +60,10 @@ const RadioGroup = (props: RadioGroupProps<any>) => {
               </span>
             </Label>
           </FormGroup>
-        )
-      })}
-    </Fieldset>
-  )
+        ))}
+      </Fieldset>
+    )
+  }
 }
 
 export default RadioGroup
@@ -66,7 +71,11 @@ export default RadioGroup
 //
 // Helpers
 //
-function getIconProps(opts: { checked: boolean; disabled: boolean }) {
+function getIconProps(opts: {
+  checked: boolean
+  disabled: boolean
+  invalid: boolean
+}) {
   const { checked, disabled } = opts
   return checked
     ? { name: 'circle', className: cn('text-primary', Styles.RadioIcon) }

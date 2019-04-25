@@ -1,12 +1,14 @@
 import React from 'react'
-import cn from 'classnames'
-import Styles from './Fieldset.module.scss'
+import { FormGroup } from '@cwds/reactstrap'
 
 interface FieldsetProps {
   className?: string
-  children: React.ReactNode
+  name?: string
+  disabled?: boolean
 }
 
-export default ({ className, ...props }: FieldsetProps) => {
-  return <fieldset className={cn(Styles.Fieldset, className)} {...props} />
-}
+const Fieldset: React.FunctionComponent<FieldsetProps> = props => (
+  <FormGroup tag="fieldset" {...props} />
+)
+
+export default Fieldset

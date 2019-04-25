@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "@types/lodash.range": "^3.2.6",
+    "@types/lodash.uniqueid": "^4.0.6",
     "@types/react-datepicker": "^2.3.0",
     "@types/react-select": "^2.0.6",
     "@types/react-text-mask": "^5.4.4",

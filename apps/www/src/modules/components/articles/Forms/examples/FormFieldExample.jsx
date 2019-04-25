@@ -89,19 +89,19 @@ export default class FormFieldExample extends Component {
         </CardHeader>
         <CardBody>
           <FormField
-            required
-            ref={el => (this.myRef = el)}
             label="Foo"
             name="foo"
             Component={Input}
             value={this.state.values.foo}
-            placeholder="Placeholder..."
-            autoComplete="off"
+            touched={this.state.touched.foo}
+            error={this.state.errors.foo}
             onChange={this.handleChange}
             onBlur={this.handleBlur}
-            error={this.state.errors.foo}
-            touched={this.state.touched.foo}
+            ref={el => (this.myRef = el)}
             helpText={this.state.helpText}
+            required
+            placeholder="Placeholder..."
+            autoComplete="off"
           />
           {this.state.isVisibleState && (
             <div>
