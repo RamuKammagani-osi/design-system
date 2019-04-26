@@ -1,12 +1,12 @@
 {
   "name": "www",
-  "version": "1.4.0-rc.1",
+  "version": "1.4.0-rc.2",
   "license": "AGPL-3.0",
   "private": true,
   "dependencies": {
-    "@cwds/components": "^1.4.0-rc.1",
-    "@cwds/core": "^1.4.0-rc.1",
-    "@cwds/docs": "^1.4.0-rc.1",
+    "@cwds/components": "^1.4.0-rc.2",
+    "@cwds/core": "^1.4.0-rc.2",
+    "@cwds/docs": "^1.4.0-rc.2",
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "formik": "^1.5.1",
