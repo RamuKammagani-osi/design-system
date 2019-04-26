@@ -1,18 +1,13 @@
 import React, { Component } from 'react'
 import { Icon } from '@cwds/icons'
-import { Input, Button } from '@cwds/reactstrap'
+import { Button } from '@cwds/reactstrap'
+import InputMask from './InputMask'
 import range from 'lodash.range'
 import ReactDatePicker from 'react-datepicker'
 import getYear from 'date-fns/getYear'
 import getMonth from 'date-fns/getMonth'
+import { DATE as DATE_MASK } from './Masks'
 import './DatePicker.module.scss'
-
-// TODO's
-// [ ] fix Reactstrap::Input.innerRef <==> DatePicker.customInputRef thing
-// [x] Get CWDS style on the Input
-// [x] Style stuff
-// [ ] Use InputMask
-// [x] fix breaks on year change
 
 interface DatePickerProps {
   /** PlaceholderText for the field.  */
@@ -35,8 +30,6 @@ const months = [
   'November',
   'December',
 ]
-
-// const DATE_MASK = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/]
 
 interface CustomHeaderProps {
   date: Date
@@ -98,7 +91,7 @@ class DatePicker extends Component<DatePickerProps> {
       <ReactDatePicker
         placeholderText="mm/dd/yyyy"
         selected={this.state.startDate}
-        customInput={<Input />}
+        customInput={<InputMask mask={DATE_MASK} />}
         renderCustomHeader={MyOtherCustomHeader}
         onChange={this.handleChange}
       />

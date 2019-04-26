@@ -1,3 +1,4 @@
+import * as MASKS from './Masks'
 export {
   Form,
   FormFeedback,
@@ -15,5 +16,6 @@ export { default as Select } from './Select'
 export { default as Fieldset } from './Fieldset'
 export { default as Legend } from './Legend'
 export { default as InputMask } from './InputMask'
+export { MASKS }
 export { default as DatePicker } from './DatePicker'
 export { default as FormField } from './FormField'
