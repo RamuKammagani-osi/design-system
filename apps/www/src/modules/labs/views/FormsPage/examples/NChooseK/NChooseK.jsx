@@ -1,14 +1,7 @@
 import React from 'react'
 import { Formik } from 'formik'
-import {
-  Card,
-  Row,
-  Col,
-  FormFeedback,
-  FormGroup,
-  Label,
-} from '@cwds/components'
-import { Select } from '@cwds/forms'
+import { Card, Row, Col, Label } from '@cwds/components'
+import { Select, FormFeedback, FormGroup } from '@cwds/forms'
 
 export default () => (
   <Formik

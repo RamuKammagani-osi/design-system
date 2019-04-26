@@ -4,12 +4,12 @@ import {
   CardHeader,
   CardTitle,
   CardBody,
-  PrimitiveButton as Button,
+  // PrimitiveButton as Button,
   DataGrid,
   Input,
-  InputGroup,
-  InputGroupAddon,
-  Icon,
+  // InputGroup,
+  // InputGroupAddon,
+  // Icon,
 } from '@cwds/components'
 import data from './people.json'
 
@@ -33,7 +33,7 @@ const columns = [
 
 class SearchForm extends Component {
   render() {
-    const { onChange, onSubmit, disabled, value } = this.props
+    const { onChange, onSubmit, value } = this.props
     return (
       <div className="mb-3">
         <form
@@ -42,16 +42,16 @@ class SearchForm extends Component {
             onSubmit()
           }}
         >
-          <InputGroup>
-            <Input
-              type="search"
-              value={value}
-              placeholder="Ex; John Smith, Danny Eck, ..."
-              onChange={e => {
-                onChange(e.target.value)
-              }}
-            />
-            <InputGroupAddon addonType="append">
+          {/* <InputGroup> */}
+          <Input
+            type="search"
+            value={value}
+            placeholder="Ex; John Smith, Danny Eck, ..."
+            onChange={e => {
+              onChange(e.target.value)
+            }}
+          />
+          {/* <InputGroupAddon addonType="append">
               <Button
                 color="info"
                 type="submit"
@@ -65,8 +65,8 @@ class SearchForm extends Component {
               >
                 <Icon icon="search" className="mr-2" /> Search
               </Button>
-            </InputGroupAddon>
-          </InputGroup>
+            </InputGroupAddon> */}
+          {/* </InputGroup> */}
         </form>
       </div>
     )

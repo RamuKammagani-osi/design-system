@@ -14,7 +14,6 @@ import {
   Input,
   Label,
   Icon,
-  FormFeedback,
 } from '@cwds/components'
 import {
   CONCTACT_METHOD_OPTIONS,
@@ -59,7 +58,7 @@ export default () => (
                       name="date"
                       onChange={props.handleChange}
                     />
-                    <FormFeedback>{props.errors.date}</FormFeedback>
+                    {/* <FormFeedback>{props.errors.date}</FormFeedback> */}
                   </FormGroup>
                 </Col>
                 <Col md={6}>
@@ -81,7 +80,7 @@ export default () => (
                       onBlur={_ => props.setFieldTouched('methodOfContact')}
                       value={props.values.methodOfContact}
                     />
-                    <FormFeedback>{props.errors.methodOfContact}</FormFeedback>
+                    {/* <FormFeedback>{props.errors.methodOfContact}</FormFeedback> */}
                   </FormGroup>
                 </Col>
               </Row>
@@ -146,7 +145,7 @@ export default () => (
                       onChange={props.handleChange}
                       onBlur={props.handleBlur}
                     />
-                    <FormFeedback>{props.errors.title}</FormFeedback>
+                    {/* <FormFeedback>{props.errors.title}</FormFeedback> */}
                   </FormGroup>
                 </Col>
                 <Col md={12}>

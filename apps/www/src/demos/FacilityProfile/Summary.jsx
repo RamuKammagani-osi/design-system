@@ -9,8 +9,8 @@ import {
   CardTitle,
   CardFooter,
   Col,
-  FormGroup,
-  FormFeedback,
+  // FormGroup,
+  // FormFeedback,
   Label,
   Input,
   Row,
@@ -161,23 +161,23 @@ class Summary extends Component {
                   <Row>
                     {this.schema.map(({ id, name, label, type }) => (
                       <Col sm="6" md="4" className="p-2" key={id}>
-                        <FormGroup>
-                          <Label>{label}</Label>
-                          <Input
-                            id={id}
-                            type={type}
-                            value={props.values[name]}
-                            invalid={
-                              props.errors[name] &&
-                              props.touched[name] &&
-                              !!props.errors[name]
-                            }
-                            name={name}
-                            onChange={props.handleChange}
-                            onBlur={props.handleBlur}
-                          />
-                          <FormFeedback>{props.errors[name]}</FormFeedback>
-                        </FormGroup>
+                        {/* <FormGroup> */}
+                        <Label>{label}</Label>
+                        <Input
+                          id={id}
+                          type={type}
+                          value={props.values[name]}
+                          invalid={
+                            props.errors[name] &&
+                            props.touched[name] &&
+                            !!props.errors[name]
+                          }
+                          name={name}
+                          onChange={props.handleChange}
+                          onBlur={props.handleBlur}
+                        />
+                        {/* <FormFeedback>{props.errors[name]}</FormFeedback> */}
+                        {/* </FormGroup> */}
                       </Col>
                     ))}
                   </Row>

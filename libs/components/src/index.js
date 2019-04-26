@@ -20,14 +20,6 @@ export {
   DropdownMenu,
   DropdownToggle,
   Fade,
-  Form,
-  FormFeedback,
-  FormGroup,
-  FormText,
-  Input,
-  InputGroup,
-  InputGroupAddon,
-  Label,
   ListGroup,
   ListGroupItem,
   ListGroupItemHeading,
@@ -86,5 +78,15 @@ export {
   UncontrolledUserMenu,
   Utils,
 } from '@cwds/cares'
+export {
+  Form,
+  FormGroup,
+  Input,
+  InputMask,
+  Label,
+  CheckboxBank,
+  RadioGroup,
+  DatePicker,
+} from '@cwds/forms'
 export { default as DataGrid } from '@cwds/datagrid'
 export { Icon, ICON_NAMES } from '@cwds/icons'

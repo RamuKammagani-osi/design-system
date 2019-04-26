@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { Input, MaskedInput } from '@cwds/forms'
+import { Input, InputMask } from '@cwds/forms'
 import { DemoCard, ReferenceCard, PropTable } from '@cwds/docs'
 import { Alert, Card, CardBody, Row, Col } from '@cwds/components'
 import Docgen from '../ReactDogenInfo'
@@ -9,7 +9,7 @@ import Docgen from '../ReactDogenInfo'
 Use an `Input Mask` in to capture phone numbers, dates, social security input in forms.
 
 <DemoCard>
-  <MaskedInput
+  <InputMask
     mask={[
       '(',
       /[1-9]/,
@@ -31,7 +31,7 @@ Use an `Input Mask` in to capture phone numbers, dates, social security input in
 </DemoCard>
 
 ```jsx
-import { MaskedInput } from '@cwds/forms'
+import { InputMask } from '@cwds/forms'
 ```
 
 ## Props
@@ -56,7 +56,7 @@ Sample of Input Mask
 
 <Card>
   <CardBody>
-    <MaskedInput
+    <InputMask
       mask={[/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/]}
       placeholder="Enter Birthdate"
     />
@@ -64,7 +64,7 @@ Sample of Input Mask
 </Card>
 
 ```jsx
-<MaskedInput
+<InputMask
   mask={[/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/]}
   placeholder="Enter Birthdate"
 />
@@ -72,7 +72,7 @@ Sample of Input Mask
 
 <Card>
   <CardBody>
-    <MaskedInput
+    <InputMask
       mask={[/[1-9]/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/, /\d/]}
       showMask
     />
@@ -80,7 +80,7 @@ Sample of Input Mask
 </Card>
 
 ```jsx
-<MaskedInput
+<InputMask
   mask={[/[1-9]/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/, /\d/]}
   showMask
 />
@@ -113,7 +113,7 @@ Different form states
             </code>
           </Col>
           <Col xs="4">
-            <MaskedInput
+            <InputMask
               mask={[
                 /[1-9]/,
                 /\d/,

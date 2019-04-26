@@ -2,7 +2,10 @@ declare module '@cwds/reactstrap' {
   export {
     Input,
     Button,
+    Form,
     FormGroup,
+    InputGroup,
+    InputGroupAddon,
     Label,
     FormFeedback,
     FormText,
