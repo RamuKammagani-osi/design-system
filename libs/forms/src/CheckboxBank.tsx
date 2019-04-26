@@ -1,28 +1,19 @@
-import { IOption, IListType } from './types'
-import * as React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { IListType, IFormControl } from './types'
 import CheckboxControl from './CheckboxControl'
 import Fieldset from './Fieldset'
-const uniqueId = require('lodash.uniqueid')
 
-export interface CheckboxBankProps<T = string> extends IListType<T> {
-  /** The currently selected choice(s) */
-  value: T[]
-  /** Name for the field. Used to generate unique id */
-  name: string
-  /** Whether or not to enable the _entire_ field */
-  disabled: boolean
-  /** Use alternate layout */
+type StringOrNumber = string | number
+
+export interface CheckboxBankProps
+  extends IListType,
+    IFormControl<StringOrNumber[], HTMLInputElement> {
   inline: boolean
-  touched: boolean
-  error: string
-  /** Change handler */
-  onChange: (values: T[]) => void
-  /** Blur handler */
-  onBlur: () => void
+  onBlur: React.FocusEventHandler & (() => void)
 }
 
-class CheckboxBank extends React.Component<CheckboxBankProps> {
+class CheckboxBank extends Component<CheckboxBankProps> {
   static propTypes = {
     value: PropTypes.array.isRequired,
     options: PropTypes.arrayOf(
@@ -37,15 +28,16 @@ class CheckboxBank extends React.Component<CheckboxBankProps> {
   static defaultProps = {
     value: [],
     options: [],
+    onChange: () => {},
+    onBlur: () => {},
   }
 
-  handleChange = (e: React.ChangeEvent<HTMLFormElement>) => {
-    const { value, checked } = e.target
-    if (checked) {
-      this.props.onChange([...this.props.value, value])
-    } else {
-      this.props.onChange(this.props.value.filter(val => val !== value))
-    }
+  handleChange: React.ChangeEventHandler<HTMLInputElement> = event => {
+    const { value, checked } = event.target
+    const newValue = checked
+      ? this.props.value.concat(value)
+      : this.props.value.filter(val => val !== value)
+    this.props.onChange(event, newValue)
   }
 
   handleBlur = () => {

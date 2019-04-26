@@ -30,7 +30,7 @@ const BasicCheckboxBankExample = ({
                 inline={inline}
                 options={options}
                 value={get(values, fieldName)}
-                onChange={partial(setFieldValue, fieldName)}
+                onChange={(e, newValue) => setFieldValue(fieldName, newValue)}
                 onBlur={partial(setFieldTouched, fieldName)}
               />
             </FormGroup>

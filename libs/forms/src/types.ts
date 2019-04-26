@@ -23,7 +23,7 @@ export interface IListType<T = string | number> {
 /**
  * TODO
  */
-export interface IFormControl<T = {}> {
+export interface IFormControl<T = {}, U = Element> {
   /** TODO */
   name: string
   /** TODO */
@@ -41,7 +41,7 @@ export interface IFormControl<T = {}> {
   /** TODO */
   valid?: boolean
   /** TODO */
-  onChange: React.ChangeEventHandler
+  onChange: (event: React.ChangeEvent<U>, newValue: T) => void
   /** TODO */
   onBlur: React.FocusEventHandler
 }

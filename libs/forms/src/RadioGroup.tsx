@@ -9,8 +9,15 @@ import Fieldset from './Fieldset'
 export interface RadioGroupProps extends IListType, IFormControl {}
 
 class RadioGroup extends Component<RadioGroupProps & { invalid: boolean }> {
+  static defaultProps = {
+    value: '',
+    options: [],
+    onChange: () => {},
+    onBlur: () => {},
+  }
+
   handleChange: React.ChangeEventHandler<HTMLInputElement> = event => {
-    this.props.onChange(event)
+    this.props.onChange(event, event.target.value)
   }
 
   handleBlur: React.FocusEventHandler<HTMLInputElement> = event => {

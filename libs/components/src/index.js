@@ -60,7 +60,6 @@ export {
   AlertUncontrolled,
   Button,
   Avatar,
-  Field,
   IconButton,
   Infotip,
   UncontrolledInfotip,
