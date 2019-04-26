@@ -72,7 +72,6 @@ export {
   PageTitle,
   PageActions,
   Logo,
-  Select,
   Placeholder,
   CollapsibleCard,
   UncontrolledCollapsibleCard,

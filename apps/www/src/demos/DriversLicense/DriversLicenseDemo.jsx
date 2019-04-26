@@ -1,5 +1,5 @@
 import React from 'react'
-import Select from 'react-select'
+import { Select } from '@cwds/forms'
 import { Row, Col, Label } from '@cwds/components'
 import { Input } from '@cwds/reactstrap'
 import { StatesData } from './StatesData'

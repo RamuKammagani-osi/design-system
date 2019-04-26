@@ -15,7 +15,6 @@ export { default as PageTitle } from './PageTitle'
 export { default as PageActions } from './PageActions'
 export { default as Logo } from './Logo'
 // export { default as PageHeader } from './PageHeader'
-export { default as Select } from 'react-select'
 export { default as Placeholder } from './Placeholder'
 export { CollapsibleCard, UncontrolledCollapsibleCard } from './CollapsibleCard'
 export {

@@ -3,7 +3,7 @@ import cn from 'classnames'
 import { Button } from '@cwds/cares'
 import { Input, Util } from '@cwds/reactstrap'
 import { Icon } from '@cwds/icons'
-import Select from 'react-select'
+import { Select } from '@cwds/forms'
 import uniqueId from 'lodash.uniqueid'
 
 // From react-table@6.8.6
