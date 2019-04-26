@@ -20,13 +20,6 @@ interface CheckboxControlProps {
   onBlur?: React.FormEventHandler
 }
 
-const propTypes = {
-  /** Foo */
-  id: PropTypes.string,
-}
-
-const defaultProps = {}
-
 // form-check-inline .form-check-input { margin-right: 0.375rem }
 
 const CheckboxControl = (props: CheckboxControlProps) => {
@@ -68,9 +61,6 @@ const CheckboxControl = (props: CheckboxControlProps) => {
     </FormGroup>
   )
 }
-
-CheckboxControl.propTypes = propTypes
-CheckboxControl.defaultProps = defaultProps
 
 export default CheckboxControl
 

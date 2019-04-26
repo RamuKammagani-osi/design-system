@@ -4,7 +4,6 @@ import { Card, CardBody, FormGroup, Label } from '@cwds/components'
 import { CodeBlock } from '@cwds/docs'
 import { CheckboxBank } from '@cwds/forms'
 import get from 'lodash.get'
-import partial from 'lodash.partial'
 import { toppings as options } from './toppings-data'
 
 const initialValues = ['3', '2', '5', '9']
@@ -27,11 +26,12 @@ const BasicCheckboxBankExample = ({
             <FormGroup>
               <Label>{label}</Label>
               <CheckboxBank
+                invalid={!!errors.toppings}
                 inline={inline}
                 options={options}
                 value={get(values, fieldName)}
                 onChange={(e, newValue) => setFieldValue(fieldName, newValue)}
-                onBlur={partial(setFieldTouched, fieldName)}
+                onBlur={() => setFieldTouched('toppings')}
               />
             </FormGroup>
             {!noDebug && (
@@ -54,6 +54,18 @@ BasicCheckboxBankExample.defaultProps = {
   initialValues,
   label: 'Toppings',
   fieldName: 'toppings',
+  validate,
 }
 
 export default BasicCheckboxBankExample
+
+//
+// Helpers
+//
+
+function validate({ toppings }) {
+  const errors = {}
+  const ANCHOVIES = '1'
+  if (toppings.indexOf(ANCHOVIES) > -1) errors.toppings = 'Anchovies are gross!'
+  return errors
+}

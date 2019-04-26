@@ -88,6 +88,7 @@ export {
   CheckboxBank,
   RadioGroup,
   DatePicker,
+  Select,
 } from '@cwds/forms'
 export { default as DataGrid } from '@cwds/datagrid'
 export { Icon, ICON_NAMES } from '@cwds/icons'

@@ -63,6 +63,7 @@ class CheckboxBank extends Component<CheckboxBankProps> {
               onBlur={this.handleBlur}
               label={opt.label}
               inline={this.props.inline}
+              error={!!this.props.invalid}
             />
           )
         })}

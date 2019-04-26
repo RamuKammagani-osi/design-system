@@ -1,8 +1,8 @@
 @import '~@cwds/core/scss/base';
 
 .CheckboxControlFocus {
-  padding: map-get($spacers, 1) map-get($spacers, 3);
-  padding-left: 2.75rem;
+  padding: map-get($spacers, 1) map-get($spacers, 3) !important;
+  padding-left: 2.75rem !important;
 
   &:focus-within {
     background-color: lighten(map-get($map: $theme-colors, $key: 'breath'), 2%);
