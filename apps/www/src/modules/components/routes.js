@@ -31,9 +31,9 @@ import FormPatternsArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/F
 import FormsIndexArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsIndexArticle.mdx'
 import InputArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/InputArticle.mdx'
 import InputMaskArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/InputMaskArticle.mdx'
-import FormsAbstractArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsAbstractArticle.mdx'
+// import FormsAbstractArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsAbstractArticle.mdx'
 import FormFieldArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormFieldArticle.mdx'
-import FormsKitchenSinkArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsKitchenSinkArticle.mdx'
+// import FormsKitchenSinkArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsKitchenSinkArticle.mdx'
 import FormsRadioArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsRadioArticle.mdx'
 import FormsSelectArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsSelectArticle.mdx'
 import FormsTextAreaArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsTextAreaArticle.mdx'
@@ -232,17 +232,17 @@ const routes = {
       component: FormsIndexArticle,
       noSort: true,
       children: [
-        {
-          title: 'Forms: The Kitchen Sink',
-          label: 'Kitchen Sink',
-          path: '/kitchen-sink',
-          component: FormsKitchenSinkArticle,
-        },
-        {
-          title: 'Abstract',
-          path: '/abstract',
-          component: FormsAbstractArticle,
-        },
+        // {
+        //   title: 'Forms: The Kitchen Sink',
+        //   label: 'Kitchen Sink',
+        //   path: '/kitchen-sink',
+        //   component: FormsKitchenSinkArticle,
+        // },
+        // {
+        //   title: 'Abstract',
+        //   path: '/abstract',
+        //   component: FormsAbstractArticle,
+        // },
         {
           title: 'FormField',
           path: '/form-field',
