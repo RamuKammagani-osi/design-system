@@ -64,7 +64,7 @@ const MyOtherCustomHeader: React.SFC<CustomHeaderProps> = ({
       disabled={prevMonthButtonDisabled}
       onClick={decreaseMonth}
     >
-      <Icon icon="angle-left" />
+      <Icon icon="angle-left" className="text-secondary" />
     </Button>
 
     <div>
@@ -73,11 +73,11 @@ const MyOtherCustomHeader: React.SFC<CustomHeaderProps> = ({
 
     <Button
       aria-hidden="true"
-      className="bg-transparent border-0"
+      className="bg-transparent border-0 "
       onClick={increaseMonth}
       disabled={nextMonthButtonDisabled}
     >
-      <Icon icon="angle-right" />
+      <Icon icon="angle-right" className="text-secondary" />
     </Button>
   </div>
 )
@@ -96,7 +96,7 @@ class DatePicker extends Component<DatePickerProps> {
   render() {
     return (
       <ReactDatePicker
-        placeholderText="MM/DD/YYYY"
+        placeholderText="mm/dd/yyyy"
         selected={this.state.startDate}
         customInput={<Input />}
         renderCustomHeader={MyOtherCustomHeader}

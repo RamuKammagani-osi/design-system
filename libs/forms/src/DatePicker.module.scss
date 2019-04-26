@@ -26,5 +26,10 @@
 
   .react-datepicker__header {
     font-weight: bold;
+    color: $gray-700;
+  }
+
+  .react-datepicker__day-name {
+    color: $gray-700;
   }
 }
