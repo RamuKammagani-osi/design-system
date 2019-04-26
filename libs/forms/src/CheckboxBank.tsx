@@ -40,8 +40,8 @@ class CheckboxBank extends Component<CheckboxBankProps> {
     this.props.onChange(event, newValue)
   }
 
-  handleBlur = () => {
-    this.props.onBlur()
+  handleBlur: React.FocusEventHandler<HTMLInputElement> = event => {
+    this.props.onBlur(event)
   }
 
   render() {

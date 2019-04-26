@@ -1,4 +1,4 @@
-export { FormField } from './FormField'
+export { default } from './FormField'
 /*
 TODO: Babel + typescript issue?
 

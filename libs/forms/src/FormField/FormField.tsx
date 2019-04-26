@@ -8,6 +8,7 @@ import {
   FormText,
 } from '@cwds/reactstrap'
 import { Icon } from '@cwds/icons'
+import Styles from './FormField.module.scss'
 
 const RequiredIndicator = () => <span>&#42;</span>
 
@@ -72,7 +73,7 @@ export const FormField: React.FunctionComponent<
           // valid={!!touched && !error}
         />
         {touched && error && (
-          <FormFeedback className="d-block" style={{ display: 'block' }}>
+          <FormFeedback className={Styles.InvalidFeedback}>
             <Icon name="exclamation-triangle" className="mx-2" />
             {error}
           </FormFeedback>
