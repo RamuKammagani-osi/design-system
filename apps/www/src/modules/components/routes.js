@@ -36,7 +36,6 @@ import FormFieldArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/Form
 import FormsKitchenSinkArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsKitchenSinkArticle.mdx'
 import FormsRadioArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsRadioArticle.mdx'
 import FormsSelectArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsSelectArticle.mdx'
-import FormsMultiSelectArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsMultiSelectArticle.mdx'
 import FormsTextAreaArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsTextAreaArticle.mdx'
 import FormsDatePickerArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsDatePickerArticle.mdx'
 
@@ -273,11 +272,6 @@ const routes = {
           title: 'Select',
           path: '/select',
           component: FormsSelectArticle,
-        },
-        {
-          title: 'Multi Select',
-          path: '/multi-select',
-          component: FormsMultiSelectArticle,
         },
         {
           title: 'TextArea',

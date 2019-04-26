@@ -72,7 +72,7 @@ export const FormField: React.FunctionComponent<
           // valid={!!touched && !error}
         />
         {touched && error && (
-          <FormFeedback className="d-block">
+          <FormFeedback className="d-block" style={{ display: 'block' }}>
             <Icon name="exclamation-triangle" className="mx-2" />
             {error}
           </FormFeedback>

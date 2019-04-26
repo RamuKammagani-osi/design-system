@@ -4,10 +4,11 @@ import { Select } from '@cwds/forms'
 import { DemoCard, PropTable, ReferenceCard } from '@cwds/docs'
 import { Alert, Card, CardBody, Row, Col } from '@cwds/components'
 import { toppings as TOPPINGS } from './examples/toppings-data'
+import SimpleSelectExample from './examples/SimpleSelectExample'
 
 ## Synopsis
 
-Use a `Select` to pick 1 from an option of values. For more docs [react-select](https://react-select.com/home#getting-started)
+Use a `Select` to pick 1 or many from an option of values. For more docs [react-select](https://react-select.com/home#getting-started)
 
 <DemoCard>
   <Select
@@ -28,7 +29,7 @@ import { Select } from '@cwds/components'
 
 ## Props
 
-<!-- <PropTable docgen={Docgen.Select} /> -->
+Pass the `isMulti` prop for _multi_ select.
 
 <Alert color="warning">
   Sorry, we don't have a way to document our components
@@ -38,11 +39,29 @@ import { Select } from '@cwds/components'
 
 Use `Select` when a large list of options are available and picking a 1 value.
 
+Use `Select[isMulti]` when a large list of options are available and picking n values.
+
 ## Examples
 
-<ReferenceCard>
-  wrapped in a _white_ container b/c that's how you'll see 'em
-</ReferenceCard>
+### Basic Usage
+
+```jsx
+// Used in examples below
+const TOPPINGS = [
+  { value: '1', label: 'Anchovies' },
+  { value: '2', label: 'Bacon' },
+  { value: '3', label: 'Chicken' },
+  { value: '4', label: 'Ham' },
+  { value: '5', label: 'Mushrooms' },
+  { value: '6', label: 'Olives' },
+  { value: '7', label: 'Onion' },
+  { value: '8', label: 'Pepperoni' },
+  { value: '9', label: 'Peppers' },
+  { value: '10', label: 'Sausage' },
+]
+```
+
+#### `Select`
 
 <Card>
   <CardBody>
@@ -50,7 +69,25 @@ Use `Select` when a large list of options are available and picking a 1 value.
   </CardBody>
 </Card>
 
+```jsx
+<Select options={TOPPINGS} />
+```
+
+#### `Select[multi]`
+
+<Card>
+  <CardBody>
+    <SimpleSelectExample options={TOPPINGS} />
+  </CardBody>
+</Card>
+
+```jsx
+<Select isMulti options={TOPPINGS} />
+```
+
 ### FormControl States
+
+#### `Select`
 
 <Card>
   <CardBody>
@@ -75,6 +112,38 @@ Use `Select` when a large list of options are available and picking a 1 value.
           </Col>
           <Col>
             <Select {...d} options={TOPPINGS} />
+          </Col>
+        </Row>
+      )
+    })}
+  </CardBody>
+</Card>
+
+#### `Select[isMulti]`
+
+<Card>
+  <CardBody>
+    {[
+      {},
+      { placeholder: 'Seclect Multiple Options...' },
+      { isSearchable: true },
+      { isClearable: true },
+      { isDisabled: true, defaultValue: TOPPINGS[4] },
+    ].map((d, i) => {
+      return (
+        <Row
+          key={i}
+          className={cn('d-flex align-items-center', {
+            'mt-2': i > 0,
+          })}
+        >
+          <Col>
+            <code>
+              {Object.keys(d).length ? JSON.stringify(d, null, 2) : '(default)'}
+            </code>
+          </Col>
+          <Col>
+            <Select isMulti {...d} options={TOPPINGS} />
           </Col>
         </Row>
       )
