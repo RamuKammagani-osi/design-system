@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import Docgen from '../ReactDogenInfo.js'
-import { Select } from '@cwds/forms'
+import { Select, SelectFoo } from '@cwds/forms'
 import { DemoCard, PropTable, ReferenceCard } from '@cwds/docs'
 import { Alert, Card, CardBody, Row, Col } from '@cwds/components'
 import { toppings as TOPPINGS } from './examples/toppings-data'
@@ -150,6 +150,21 @@ const TOPPINGS = [
     })}
   </CardBody>
 </Card>
+
+## Device Detection (wip)
+
+<DemoCard>
+  <SelectFoo
+    options={[
+      { value: 'foo', label: 'Foo' },
+      { value: 'bar', label: 'Bar' },
+      { value: 'bizz', label: 'Bizz (disabled)', disabled: true },
+      { value: 'bazz', label: 'Bazz (disabled)', disabled: true },
+      { value: 'quo', label: 'Quo' },
+      { value: 'qux', label: 'Qux' },
+    ]}
+  />
+</DemoCard>
 
 ## Related Articles
 

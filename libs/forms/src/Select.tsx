@@ -1,21 +1,9 @@
 import React from 'react'
 import ReactSelect from 'react-select'
-import { isMobile } from 'react-device-detect'
-
 import DS from '@cwds/core'
+import withDeviceDetect from './withDeviceDetect'
 
-const Select: React.FunctionComponent<{}> = props => {
-  return (
-    <div>
-      {isMobile ? (
-        <select id="my-select" name="my-select" {...props} />
-      ) : (
-        <ReactSelect {...props} />
-      )}
-    </div>
-  )
-}
-console.log(DS)
+const Select: React.FunctionComponent<{}> = props => <ReactSelect {...props} />
 
 Select.defaultProps = {
   isOptionDisabled: (option: { [K: string]: any }) => option.disabled,
@@ -55,3 +43,11 @@ Select.defaultProps = {
 }
 
 export default Select
+
+const PrimitiveSelect: React.ComponentType<{}> = props => {
+  console.log(props)
+  return <div>I AM THE PRIMITIVE SELECT</div>
+}
+
+const SelectFoo = withDeviceDetect<{}, {}>(Select, PrimitiveSelect)
+export { SelectFoo }
