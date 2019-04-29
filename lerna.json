@@ -1,10 +1,7 @@
 {
   "version": "1.4.0-rc.4",
   "independent": false,
-  "packages": [
-    "libs/*",
-    "apps/*"
-  ],
+  "packages": ["libs/*", "apps/*"],
   "npmClient": "yarn",
   "useWorkspaces": true,
   "command": {
