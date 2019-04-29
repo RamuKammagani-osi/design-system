@@ -9,9 +9,7 @@ const Select: React.FunctionComponent<{}> = props => {
     <div>
       {isMobile ? (
         <select id="my-select" name="my-select">
-          <option value="" disabled>
-            Select...
-          </option>
+          <option {...props} />
         </select>
       ) : (
         <ReactSelect {...props} />
