@@ -1,0 +1,35 @@
+@import '~@cwds/core/scss/base';
+:global {
+  @import '~react-datepicker/src/stylesheets/datepicker.scss';
+
+  $box-shadow-style: 0 0 0 $btn-focus-width rgba(theme-color('accent'), 0.75);
+
+  .react-datepicker__day.react-datepicker__day--selected {
+    background-color: $primary;
+    color: $white;
+  }
+
+  .react-datepicker__day--keyboard-selected {
+    background-color: $white;
+    box-shadow: $box-shadow-style;
+    color: $body-color;
+  }
+
+  .react-datepicker__day.react-datepicker__day {
+    cursor: pointer;
+    &:hover {
+      background-color: $white;
+      box-shadow: $box-shadow-style;
+      color: $body-color;
+    }
+  }
+
+  .react-datepicker__header {
+    font-weight: bold;
+    color: $gray-700;
+  }
+
+  .react-datepicker__day-name {
+    color: $gray-700;
+  }
+}

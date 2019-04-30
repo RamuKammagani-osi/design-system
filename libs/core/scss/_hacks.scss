@@ -1,0 +1,15 @@
+input[type="text"],
+input[type="color"],
+input[type="email"],
+input[type="search"],
+input[type="password"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="tel"] {
+  &::-ms-clear,
+  &::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}

@@ -12,12 +12,13 @@ set(customStyle, ['pre[class*="language-"]', 'paddingBottom'], '0.75rem')
 const CodeBlock = props => (
   <SyntaxHighlighter
     {...props}
-    className={cn(props.className, 'my-3')}
+    className={cn(props.className)}
     style={customStyle}
   />
 )
 CodeBlock.defaultProps = {
   language: 'jsx',
+  className: 'my-3',
 }
 
 export default CodeBlock

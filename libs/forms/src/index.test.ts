@@ -5,7 +5,6 @@ describe('@cwds/forms', () => {
     namedExport
     ${'CheckboxBank'}
     ${'RadioGroup'}
-    ${'SelectList'}
   `('exports $namedExport', ({ namedExport }) => {
     expect(Object.keys(NamedExports)).toContain(namedExport)
   })

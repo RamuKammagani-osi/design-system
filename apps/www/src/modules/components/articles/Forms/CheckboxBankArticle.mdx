@@ -1,0 +1,115 @@
+import { Link } from 'react-router-dom'
+import { CheckboxBank } from '@cwds/forms'
+import { DemoCard, PropTable } from '@cwds/docs'
+import {
+  Alert,
+  CardBody,
+  CardHeader,
+  CardTitle,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+  UncontrolledCollapsibleCard as CollapsibleCard,
+} from '@cwds/components'
+import Docgen from '../ReactDogenInfo'
+import CheckboxBankValidationExample from './examples/CheckboxBankValidationExample'
+import BasicCheckboxBankExample from './examples/BasicCheckboxBankExample'
+
+## Synopsis
+
+Use a `CheckboxBank` in forms.
+
+<DemoCard>
+  <BasicCheckboxBankExample
+    options={[
+      { value: 'foo', label: 'Foo' },
+      { value: 'bar', label: 'Bar' },
+      { value: 'bizz', label: 'Bizz (disabled)', disabled: true },
+      { value: 'bazz', label: 'Bazz (disabled)', disabled: true },
+      { value: 'quo', label: 'Quo' },
+      { value: 'qux', label: 'Qux' },
+    ]}
+    initialValues={['bar', 'bazz', 'quo']}
+    label="Metasyntactic Variables"
+    fieldName="metaVarNames"
+    className="mb-0"
+    noDebug
+  />
+</DemoCard>
+
+```jsx
+import { CheckboxBank } from '@cwds/forms'
+```
+
+## Props
+
+<CollapsibleCard initialClosed>
+  <CardHeader>
+    <CardTitle>
+      <code>CheckboxBank</code> Props
+    </CardTitle>
+  </CardHeader>
+  <CardBody className="pb-0">
+    <Alert color="warning">
+      We're working on a way to generate <code>PropTables</code> from
+      our TypeScript components. Below is manual copy of the prop interface
+      for your convenience, but view the <a href="">source on GitHub</a>{' '}
+      if you experience any issues.
+    </Alert>
+
+```ts
+interface CheckboxBankProps<T> {
+  /** The currently selected choice(s) */
+  value: T[]
+  /** Possible choices */
+  options: Array<{
+    /** Visual label */
+    label: string
+    /** Value associated with the option */
+    value: T
+    /** Whether or not to enable the option */
+    disabled?: boolean
+  }>
+  /** Name for the field. Used to generate unique id */
+  name: string
+  /** Whether or not to enable the _entire_ field */
+  disabled: boolean
+  /** Use alternate layout */
+  inline: boolean
+  /** Change handler */
+  onChange: (values: T[]) => void
+  /** Blur handler */
+  onBlur: () => void
+}
+```
+
+  </CardBody>
+</CollapsibleCard>
+
+## Usage Guidelines
+
+`CheckboxBank`s are one of the <tt>N-pick-k</tt> type CARES <tt>FormControl</tt>s.
+
+## Examples
+
+### Basic
+
+Used inside of <tt>form</tt>s, one typically will use `CheckboxBank`s in <Link to="/components/cards"><code>Cards</code></Link> aksjdfh
+
+<BasicCheckboxBankExample />
+
+<!--
+
+### Validation
+
+<CheckboxBankValidationExample />
+
+-->
+
+## Related Articles
+
+### Components
+
+- [`Form`]()
+- [`Field`]()

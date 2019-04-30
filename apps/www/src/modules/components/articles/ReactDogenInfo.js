@@ -15,6 +15,8 @@ export default {
   Col: docgenComposed('reactstrap/src/Col.js'),
   Container: docgenComposed('reactstrap/src/Container.js'),
   Infotip: docgenComposed('@cwds/cares/src/Infotip/Infotip.jsx'),
+  Input: docgenComposed('reactstrap/src/Input.js'),
+  InputMask: docgenComposed('react-text-mask/src/reactTextMask.js'),
   Icon: docgenComposed(
     '@cwds/icons/src/Icon.jsx',
     '@cwds/icons/src/fontawesome.props'

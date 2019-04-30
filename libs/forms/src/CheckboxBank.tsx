@@ -1,64 +1,75 @@
-import * as React from 'react'
-import { IListType } from './types'
-import cn from 'classnames'
-import { Input, FormGroup, Label } from '@cwds/reactstrap'
-const uniqueId = require('lodash.uniqueid')
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { IListType, IFormControl } from './types'
+import CheckboxControl from './CheckboxControl'
+import Fieldset from './Fieldset'
 
-export interface CheckboxBankProps<T> extends IListType<T> {
-  /** The currently selected choices */
-  value: T[]
-  /** Name for the field. Used to generate unique id */
-  name: string
-  /** Whether or not to enable the _entire_ field */
-  disabled: boolean
-  /** Use alternate layout */
+type StringOrNumber = string | number
+
+export interface CheckboxBankProps
+  extends IListType,
+    IFormControl<StringOrNumber[], HTMLInputElement> {
   inline: boolean
-  /** Change handler (traditional callback) */
-  onChange: React.ChangeEventHandler
-  /** Blur handler (traditional callback) */
-  onBlur: React.EventHandler<any>
+  onBlur: React.FocusEventHandler & (() => void)
 }
 
-const CheckboxBank = (props: CheckboxBankProps<any>) => {
-  if (!props.options || !props.options.length) return null
-  return (
-    <React.Fragment>
-      {props.options.map(option => {
-        const id = `${props.name}-chk${uniqueId()}-${option.label}`
-        return (
-          <FormGroup
-            check
-            key={option.value}
-            className={cn('mx-2', {
-              'd-inline-block mr-4': props.inline,
-            })}
-          >
-            <Input
-              id={id}
-              type="checkbox"
-              value={option.value}
-              checked={props.value.includes(option.value)}
-              disabled={option.disabled}
-              onChange={props.onChange}
+class CheckboxBank extends Component<CheckboxBankProps> {
+  static propTypes = {
+    value: PropTypes.array.isRequired,
+    options: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        value: PropTypes.any.isRequired,
+        disabled: PropTypes.bool,
+      })
+    ).isRequired,
+  }
+
+  static defaultProps = {
+    value: [],
+    options: [],
+    onChange: () => {},
+    onBlur: () => {},
+  }
+
+  handleChange: React.ChangeEventHandler<HTMLInputElement> = event => {
+    const { value, checked } = event.target
+    const newValue = checked
+      ? this.props.value.concat(value)
+      : this.props.value.filter(val => val !== value)
+    this.props.onChange(event, newValue)
+  }
+
+  handleBlur: React.FocusEventHandler<HTMLInputElement> = event => {
+    this.props.onBlur(event)
+  }
+
+  render() {
+    const { options } = this.props
+    if (!options.length)
+      console.error(
+        'Warning: You should not provide zero-length options to `CheckboxBank`'
+      )
+    return (
+      <Fieldset>
+        {options.map(opt => {
+          return (
+            <CheckboxControl
+              key={opt.value}
+              value={opt.value}
+              disabled={opt.disabled}
+              checked={this.props.value.includes(opt.value)}
+              onChange={this.handleChange}
+              onBlur={this.handleBlur}
+              label={opt.label}
+              inline={this.props.inline}
+              error={!!this.props.invalid}
             />
-            <Label
-              htmlFor={id}
-              className={cn({
-                'text-muted': option.disabled,
-              })}
-            >
-              {option.label}
-            </Label>
-          </FormGroup>
-        )
-      })}
-    </React.Fragment>
-  )
-}
-
-CheckboxBank.defaultProps = {
-  options: [],
-  value: [],
+          )
+        })}
+      </Fieldset>
+    )
+  }
 }
 
 export default CheckboxBank

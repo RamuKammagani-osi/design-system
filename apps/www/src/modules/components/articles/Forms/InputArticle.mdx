@@ -1,0 +1,103 @@
+import cn from 'classnames'
+import { Input } from '@cwds/forms'
+import { DemoCard, PropTable, ReferenceCard } from '@cwds/docs'
+import { Card, CardBody, Row, Col } from '@cwds/components'
+import Docgen from '../ReactDogenInfo'
+
+## Synopsis
+
+Use an `Input` in to capture text or number input in forms.
+
+<DemoCard>
+  <Input placeholder="Placeholder..." />
+</DemoCard>
+
+```jsx
+import { Input } from '@cwds/components'
+```
+
+## Props
+
+<PropTable docgen={Docgen.Input} />
+
+## Usage Guidelines
+
+## Examples
+
+<ReferenceCard>
+  wrapped in a _white_ container b/c that's how you'll see 'em
+</ReferenceCard>
+
+### Types
+
+<Card>
+  <CardBody>
+    {['tel', 'password', 'number', 'color', 'date'].map((d, i) => (
+      <Row
+        key={d}
+        className={cn('d-flex align-items-center', {
+          'mt-2': i > 0,
+        })}
+      >
+        <Col>
+          <code>type="{d}"</code>
+        </Col>
+        <Col>
+          <Input type={d} />
+        </Col>
+      </Row>
+    ))}
+  </CardBody>
+</Card>
+
+### FormControl States
+
+<Card>
+  <CardBody>
+    {[
+      {},
+      { placeholder: 'Placeholder...' },
+      { valid: true, defaultValue: 'valid' },
+      { invalid: true, defaultValue: 'invalid' },
+      { disabled: true, defaultValue: 'disabled' },
+      { readOnly: true, defaultValue: 'readOnly' },
+    ].map((d, i) => {
+      return (
+        <Row
+          key={i}
+          className={cn('d-flex align-items-center', {
+            'mt-2': i > 0,
+          })}
+        >
+          <Col>
+            <code>
+              {Object.keys(d).length ? JSON.stringify(d, null, 2) : '(default)'}
+            </code>
+          </Col>
+          <Col>
+            <Input {...d} />
+          </Col>
+        </Row>
+      )
+    })}
+  </CardBody>
+</Card>
+
+### Textareas
+
+If a <em>long-form</em> text input is desired, use `type="textarea"`:
+
+<DemoCard>
+  <Input type="textarea" placeholder="Another Placeholder..." rows="5" />
+</DemoCard>
+
+```jsx
+<Input
+  type="textarea"
+  placeholder="Another Placeholder..."
+  rows="5"
+  resize="vertical"
+/>
+```
+
+<!--## Related Articles-->

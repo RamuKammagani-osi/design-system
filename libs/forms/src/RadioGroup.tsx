@@ -1,52 +1,93 @@
-import * as React from 'react'
-import { IListType } from './types'
+import React, { Component } from 'react'
+import { IListType, IFormControl } from './types'
 import cn from 'classnames'
-const uniqueId = require('lodash.uniqueid')
 import { Input, FormGroup, Label } from '@cwds/reactstrap'
+import { Icon } from '@cwds/icons'
+import Styles from './RadioGroup.module.scss'
+import Fieldset from './Fieldset'
 
+export interface RadioGroupProps extends IListType, IFormControl {}
 
-export interface RadioGroupProps<T> extends IListType<T> {
-  /** The currently selected value */
-  value: T
-  /** Name for the field. Used to generate unique id */
-  name: string
-  /** Whether or not to enable the _entire_ field */
-  disabled: boolean
-  /** Change handler (traditional callback) */
-  onChange: React.ChangeEventHandler
-  /** Blur handler (traditional callback) */
-  onBlur: React.EventHandler<any>
-  /** Legend */
-  legend: string
-}
+class RadioGroup extends Component<RadioGroupProps & { invalid: boolean }> {
+  static defaultProps = {
+    value: '',
+    options: [],
+    onChange: () => {},
+    onBlur: () => {},
+  }
 
-const RadioGroup = (props: RadioGroupProps<any>) => {
-  const grpId = `${props.name}-rdo${uniqueId()}`
-  return (
-    <FormGroup tag="fieldset">
-      <legend className="sr-only">{props.legend}</legend>
-      {props.options.map(option => {
-        const id = `${grpId}-${option.label}`
-        return (
-          <FormGroup check key={option.value} className={cn('mx-2')}>
-            <Label check>
+  handleChange: React.ChangeEventHandler<HTMLInputElement> = event => {
+    this.props.onChange(event, event.target.value)
+  }
+
+  handleBlur: React.FocusEventHandler<HTMLInputElement> = event => {
+    this.props.onBlur(event)
+  }
+
+  render() {
+    return (
+      <Fieldset
+        name={this.props.name}
+        /* Style an invalid group?
+        className={cn({
+          'border-danger border': this.props.invalid,
+        })}
+        */
+      >
+        {this.props.options.map(option => (
+          <FormGroup
+            check
+            key={option.value}
+            className={cn(Styles.RadioFormGroup)}
+          >
+            <Label
+              check
+              className={cn({
+                'text-danger': !!this.props.invalid,
+              })}
+            >
               <Input
                 type="radio"
-                name={grpId}
+                name={this.props.name}
                 disabled={option.disabled}
                 value={option.value}
-                checked={props.value === option.value}
-                onChange={props.onChange}
+                checked={this.props.value === option.value}
+                onChange={this.handleChange}
+                onBlur={this.handleBlur}
+              />
+              <Icon
+                {...getIconProps({
+                  checked: this.props.value === option.value,
+                  disabled: !!option.disabled,
+                  invalid: this.props.invalid,
+                })}
               />
               <span className={cn({ 'text-muted': option.disabled })}>
                 {option.label}
               </span>
             </Label>
           </FormGroup>
-        )
-      })}
-    </FormGroup>
-  )
+        ))}
+      </Fieldset>
+    )
+  }
 }
 
 export default RadioGroup
+
+//
+// Helpers
+//
+function getIconProps(opts: {
+  checked: boolean
+  disabled: boolean
+  invalid: boolean
+}) {
+  const { checked, disabled } = opts
+  return checked
+    ? { name: 'circle', className: cn('text-primary', Styles.RadioIcon) }
+    : {
+        name: ['far', 'circle'],
+        className: cn(Styles.RadioIconInactive, Styles.RadioIcon),
+      }
+}

@@ -1,0 +1,162 @@
+import cn from 'classnames'
+import Docgen from '../ReactDogenInfo.js'
+import { Select } from '@cwds/forms'
+import { DemoCard, PropTable, ReferenceCard } from '@cwds/docs'
+import { Alert, Card, CardBody, Row, Col } from '@cwds/components'
+import { toppings as TOPPINGS } from './examples/toppings-data'
+import SimpleSelectExample from './examples/SimpleSelectExample'
+
+## Synopsis
+
+Use a `Select` to pick 1 or many from an option of values. For more docs [react-select](https://react-select.com/home#getting-started)
+
+<DemoCard>
+  <Select
+    options={[
+      { value: 'foo', label: 'Foo' },
+      { value: 'bar', label: 'Bar' },
+      { value: 'bizz', label: 'Bizz (disabled)', disabled: true },
+      { value: 'bazz', label: 'Bazz (disabled)', disabled: true },
+      { value: 'quo', label: 'Quo' },
+      { value: 'qux', label: 'Qux' },
+    ]}
+  />
+</DemoCard>
+
+```jsx
+import { Select } from '@cwds/components'
+```
+
+## Props
+
+Pass the `isMulti` prop for _multi_ select.
+
+<Alert color="warning">
+  Sorry, we don't have a way to document our components
+</Alert>
+
+## Usage Guidelines
+
+Use `Select` when a large list of options are available and picking a 1 value.
+
+Use `Select[isMulti]` when a large list of options are available and picking n values.
+
+## Examples
+
+### Basic Usage
+
+```jsx
+// Used in examples below
+const TOPPINGS = [
+  { value: '1', label: 'Anchovies' },
+  { value: '2', label: 'Bacon' },
+  { value: '3', label: 'Chicken' },
+  { value: '4', label: 'Ham' },
+  { value: '5', label: 'Mushrooms' },
+  { value: '6', label: 'Olives' },
+  { value: '7', label: 'Onion' },
+  { value: '8', label: 'Pepperoni' },
+  { value: '9', label: 'Peppers' },
+  { value: '10', label: 'Sausage' },
+]
+```
+
+#### `Select`
+
+<Card>
+  <CardBody>
+    <Select options={TOPPINGS} />
+  </CardBody>
+</Card>
+
+```jsx
+<Select options={TOPPINGS} />
+```
+
+#### `Select[multi]`
+
+<Card>
+  <CardBody>
+    <SimpleSelectExample options={TOPPINGS} />
+  </CardBody>
+</Card>
+
+```jsx
+<Select isMulti options={TOPPINGS} />
+```
+
+### FormControl States
+
+#### `Select`
+
+<Card>
+  <CardBody>
+    {[
+      {},
+      { placeholder: 'Placeholder...' },
+      { isSearchable: true },
+      { isClearable: true },
+      { isDisabled: true, defaultValue: TOPPINGS[0] },
+    ].map((d, i) => {
+      return (
+        <Row
+          key={i}
+          className={cn('d-flex align-items-center', {
+            'mt-2': i > 0,
+          })}
+        >
+          <Col>
+            <code>
+              {Object.keys(d).length ? JSON.stringify(d, null, 2) : '(default)'}
+            </code>
+          </Col>
+          <Col>
+            <Select {...d} options={TOPPINGS} />
+          </Col>
+        </Row>
+      )
+    })}
+  </CardBody>
+</Card>
+
+#### `Select[isMulti]`
+
+<Card>
+  <CardBody>
+    {[
+      {},
+      { placeholder: 'Seclect Multiple Options...' },
+      { isSearchable: true },
+      { isClearable: true },
+      { isDisabled: true, defaultValue: TOPPINGS[4] },
+    ].map((d, i) => {
+      return (
+        <Row
+          key={i}
+          className={cn('d-flex align-items-center', {
+            'mt-2': i > 0,
+          })}
+        >
+          <Col>
+            <code>
+              {Object.keys(d).length ? JSON.stringify(d, null, 2) : '(default)'}
+            </code>
+          </Col>
+          <Col>
+            <Select isMulti {...d} options={TOPPINGS} />
+          </Col>
+        </Row>
+      )
+    })}
+  </CardBody>
+</Card>
+
+## Related Articles
+
+For more examples, `props` & documentation please look into the official [`react-select Library`](https://react-select.com/home)
+
+### Component
+
+- [`Checkboxes`](/components/forms/checkboxes)
+- [`Radios`](/components/forms/radios)
+- [`Kitchen`](/components/forms/kitchen-sink)

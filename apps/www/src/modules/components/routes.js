@@ -8,6 +8,7 @@ import Avatar from '!babel-loader!@mdx-js/loader!./articles/Avatar/Avatar.mdx'
 import Alert from '!babel-loader!@mdx-js/loader!./articles/Alert/Alert.mdx'
 import AlertSplats from './articles/Alert/Alert.splat'
 import Badge from '!babel-loader!@mdx-js/loader!./articles/Badge/Badge.mdx'
+import BadgeSplats from './articles/Badge/Badge.splat'
 import Breadcrumbs from '!babel-loader!@mdx-js/loader!./articles/Breadcrumbs/Breadcrumbs.mdx'
 import BreadcrumbItem from '!babel-loader!@mdx-js/loader!./articles/BreadcrumbItem/BreadcrumbItem.mdx'
 import Button from '!babel-loader!@mdx-js/loader!./articles/Button/Button.mdx'
@@ -25,7 +26,18 @@ import Modal from '!babel-loader!@mdx-js/loader!./articles/Modal/Modal.mdx'
 import Page from '!babel-loader!@mdx-js/loader!./articles/Page/Page.mdx'
 import CaresProvider from '!babel-loader!@mdx-js/loader!./articles/CaresProvider/CaresProvider.mdx'
 import Tile from '!babel-loader!@mdx-js/loader!./articles/Tile/Tile.mdx'
-import BadgeSplats from './articles/Badge/Badge.splat'
+import CheckboxBankArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/CheckboxBankArticle.mdx'
+import FormPatternsArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormPatternsArticle.mdx'
+import FormsIndexArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsIndexArticle.mdx'
+import InputArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/InputArticle.mdx'
+import InputMaskArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/InputMaskArticle.mdx'
+// import FormsAbstractArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsAbstractArticle.mdx'
+import FormFieldArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormFieldArticle.mdx'
+// import FormsKitchenSinkArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsKitchenSinkArticle.mdx'
+import FormsRadioArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsRadioArticle.mdx'
+import FormsSelectArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsSelectArticle.mdx'
+import FormsTextAreaArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsTextAreaArticle.mdx'
+import FormsDatePickerArticle from '!babel-loader!@mdx-js/loader!./articles/Forms/FormsDatePickerArticle.mdx'
 
 const routes = {
   title: 'Component Library',
@@ -151,7 +163,8 @@ const routes = {
           component: SubcomponentDataGrid,
         },
         // {
-        //   title: 'Advanced Search (WiP)',
+        //   title: 'DataGrid with Advanced Search',
+        //   label: 'Advanced Search',
         //   path: '/advanced-search',
         //   component: AdvancedSearchDataGrid,
         // },
@@ -162,22 +175,6 @@ const routes = {
       path: '/menu',
       component: MenuPage,
     },
-    // {
-    //   title: 'Field',
-    //   path: '/field',
-    // },
-    // {
-    //   title: 'FormFeedback',
-    //   path: '/formfeedback',
-    // },
-    // {
-    //   title: 'FormGroup',
-    //   path: '/formgroup',
-    // },
-    // {
-    //   title: 'Forms',
-    //   path: '/forms',
-    // },
     {
       title: 'Grid',
       path: '/grid',
@@ -194,18 +191,6 @@ const routes = {
       component: Infotip,
     },
     // {
-    //   title: 'Input',
-    //   path: '/input',
-    // },
-    // {
-    //   title: 'InputGroup',
-    //   path: '/inputgroup',
-    // },
-    // {
-    //   title: 'InputGroupAddon',
-    //   path: '/inputgroupaddon',
-    // },
-    // {
     //   title: 'JumpToTop',
     //   path: '/jumptotop',
     // },
@@ -217,46 +202,14 @@ const routes = {
     //   title: 'Layouts',
     //   path: '/layouts',
     // },
-    // {
-    //   title: 'Legend',
-    //   path: '/legend',
-    // },
-    // {
-    //   title: 'ListGroups',
-    //   path: '/listgroups',
-    // },
-    // {
-    //   title: 'Logo',
-    //   path: '/logo',
-    // },
     {
       title: 'Modal',
       path: '/modal',
       component: Modal,
     },
     // {
-    //   title: 'Nav',
-    //   path: '/nav',
-    // },
-    // {
-    //   title: 'PageHeader',
-    //   path: '/pageheader',
-    // },
-    // {
     //   title: 'Popover',
     //   path: '/popover',
-    // },
-    // {
-    //   title: 'RadioGroup',
-    //   path: '/radiogroup',
-    // },
-    // {
-    //   title: 'Select',
-    //   path: '/select',
-    // },
-    // {
-    //   title: 'Toggle',
-    //   path: '/toggle',
     // },
     {
       title: 'Tooltip',
@@ -272,6 +225,71 @@ const routes = {
       title: 'CaresProvider',
       path: '/component-provider',
       component: CaresProvider,
+    },
+    {
+      title: 'Forms',
+      path: '/forms',
+      component: FormsIndexArticle,
+      noSort: true,
+      children: [
+        // {
+        //   title: 'Forms: The Kitchen Sink',
+        //   label: 'Kitchen Sink',
+        //   path: '/kitchen-sink',
+        //   component: FormsKitchenSinkArticle,
+        // },
+        // {
+        //   title: 'Abstract',
+        //   path: '/abstract',
+        //   component: FormsAbstractArticle,
+        // },
+        {
+          title: 'FormField',
+          path: '/form-field',
+          component: FormFieldArticle,
+        },
+        {
+          title: 'Input',
+          path: '/input',
+          component: InputArticle,
+        },
+        {
+          title: 'Input Mask',
+          path: '/inputMask',
+          component: InputMaskArticle,
+        },
+        {
+          title: 'Checkboxes',
+          path: '/checkboxes',
+          component: CheckboxBankArticle,
+        },
+        {
+          title: 'Radios',
+          path: '/radios',
+          component: FormsRadioArticle,
+        },
+        {
+          title: 'Select',
+          path: '/select',
+          component: FormsSelectArticle,
+        },
+        {
+          title: 'TextArea',
+          path: '/text-area',
+          component: FormsTextAreaArticle,
+        },
+        {
+          title: 'Date Picker',
+          path: '/date-picker',
+          component: FormsDatePickerArticle,
+        },
+        {
+          title: 'Form Patterns',
+          label: 'Patterns',
+          path: '/patterns',
+          component: FormPatternsArticle,
+        },
+      ],
     },
   ],
 }

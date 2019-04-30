@@ -33,6 +33,7 @@
     "@cwds/cares": "1.3.6",
     "@cwds/core": "1.3.6",
     "@cwds/datagrid": "1.3.6",
+    "@cwds/forms": "1.3.6",
     "@cwds/icons": "1.3.6",
     "@cwds/reactstrap": "1.3.6"
   },

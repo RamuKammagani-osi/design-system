@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Col, Card, CardBody, Alert } from '@cwds/components'
-import { DemoCard } from '@cwds/docs'
+import { DemoCard, CodeBlock } from '@cwds/docs'
 
 class DismissableAlertExample extends Component {
   rdoGrpName = 'DismissableAlertExampleGroup'
@@ -13,7 +13,7 @@ class DismissableAlertExample extends Component {
   render() {
     return (
       <DemoCard>
-        <CardBody>
+        <div>
           <Alert toggle={this.toggle} isOpen={this.state.isOpen}>
             <p>I am dismissable!</p>
             <p>
@@ -55,14 +55,14 @@ class DismissableAlertExample extends Component {
                   </fieldset>
                 </Col>
                 <Col md="6">
-                  <pre className="mb-0 p-2 text-light bg-dark rounded">
-                    <code>{JSON.stringify(this.state, null, 2)}</code>
-                  </pre>
+                  <CodeBlock language="json" className="my-0">
+                    {JSON.stringify(this.state, null, 2)}
+                  </CodeBlock>
                 </Col>
               </Row>
             </CardBody>
           </Card>
-        </CardBody>
+        </div>
       </DemoCard>
     )
   }
