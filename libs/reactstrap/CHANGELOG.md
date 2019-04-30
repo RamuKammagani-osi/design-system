@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/ca-cwds/design-system/compare/v1.3.6...v1.4.0) (2019-04-30)
+
+**Note:** Version bump only for package @cwds/reactstrap
+
+
+
+
+
 ## [1.3.6](https://github.com/ca-cwds/design-system/compare/v1.3.5...v1.3.6) (2019-04-29)
 
 **Note:** Version bump only for package @cwds/reactstrap
