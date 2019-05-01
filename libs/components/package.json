@@ -35,6 +35,7 @@
     "@cwds/datagrid": "1.4.2",
     "@cwds/forms": "1.4.2",
     "@cwds/icons": "1.4.2",
+    "@cwds/layouts": "1.4.2",
     "@cwds/reactstrap": "1.4.2"
   },
   "devDependencies": {
