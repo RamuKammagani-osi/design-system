@@ -34,6 +34,11 @@ describe('@cwds/components', () => {
     ${'TileGroup'}
     ${'TilePlaceholder'}
     ${'CaresProvider'}
+    ${'AppBar'}
+    ${'Banner'}
+    ${'Body'}
+    ${'Footer'}
+    ${'Page'}
   `('exports $component', ({ component }) => {
     expect(Components[component]).toBeDefined()
   })

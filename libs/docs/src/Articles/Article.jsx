@@ -2,18 +2,18 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 import {
-  PrimitiveButton as Button,
-  Container,
-  Row,
-  Col,
-  PageTitle,
   Banner,
+  Col,
+  Container,
   Footer,
   JumpToTop,
+  PageTitle,
+  PrimitiveButton as Button,
+  Row,
 } from '@cwds/components'
 import SideNav from './ArticleSideNav'
 import Breadcrumb from './ArticleBreadcrumb'
-import PageStyles from '@cwds/cares/src/Layouts/Layout.module.scss'
+import PageStyles from '@cwds/layouts/src/Layout.module.scss'
 
 class Article extends Component {
   state = { showNav: true }

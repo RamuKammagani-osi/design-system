@@ -8,18 +8,17 @@ describe('@cwds/cares', () => {
     ${'Avatar'}
     ${'Button'}
     ${'CaresProvider'}
+    ${'defaultContext'}
     ${'Logo'}
     ${'Menu'}
     ${'UncontrolledMenu'}
     ${'MenuItem'}
     ${'UserMenu'}
     ${'UncontrolledUserMenu'}
-    ${'Page'}
     ${'UncontrolledUserMenu'}
     ${'Tile'}
     ${'TileGroup'}
     ${'TilePlaceholder'}
-    ${'CaresProvider'}
   `('exports $component', ({ component }) => {
     expect(Components[component]).toBeDefined()
   })

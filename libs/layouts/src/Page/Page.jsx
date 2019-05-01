@@ -2,12 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 import pick from 'lodash.pick'
-import PageTitle from '../PageTitle'
-import Banner from './Banner'
-import Body from './Body'
-import Footer from './Footer'
-import { renderElementOrComponent } from '../utils'
-import Styles from './Layout.module.scss'
+import { PageTitle, Utils } from '@cwds/cares'
+import Banner from '../Banner'
+import Body from '../Body'
+import Footer from '../Footer'
+import Styles from '../Layout.module.scss'
 
 /**
  * @todo throw a warning if `main` and `children` are passed
@@ -25,8 +24,8 @@ const getBodyProps = props => ({
 const Page = props => {
   return (
     <div className={cn('h-100 d-flex flex-column', Styles.Page)}>
-      {renderElementOrComponent(Banner, props, getBannerProps)}
-      {renderElementOrComponent(Body, props, getBodyProps)}
+      {Utils.renderElementOrComponent(Banner, props, getBannerProps)}
+      {Utils.renderElementOrComponent(Body, props, getBodyProps)}
       <Footer />
     </div>
   )

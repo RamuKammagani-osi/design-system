@@ -3,10 +3,9 @@ import PropTypes from 'prop-types'
 import cn from 'classnames'
 import pick from 'lodash.pick'
 import { Container } from '@cwds/reactstrap'
+import { PageHeader, Utils } from '@cwds/cares'
 import AppBar from '../AppBar'
-import PageHeader from '../PageHeader'
-import Styles from './Layout.module.scss'
-import { renderElementOrComponent } from '../utils/renderElementOrComponent'
+import Styles from '../Layout.module.scss'
 
 const Banner = props => {
   return (
@@ -23,7 +22,9 @@ const Banner = props => {
       </div>
       {props.Breadcrumb !== false && (
         <div className={cn(Styles.BreadcrumbContainer)}>
-          <Container>{renderElementOrComponent(props.Breadcrumb)}</Container>
+          <Container>
+            {Utils.renderElementOrComponent(props.Breadcrumb)}
+          </Container>
         </div>
       )}
     </div>

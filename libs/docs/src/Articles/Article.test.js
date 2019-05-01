@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { mount, shallow } from 'enzyme'
 import Article from './Article'
 import SideNav from './ArticleSideNav'
-import { Banner, PrimitiveButton as Button } from '@cwds/components'
+import { PrimitiveButton as Button, Banner } from '@cwds/components'
 
 const DummyArticle = () => <div>My Article</div>
 

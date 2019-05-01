@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
+import { CaresContext, defaultContext } from '@cwds/cares'
 import AppBar from './AppBar'
-import { CaresContext, defaultContext } from '../CaresContext'
 
 describe('AppBar', () => {
   it('renders', () => {

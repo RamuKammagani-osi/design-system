@@ -47,35 +47,32 @@ export {
   Util,
 } from '@cwds/reactstrap'
 export {
-  Rolodex,
   Alert,
   AlertUncontrolled,
-  Button,
   Avatar,
+  Button,
+  CaresProvider,
+  CollapsibleCard,
+  defaultContext,
   IconButton,
   Infotip,
-  UncontrolledInfotip,
   JumpNav,
   JumpToTop,
-  Banner,
-  Page,
-  Footer,
-  PageTitle,
-  PageActions,
   Logo,
+  Menu,
+  MenuItem,
+  PageActions,
+  PageTitle,
   Placeholder,
-  CollapsibleCard,
-  UncontrolledCollapsibleCard,
+  Rolodex,
   Tile,
   TileGroup,
   TilePlaceholder,
-  defaultContext,
-  CaresProvider,
-  Menu,
+  UncontrolledCollapsibleCard,
+  UncontrolledInfotip,
   UncontrolledMenu,
-  MenuItem,
-  UserMenu,
   UncontrolledUserMenu,
+  UserMenu,
   Utils,
 } from '@cwds/cares'
 export {
@@ -92,3 +89,4 @@ export {
 } from '@cwds/forms'
 export { default as DataGrid } from '@cwds/datagrid'
 export { Icon, ICON_NAMES } from '@cwds/icons'
+export { AppBar, Banner, Body, Footer, Page } from '@cwds/layouts'

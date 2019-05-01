@@ -30,8 +30,8 @@ export default {
     'reactstrap/src/TooltipPopoverWrapper.js'
   ),
   Page: docgenComposed(
-    '@cwds/cares/src/Layouts/Page.jsx',
-    '@cwds/cares/src/Layouts/Page.props'
+    '@cwds/layouts/src/Page/Page.jsx',
+    '@cwds/layouts/src/Page/Page.props'
   ),
   Tile: docgenComposed('@cwds/cares/src/Tile/Tile.jsx'),
   CaresProvider: docgenComposed(

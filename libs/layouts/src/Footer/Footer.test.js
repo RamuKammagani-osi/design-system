@@ -1,6 +1,6 @@
 import React from 'react'
 import Footer from './Footer'
-import Logo from '../Logo'
+import { Logo } from '@cwds/cares'
 import { shallow } from 'enzyme'
 
 describe('Footer', () => {

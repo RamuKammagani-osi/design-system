@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Alert, Page, Breadcrumb, BreadcrumbItem } from '@cwds/components'
+import { Alert, Breadcrumb, BreadcrumbItem, Page } from '@cwds/components'
 
 const BreadcrumbNotFound = (
   <Breadcrumb>

@@ -1,8 +1,8 @@
 import React from 'react'
-import Banner from './Banner'
-import AppBar from '../AppBar'
-import PageHeader from '../PageHeader'
+import { PageHeader } from '@cwds/cares'
 import { shallow } from 'enzyme'
+import AppBar from '../AppBar'
+import Banner from './Banner'
 
 describe('Banner', () => {
   it('renders', () => {
