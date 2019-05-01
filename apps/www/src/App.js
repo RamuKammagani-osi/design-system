@@ -19,6 +19,7 @@ import PageTemplates from './examples/PageTemplates'
 import CardHeaderDemo from './demos/CardHeaders'
 import ToggleDemos from './demos/ToggleDemos'
 import DriversLicenseDemo from './demos/DriversLicense'
+import SnapshotSearchInterface from './demos/SnapshotSearchInterface'
 
 class App extends Component {
   render() {
@@ -48,6 +49,10 @@ class App extends Component {
                 <Route
                   path="/demo/drivers-license"
                   component={DriversLicenseDemo}
+                />
+                <Route
+                  path="/demo/snapshot-search"
+                  component={SnapshotSearchInterface}
                 />
                 <Route
                   path="/__examples__/page-templates"
