@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/ca-cwds/design-system/compare/v1.4.2...v1.4.3) (2019-05-01)
+
+
+### Bug Fixes
+
+* **components:** fix missing internal dep on layouts ([#606](https://github.com/ca-cwds/design-system/issues/606)) ([4d772b6](https://github.com/ca-cwds/design-system/commit/4d772b6))
+
+
+
+
+
 ## [1.4.2](https://github.com/ca-cwds/design-system/compare/v1.4.1...v1.4.2) (2019-05-01)
 
 

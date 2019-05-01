@@ -1,6 +1,6 @@
 {
   "name": "@cwds/forms",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Forms for CWS-CARES",
   "author": "Danny Eck <danny.eck@osi.ca.gov>",
   "homepage": "https://cws-cares.netlify.com",
@@ -35,9 +35,9 @@
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.3.3",
-    "@cwds/core": "1.4.2",
-    "@cwds/icons": "1.4.2",
-    "@cwds/reactstrap": "1.4.2",
+    "@cwds/core": "1.4.3",
+    "@cwds/icons": "1.4.3",
+    "@cwds/reactstrap": "1.4.3",
     "classnames": "^2.2.6",
     "lodash.range": "^3.2.0",
     "lodash.uniqueid": "^4.0.1",
