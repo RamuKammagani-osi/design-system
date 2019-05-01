@@ -84,7 +84,7 @@ class DatePicker extends Component<ReactDatePickerProps & IFormControl> {
   }
 
   handleChange: ReactDatePickerProps['onChange'] = (date, event) => {
-    this.props.onChange(event, date)
+    this.props.onChange(event || null, date)
   }
 
   render() {

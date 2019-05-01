@@ -43,7 +43,7 @@ export interface IFormControl<T = {}, U = Element> {
   /** TODO */
   onChange: (
     event: React.SyntheticEvent<U> | null,
-    newValue: T | undefined
+    newValue: T | undefined | null,
   ) => void
   /** TODO */
   onBlur: React.FocusEventHandler
