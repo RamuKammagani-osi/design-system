@@ -41,7 +41,10 @@ export interface IFormControl<T = {}, U = Element> {
   /** TODO */
   valid?: boolean
   /** TODO */
-  onChange: (event: React.ChangeEvent<U>, newValue: T) => void
+  onChange: (
+    event: React.SyntheticEvent<U> | null,
+    newValue: T | undefined
+  ) => void
   /** TODO */
   onBlur: React.FocusEventHandler
 }

@@ -3,19 +3,15 @@ import { Icon } from '@cwds/icons'
 import { IconButton } from '@cwds/cares'
 import InputMask from './InputMask'
 import range from 'lodash.range'
-import ReactDatePicker from 'react-datepicker'
+import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker'
 import getYear from 'date-fns/getYear'
 import getMonth from 'date-fns/getMonth'
-import { DATE as DATE_MASK } from './Masks'
+import { DATE_MASK } from './Masks'
 import './DatePicker.module.scss'
-
-interface DatePickerProps {
-  /** PlaceholderText for the field.  */
-  placeholderText: string
-  date: string
-}
+import { IFormControl } from './types'
 
 const years = range(1990, getYear(new Date()) + 1, 1)
+
 const months = [
   'January',
   'February',
@@ -41,7 +37,7 @@ interface CustomHeaderProps {
   nextMonthButtonDisabled: boolean
 }
 
-const MyOtherCustomHeader: React.SFC<CustomHeaderProps> = ({
+const MyOtherCustomHeader: React.FunctionComponent<CustomHeaderProps> = ({
   date,
   changeYear,
   changeMonth,
@@ -71,24 +67,31 @@ const MyOtherCustomHeader: React.SFC<CustomHeaderProps> = ({
   </div>
 )
 
-class DatePicker extends Component<DatePickerProps> {
+interface IOverloads {
+  onChange: (arg: string) => string
+}
+
+class DatePicker extends Component<ReactDatePickerProps & IFormControl> {
+  static defaultProps: Partial<ReactDatePickerProps> = {
+    placeholderText: 'mm/dd/yyyy',
+    dateFormat: 'MM/dd/yyyy',
+    customInput: <InputMask mask={DATE_MASK} />,
+    renderCustomHeader: MyOtherCustomHeader,
+  }
+
   state = {
     startDate: null,
   }
 
-  handleChange = (date: Date) => {
-    this.setState({
-      startDate: date,
-    })
+  handleChange: ReactDatePickerProps['onChange'] = (date, event) => {
+    this.props.onChange(event, date)
   }
 
   render() {
     return (
       <ReactDatePicker
-        placeholderText="mm/dd/yyyy"
+        {...this.props}
         selected={this.state.startDate}
-        customInput={<InputMask mask={DATE_MASK} />}
-        renderCustomHeader={MyOtherCustomHeader}
         onChange={this.handleChange}
       />
     )
