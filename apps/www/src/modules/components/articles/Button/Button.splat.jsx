@@ -1,23 +1,21 @@
 import React from 'react'
-import cn from 'classnames'
-import {
-  Card,
-  CardTitle,
-  CardBody,
-  CardHeader,
-  Row,
-  Col,
-  Button,
-} from '@cwds/components'
+import { Card, CardTitle, CardBody, CardHeader, Button } from '@cwds/components'
+import { SplatFactory } from '@cwds/docs'
 
-const PROP_COMBINATIONS = [
-  ['Default', {}],
-  ['Primary', { primary: true }],
-  ['[size="small"]', { size: 'sm' }],
-  ['primary + [size="small"]', { size: 'sm', primary: true }],
-  ['[size="lg"]', { size: 'lg' }],
-  ['primary + [size="lg"]', { size: 'lg', primary: true }],
+const PROP_OPTIONS = [
+  ['primary', [undefined, true]],
+  ['size', ['sm', 'md', 'lg']],
+  ['active', [undefined, true]],
+  ['className', [undefined, 'focus']],
+  ['children', ['My Button']],
+  ['disabled', [undefined, true]],
 ]
+
+const ButtonSplat = props => (
+  <div className="mb-2">
+    <Button {...props} />
+  </div>
+)
 
 export default () => {
   return (
@@ -27,24 +25,7 @@ export default () => {
           <CardTitle>Buttons</CardTitle>
         </CardHeader>
         <CardBody>
-          {PROP_COMBINATIONS.map(([name, props], index) => {
-            return (
-              <Row key={index} className="mb-2">
-                <Col>
-                  <Button {...props}>Button</Button>{' '}
-                  <Button {...props} active>
-                    Active
-                  </Button>{' '}
-                  <Button {...props} disabled>
-                    Disabled
-                  </Button>{' '}
-                  <Button {...props} className={cn(props.className, 'focus')}>
-                    Focus
-                  </Button>
-                </Col>
-              </Row>
-            )
-          })}
+          <SplatFactory component={ButtonSplat} options={PROP_OPTIONS} />
         </CardBody>
       </Card>
     </div>

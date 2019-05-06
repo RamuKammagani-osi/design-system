@@ -21,6 +21,7 @@ import Grid from '!babel-loader!@mdx-js/loader!./articles/Grid/Grid.mdx'
 import Icon from '!babel-loader!@mdx-js/loader!./articles/Icon/Icon.mdx'
 import Infotip from '!babel-loader!@mdx-js/loader!./articles/Infotip/Infotip.mdx'
 import MenuPage from '!babel-loader!@mdx-js/loader!./articles/Menu/MenuPage.mdx'
+import MenuSplats from './articles/Menu/Menu.splat'
 import TooltipPage from '!babel-loader!@mdx-js/loader!./articles/Tooltip/TooltipPage.mdx'
 import Modal from '!babel-loader!@mdx-js/loader!./articles/Modal/Modal.mdx'
 import Page from '!babel-loader!@mdx-js/loader!./articles/Page/Page.mdx'
@@ -174,6 +175,12 @@ const routes = {
       title: 'Menu',
       path: '/menu',
       component: MenuPage,
+    },
+    {
+      title: 'Menu Splats',
+      path: '/menu/splat',
+      component: MenuSplats,
+      noShow: true,
     },
     {
       title: 'Grid',

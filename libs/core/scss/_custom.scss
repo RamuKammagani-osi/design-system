@@ -69,6 +69,8 @@ $theme-colors: (
 //
 
 $enable-validation-icons:                     false;
+// Note: carets (managed by js) are done with SVG components, not CSS hackery
+$enable-caret:                                false;
 
 //
 // Spacing

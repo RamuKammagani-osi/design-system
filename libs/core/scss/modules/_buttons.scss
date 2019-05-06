@@ -1,24 +1,25 @@
 @import "~bootstrap/scss/buttons";
 
-// TODO: consistent active and focus visual style
 @each $color, $value in $theme-colors {
   .btn-#{$color} {
     &:focus,
     &.focus {
-      box-shadow: 0 0 0 $btn-focus-width theme-color($key: accent);
+      box-shadow: 0 0 0 $btn-focus-width rgba(theme-color($key: accent), 0.5);
     }
 
     &:not(:disabled):not(.disabled):active,
     &:not(:disabled):not(.disabled).active {
       box-shadow: none;
       &:focus {
-        box-shadow: 0 0 0 $btn-focus-width theme-color($key: accent);
+        box-shadow: 0 0 0 $btn-focus-width rgba(theme-color($key: accent), 0.5);
       }
     }
 
     box-shadow: none;
   }
 }
+
+
 
 // TODO: find a better way to organize this
 .ButtonCustomSecondary {
@@ -27,7 +28,7 @@
 
   &:focus,
   &.focus {
-    box-shadow: 0 0 0 $btn-focus-width theme-color($key: accent);
+    box-shadow: 0 0 0 $btn-focus-width rgba(theme-color($key: accent), 0.5);
   }
 
   &:not(:disabled):not(.disabled):active,
@@ -35,7 +36,29 @@
     box-shadow: none;
     color: darken($primary, 10%);
     &:focus {
-      box-shadow: 0 0 0 $btn-focus-width theme-color($key: accent);
+      box-shadow: 0 0 0 $btn-focus-width rgba(theme-color($key: accent), 0.5);
+    }
+  }
+
+  box-shadow: none;
+}
+
+.CaresIconButton {
+  @include button-variant(transparent, transparent, $gray-200, transparent, $gray-400, transparent);
+
+  padding: map-get($map: $spacers, $key: 1) map-get($map: $spacers, $key: 2);
+  color: $gray-700;
+
+  &:focus,
+  &.focus {
+    box-shadow: 0 0 0 $btn-focus-width rgba(theme-color($key: accent), 0.5);
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    box-shadow: none;
+    &:focus {
+      box-shadow: 0 0 0 $btn-focus-width rgba(theme-color($key: accent), 0.5);
     }
   }
 

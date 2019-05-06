@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import cn from 'classnames'
-import { Button } from '@cwds/cares'
+import { IconButton as Button } from '@cwds/cares'
 import { Input, Util } from '@cwds/reactstrap'
 import { Icon } from '@cwds/icons'
 import { Select } from '@cwds/forms'
@@ -101,9 +101,8 @@ class Pagination extends Component {
             if (!canPrevious) return
             this.changePage(0)
           }}
-        >
-          <Icon fixedWidth name="angle-double-left" />
-        </Button>
+          icon={<Icon fixedWidth name="angle-double-left" />}
+        />
         <Button
           className="px-2"
           aria-label="previous page"
@@ -112,9 +111,8 @@ class Pagination extends Component {
             this.changePage(page - 1)
           }}
           disabled={!canPrevious}
-        >
-          <Icon fixedWidth name="angle-left" />
-        </Button>
+          icon={<Icon fixedWidth name="angle-left" />}
+        />
         <div className="d-none d-md-flex align-items-center ml-2">
           <span className="mr-1 px-2">{this.props.pageText}</span>
           {showPageJump ? (
@@ -174,9 +172,8 @@ class Pagination extends Component {
             this.changePage(page + 1)
           }}
           disabled={!canNext}
-        >
-          <Icon fixedWidth name="angle-right" />
-        </Button>{' '}
+          icon={<Icon fixedWidth name="angle-right" />}
+        />{' '}
         <Button
           className="px-2"
           aria-label="last page"
@@ -185,9 +182,8 @@ class Pagination extends Component {
             if (!canNext) return
             this.changePage(pages)
           }}
-        >
-          <Icon fixedWidth name="angle-double-right" />
-        </Button>
+          icon={<Icon fixedWidth name="angle-double-right" />}
+        />
       </nav>
     )
   }

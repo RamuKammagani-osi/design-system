@@ -12,6 +12,10 @@ declare module '@cwds/reactstrap' {
   } from 'reactstrap'
 }
 
+declare module '@cwds/cares' {
+  export const IconButton: any
+}
+
 declare module '@cwds/icons' {
   export const Icon: any
 }

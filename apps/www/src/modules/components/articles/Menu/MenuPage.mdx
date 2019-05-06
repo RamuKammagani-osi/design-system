@@ -1,6 +1,6 @@
-import { CodeBlock, DemoCard, PropTable } from "@cwds/docs";
-import { Link } from "react-router-dom";
-import Docgen from "../ReactDogenInfo.js";
+import { CodeBlock, DemoCard, PropTable } from '@cwds/docs'
+import { Link } from 'react-router-dom'
+import Docgen from '../ReactDogenInfo.js'
 import {
   Avatar,
   Card,
@@ -8,16 +8,16 @@ import {
   UncontrolledMenu as Menu,
   MenuItem,
   UserMenu,
-  UncontrolledUserMenu
-} from "@cwds/components";
+  UncontrolledUserMenu,
+} from '@cwds/components'
 import {
   MenuExample,
   MenuExampleSrc,
   IconMenuExample,
   IconMenuExampleSrc,
   LinkMenuExample,
-  LinkMenuExampleSrc
-} from "./examples";
+  LinkMenuExampleSrc,
+} from './examples'
 
 ## Synopsis
 
@@ -34,7 +34,7 @@ The `Menu` is an accessible dialog menu for selecting a contextual action.
 </DemoCard>
 
 ```jsx
-import { Menu, MenuItem } from "@cwds/components";
+import { Menu, MenuItem } from '@cwds/components'
 ```
 
 There are **two** usage methods:
@@ -46,6 +46,20 @@ For relatively broad contexts:
 <DemoCard>
   <div>
     <MenuExample />
+  </div>
+</DemoCard>
+
+<CodeBlock>{MenuExampleSrc}</CodeBlock>
+
+### Primary Menu
+
+<DemoCard>
+  <div>
+    <Menu primary label="My Menu">
+      <MenuItem>Foo</MenuItem>
+      <MenuItem>Bar</MenuItem>
+      <MenuItem>Quo</MenuItem>
+    </Menu>
   </div>
 </DemoCard>
 
@@ -112,11 +126,11 @@ Below are the props for the `Menu` and `MenuItem` components:
 
 ### Menu
 
-<PropTable docgen={Docgen["Menu"]} />
+<PropTable docgen={Docgen['Menu']} />
 
 ### MenuItem
 
-<PropTable docgen={Docgen["MenuItem"]} />
+<PropTable docgen={Docgen['MenuItem']} />
 
 ## Usage Guidelines
 

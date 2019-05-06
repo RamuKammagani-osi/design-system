@@ -1,11 +1,12 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { mount, shallow } from 'enzyme'
+import { Icon } from '@cwds/icons'
 import IconButton from './IconButton'
 
 describe('IconButton', () => {
   it('renders', () => {
     expect(() =>
-      mount(<IconButton icon="check">Test</IconButton>)
+      shallow(<IconButton icon="check">Test</IconButton>)
     ).not.toThrow()
   })
 
@@ -14,19 +15,22 @@ describe('IconButton', () => {
     const wrapper = mount(
       <IconButton
         color="light"
-        iconClassName="test-icon-class"
         onClick={handleClick}
         className="test-button-class"
         icon="circle-notch"
-        spin
       >
         Test
       </IconButton>
     )
-    expect(wrapper.find('svg').hasClass('test-icon-class')).toBeTruthy()
     expect(handleClick).not.toHaveBeenCalled()
     wrapper.find('button').simulate('click')
     expect(handleClick).toHaveBeenCalledTimes(1)
     expect(wrapper.find('button').hasClass('test-button-class')).toBeTruthy()
+    expect(wrapper.find(Icon).prop('name')).toBe('circle-notch')
+  })
+
+  it('defaults to ellipsis button', () => {
+    const wrapper = shallow(<IconButton />)
+    expect(wrapper.find(Icon).prop('name')).toBe('ellipsis-v')
   })
 })

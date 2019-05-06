@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Icon } from '@cwds/icons'
-import { Button } from '@cwds/reactstrap'
+import { IconButton } from '@cwds/cares'
 import InputMask from './InputMask'
 import range from 'lodash.range'
 import ReactDatePicker from 'react-datepicker'
@@ -51,27 +51,23 @@ const MyOtherCustomHeader: React.SFC<CustomHeaderProps> = ({
   nextMonthButtonDisabled,
 }) => (
   <div className="d-flex justify-content-between align-items-center px-2">
-    <Button
+    <IconButton
       aria-hidden="true"
-      className="bg-transparent border-0"
       disabled={prevMonthButtonDisabled}
       onClick={decreaseMonth}
-    >
-      <Icon icon="angle-left" className="text-secondary" />
-    </Button>
+      icon={<Icon icon="angle-left" />}
+    />
 
     <div>
       {months[getMonth(date)]} {getYear(date)}
     </div>
 
-    <Button
+    <IconButton
       aria-hidden="true"
-      className="bg-transparent border-0 "
       onClick={increaseMonth}
       disabled={nextMonthButtonDisabled}
-    >
-      <Icon icon="angle-right" className="text-secondary" />
-    </Button>
+      icon={<Icon icon="angle-right" />}
+    />
   </div>
 )
 

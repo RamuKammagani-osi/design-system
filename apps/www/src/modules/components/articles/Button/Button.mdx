@@ -1,14 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 import {
   PrimitiveButton,
   Button,
   Icon,
   IconButton,
   Card,
-  CardBody
-} from "@cwds/components";
-import { DemoCard, PropTable, ReferenceCard } from "@cwds/docs";
-import Docgen from "../ReactDogenInfo.js";
+  CardBody,
+} from '@cwds/components'
+import { DemoCard, PropTable, ReferenceCard } from '@cwds/docs'
+import Docgen from '../ReactDogenInfo.js'
 
 ## Synopsis
 
@@ -21,7 +21,7 @@ import Docgen from "../ReactDogenInfo.js";
 </DemoCard>
 
 ```jsx
-import { Button } from "@cwds/components";
+import { Button } from '@cwds/components'
 ```
 
 `Button`s indicate an opportunity for users to trigger a system response when activated.
@@ -55,6 +55,12 @@ The `Button` is the dominant component for indicating Call To Action (CTA) oppor
 <Button primary>Primary</Button>
 <Button>Default</Button>
 ```
+
+### IconButtons
+
+<div className="my-3">
+  <IconButton icon="cog" />
+</div>
 
 <!--
 ### Patterns
