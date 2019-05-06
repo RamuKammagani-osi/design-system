@@ -1,7 +1,7 @@
-@import "~@cwds/core/scss/base";
+@import '~@cwds/core/scss/base';
 
 :global {
-  @import "~react-table/react-table";
+  @import '~react-table/react-table';
   .ReactTable {
     margin-top: -$card-border-width;
     border: $card-border-width solid $card-border-color;
@@ -81,8 +81,11 @@
     }
     .rt-resizer {
       width: 4px;
-      right: -2px;
+      right: 0px;
       z-index: 0;
+      border-right: 1px solid $secondary;
+      top: 5px;
+      bottom: 5px;
     }
   }
 }
