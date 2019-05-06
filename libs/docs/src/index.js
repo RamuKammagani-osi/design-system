@@ -16,3 +16,4 @@ export {
   Paragraph,
   MDXArticleWrapper,
 } from './Articles'
+export { default as SplatFactory } from './SplatFactory'
