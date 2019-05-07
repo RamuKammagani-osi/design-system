@@ -20,6 +20,7 @@ import CardHeaderDemo from './demos/CardHeaders'
 import ToggleDemos from './demos/ToggleDemos'
 import DriversLicenseDemo from './demos/DriversLicense'
 import SnapshotSearchInterface from './demos/SnapshotSearchInterface'
+import AccessibleSelectWithLabel from './demos/AccessibleSelectWithLabel'
 
 class App extends Component {
   render() {
@@ -53,6 +54,10 @@ class App extends Component {
                 <Route
                   path="/demo/snapshot-search"
                   component={SnapshotSearchInterface}
+                />
+                <Route
+                  path="/demo/accessible-select-with-label"
+                  component={AccessibleSelectWithLabel}
                 />
                 <Route
                   path="/__examples__/page-templates"
