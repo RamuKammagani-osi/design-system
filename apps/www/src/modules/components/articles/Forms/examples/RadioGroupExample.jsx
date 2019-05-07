@@ -28,6 +28,7 @@ const RadioGroupExample = ({
               <FormGroup>
                 <Label>{label}</Label>
                 <RadioGroup
+                  groupName="My RadioGroup"
                   inline={inline}
                   options={options}
                   value={get(values, fieldName)}

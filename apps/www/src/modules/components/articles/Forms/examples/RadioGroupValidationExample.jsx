@@ -31,6 +31,7 @@ const BasicCheckboxBankExample = ({
             <FormField
               required={required}
               name={name}
+              groupName="My Metastatic Variables"
               label={label}
               Component={RadioGroup}
               options={options}
