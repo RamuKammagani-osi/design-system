@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
+import { Formik } from 'formik'
 import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardTitle,
   Form,
   FormField,
   Input,
@@ -30,6 +35,58 @@ function MyTelInput({ innerRef, ...props }) {
     />
   )
 }
+
+const KitchenSink = () => (
+  <Card>
+    <CardHeader>
+      <CardTitle>My Form</CardTitle>
+    </CardHeader>
+    <CardBody>
+      <Formik
+        initialValues={{
+          name: '',
+          age: '',
+        }}
+        onSubmit={() => {}}
+        render={props => (
+          <Form onSubmit={props.handleSubmit}>
+            <FormField
+              required
+              name="name"
+              label="Name"
+              placeholder="Amos Moses"
+              Component={Input}
+              value={props.values.name}
+              touched={props.touched.name}
+              error={props.errors.name}
+              onChange={(event, newValue) =>
+                props.setFieldValue('name', event.target.value)
+              }
+              onBlur={() => props.setFieldTouched('name')}
+            />
+            <FormField
+              required
+              name="age"
+              label="Age"
+              max="99"
+              min="0"
+              type="number"
+              placeholder="23"
+              Component={Input}
+              value={props.values.age}
+              touched={props.touched.age}
+              error={props.errors.age}
+              onChange={(event, newValue) =>
+                props.setFieldValue('age', event.target.value)
+              }
+              onBlur={() => props.setFieldTouched('age')}
+            />
+          </Form>
+        )}
+      />
+    </CardBody>
+  </Card>
+)
 
 class TinyForm extends Component {
   state = {
@@ -313,7 +370,8 @@ class TinyForm extends Component {
   }
 }
 
-export default TinyForm
+// export default TinyForm
+export default KitchenSink
 
 //
 // Helpers
