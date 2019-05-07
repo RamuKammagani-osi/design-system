@@ -137,4 +137,4 @@ cd libs/rails_app
 
 If you have any questions regarding the contents of this repository, please email the Office of Systems Integration at <FOSS@osi.ca.gov>.
 
-<!-- bump: release(3.1.5) -->
+<!-- bump: Jenkins died during master build -->
