@@ -7,9 +7,9 @@ export interface IOption<T> {
   /** Value associated with the option */
   value: T
   /** Whether or not to enable the option */
-  disabled: boolean
+  disabled?: boolean
   /** TODO (PK for reconciliation) */
-  id: string
+  id?: string
 }
 
 /**
@@ -21,30 +21,32 @@ export interface IListType<T = string | number> {
 }
 
 /**
- * TODO
+ * The generic FormControl interface for all CWDS "form widgets"
+ * @todo Isn't `[in]valid` redundant with `error`?
  */
-export interface IFormControl<T = {}, U = Element> {
-  /** TODO */
+export interface IFormControl<ValueType = {}, ControlElement = Element> {
+  /** Traditional HTML form element `name` attribute */
   name: string
-  /** TODO */
-  value: T
-  /** TODO */
+  /** Value of the FormControl. Generic, perhaps more complex than simple string or number */
+  value: ValueType
+  /** Traditional HTML form element `disabled` attribute */
   disabled?: boolean
+  /** Whether or not the FormControl has been interacted with or not */
+  touched?: boolean
   /** TODO */
-  touched: boolean
-  /** TODO */
-  error: string | boolean
+  error?: string
   /** TODO */
   innerRef?: React.Ref<any>
   /** TODO */
   invalid?: boolean
   /** TODO */
   valid?: boolean
-  /** TODO */
+  /** Change event handler for CWDS FormControls */
   onChange: (
-    event: React.SyntheticEvent<U> | null,
-    newValue: T | undefined | null,
+    event: React.SyntheticEvent<ControlElement> | null,
+    newValue: ValueType | undefined | null,
+    ...rest: any[]
   ) => void
-  /** TODO */
+  /** Blur event handler for CWDS FormControls */
   onBlur: React.FocusEventHandler
 }

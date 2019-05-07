@@ -5,6 +5,7 @@ import { Input, FormGroup, Label } from '@cwds/reactstrap'
 import { Icon } from '@cwds/icons'
 import Styles from './RadioGroup.module.scss'
 import Fieldset from './Fieldset'
+import Legend from './Legend'
 
 export interface RadioGroupProps extends IListType, IFormControl {}
 
@@ -26,14 +27,8 @@ class RadioGroup extends Component<RadioGroupProps & { invalid: boolean }> {
 
   render() {
     return (
-      <Fieldset
-        name={this.props.name}
-        /* Style an invalid group?
-        className={cn({
-          'border-danger border': this.props.invalid,
-        })}
-        */
-      >
+      <Fieldset name={this.props.name}>
+        <Legend className="sr-only">{this.props.groupName}</Legend>
         {this.props.options.map(option => (
           <FormGroup
             check
