@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.4](https://github.com/ca-cwds/design-system/compare/v1.4.3...v1.4.4) (2019-05-07)
+
+
+### Bug Fixes
+
+* **components:** fix missing export MASKS ([#608](https://github.com/ca-cwds/design-system/issues/608)) ([3416eeb](https://github.com/ca-cwds/design-system/commit/3416eeb))
+
+
+
+
+
 ## [1.4.3](https://github.com/ca-cwds/design-system/compare/v1.4.2...v1.4.3) (2019-05-01)
 
 

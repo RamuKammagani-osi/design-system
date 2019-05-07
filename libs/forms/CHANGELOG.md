@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.4](https://github.com/ca-cwds/design-system/compare/v1.4.3...v1.4.4) (2019-05-07)
+
+
+### Bug Fixes
+
+* **cares,forms,datagrid:** improve IconButton usage ([#611](https://github.com/ca-cwds/design-system/issues/611)) ([229e9a9](https://github.com/ca-cwds/design-system/commit/229e9a9))
+* **forms:** DatePicker display block ([#607](https://github.com/ca-cwds/design-system/issues/607)) ([1ad908f](https://github.com/ca-cwds/design-system/commit/1ad908f))
+
+
+
+
+
 ## [1.4.3](https://github.com/ca-cwds/design-system/compare/v1.4.2...v1.4.3) (2019-05-01)
 
 **Note:** Version bump only for package @cwds/forms

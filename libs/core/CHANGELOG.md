@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.4](https://github.com/ca-cwds/design-system/compare/v1.4.3...v1.4.4) (2019-05-07)
+
+
+### Bug Fixes
+
+* **cares:** fix Tooltip opacity ([#609](https://github.com/ca-cwds/design-system/issues/609)) ([38ca677](https://github.com/ca-cwds/design-system/commit/38ca677))
+* **cares,forms,datagrid:** improve IconButton usage ([#611](https://github.com/ca-cwds/design-system/issues/611)) ([229e9a9](https://github.com/ca-cwds/design-system/commit/229e9a9))
+* **core:** fix disabled IconButton color ([#615](https://github.com/ca-cwds/design-system/issues/615)) ([3fe5581](https://github.com/ca-cwds/design-system/commit/3fe5581))
+* **core:** maintain all BS4 variables ([#613](https://github.com/ca-cwds/design-system/issues/613)) ([9e2a96e](https://github.com/ca-cwds/design-system/commit/9e2a96e))
+
+
+
+
+
 ## [1.4.3](https://github.com/ca-cwds/design-system/compare/v1.4.2...v1.4.3) (2019-05-01)
 
 **Note:** Version bump only for package @cwds/core

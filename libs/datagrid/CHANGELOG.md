@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.4](https://github.com/ca-cwds/design-system/compare/v1.4.3...v1.4.4) (2019-05-07)
+
+
+### Bug Fixes
+
+* **cares,forms,datagrid:** improve IconButton usage ([#611](https://github.com/ca-cwds/design-system/issues/611)) ([229e9a9](https://github.com/ca-cwds/design-system/commit/229e9a9))
+* **datagrid:** show col resize handles ([#610](https://github.com/ca-cwds/design-system/issues/610)) ([73379e7](https://github.com/ca-cwds/design-system/commit/73379e7))
+
+
+
+
+
 ## [1.4.3](https://github.com/ca-cwds/design-system/compare/v1.4.2...v1.4.3) (2019-05-01)
 
 **Note:** Version bump only for package @cwds/datagrid
