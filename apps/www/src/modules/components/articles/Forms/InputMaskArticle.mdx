@@ -3,13 +3,29 @@ import { InputMask, MASKS } from '@cwds/forms'
 import { DemoCard, ReferenceCard, PropTable } from '@cwds/docs'
 import { Alert, Card, CardBody, Row, Col } from '@cwds/components'
 import Docgen from '../ReactDogenInfo'
+const myMask = [
+  '(',
+  /[1-9]/,
+  /\d/,
+  /\d/,
+  ')',
+  ' ',
+  /\d/,
+  /\d/,
+  /\d/,
+  '-',
+  /\d/,
+  /\d/,
+  /\d/,
+  /\d/,
+]
 
 ## Synopsis
 
 Use an `Input Mask` in to capture phone numbers, dates, social security input in forms.
 
 <DemoCard>
-  <InputMask mask={MASKS.PHONE} showMask />
+  <InputMask mask={myMask} showMask />
 </DemoCard>
 
 ```jsx

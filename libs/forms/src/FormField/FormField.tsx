@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component, ReactElement } from 'react'
 import cn from 'classnames'
 import {
   Label,
@@ -9,44 +9,35 @@ import {
 } from '@cwds/reactstrap'
 import { Icon } from '@cwds/icons'
 import Styles from './FormField.module.scss'
+import { IFormControl } from '../types'
 
 const RequiredIndicator = () => <span>&#42;</span>
 
-interface FormControllerState<T> {
-  value: T | T[]
-  touched: boolean
-  error: string
-  isValidating: boolean
-  isSubmitting: boolean
-}
-
-interface FormFieldCallbacks<T> {
-  onChange: (value: T | T[]) => void
-  onBlur: () => void
-}
-
-export interface FormFieldProps<T>
-  extends FormControllerState<T>,
-    FormFieldCallbacks<T> {
+export interface FormFieldProps<T = {}> extends IFormControl<T> {
   className: string
-  tag: React.ComponentType<{ className: string }>
+  tag: React.ComponentType
   label: React.ReactNode
   Component: React.ComponentType<{
-    innerRef?: React.Ref<any>
     invalid?: boolean
     valid?: boolean
   }>
   required: boolean
   helpText: string
-  // success: string
-  mapInnerRefName: string
 }
 
-export const FormField: React.FunctionComponent<
-  FormFieldProps<{}>
-> = React.forwardRef(
-  (
-    {
+class NewFormField extends Component<FormFieldProps> {
+  static defaultProps = {
+    Component: Input,
+    onChange: () => {},
+    onBlur: () => {},
+  }
+
+  get valid() {
+    return !!this.props.error
+  }
+
+  render() {
+    const {
       className,
       label,
       Component: FormControl,
@@ -54,21 +45,16 @@ export const FormField: React.FunctionComponent<
       error,
       // success,
       helpText,
-      mapInnerRefName,
       ...props
-    },
-    ref
-  ) => {
-    const innerRefMapping = { [mapInnerRefName]: ref }
+    } = this.props
     return (
       <FormGroup className={cn(className)}>
-        <Label>
+        <Label htmlFor={props.id}>
           {label}
           {props.required && <RequiredIndicator />}
         </Label>
         <FormControl
           {...props}
-          {...innerRefMapping}
           invalid={!!touched && !!error}
           // valid={!!touched && !error}
         />
@@ -88,15 +74,6 @@ export const FormField: React.FunctionComponent<
       </FormGroup>
     )
   }
-)
-
-FormField.propTypes = {}
-
-FormField.defaultProps = {
-  Component: Input,
-  mapInnerRefName: 'innerRef',
-  onChange: () => {},
-  onBlur: () => {},
 }
 
-export default FormField
+export default NewFormField

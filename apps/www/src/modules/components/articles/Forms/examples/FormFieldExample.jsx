@@ -6,7 +6,9 @@ import { CodeBlock } from '@cwds/docs'
 
 export default class FormFieldExample extends Component {
   setFocus = () => {
-    this.myRef.focus()
+    console.debug('This is broken')
+    // Hacking via DOM query until we get this right...
+    document.querySelector('input[name="foo"]').focus()
   }
   state = {
     values: {
