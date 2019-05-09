@@ -1,0 +1,9 @@
+@import '~@cwds/core/scss/base';
+
+.CounterContainer {
+  text-align: right;
+}
+
+.RemainderText {
+  margin-right: map-get($map: $spacers, $key: 2);
+}

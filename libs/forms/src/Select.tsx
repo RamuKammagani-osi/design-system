@@ -4,8 +4,6 @@ import DS from '@cwds/core'
 
 const Select: React.FunctionComponent<{}> = props => <ReactSelect {...props} />
 
-console.log(DS)
-
 Select.defaultProps = {
   isOptionDisabled: (option: { [K: string]: any }) => option.disabled,
   styles: {

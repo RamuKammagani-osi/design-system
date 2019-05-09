@@ -1,6 +1,115 @@
 import { Link } from 'react-router-dom'
-import { DemoCard, PropTable, CodeBlock } from '@cwds/docs'
+import { Alert, Card, CardBody } from '@cwds/components'
+import { CodeBlock, DemoCard, PropTable, ReferenceCard } from '@cwds/docs'
+import { TextArea, TextAreaCounter } from '@cwds/forms'
+import { Formik } from 'formik'
+import Docgen from '../ReactDogenInfo'
 
 ## Synopsis
 
-Please see the <Link to="/components/forms/input#textareas">Textarea section in Input Article</Link>.
+Please see also the <Link to="/components/forms/input#textareas">Textarea section in Input Article</Link>.
+
+Use a `Text Area` to enter a multi-line input field to collect larger, free-form text from a user.
+
+<DemoCard>
+  <TextArea
+    aria-label="Feedback"
+    label="Feedback"
+    maxLength="100"
+    placeholder="Tell us your Feedback"
+  />
+</DemoCard>
+
+```jsx
+import { TextArea } from '@cwds/components'
+```
+
+## Props
+
+<Alert color="warning">
+  Sorry, we don't have a way to document our components
+</Alert>
+
+## Usage Guidelines
+
+Use `TextArea` when a user inputs large list of characters.
+
+Use `TextAreaCounter` when a user inputs large list of charcacters and see the remaining characters.
+
+## Examples
+
+<ReferenceCard>
+  wrapped in a _white_ container b/c that's how you'll see 'em
+</ReferenceCard>
+
+#### `TextArea`
+
+<Card>
+  <CardBody>
+    <TextArea
+      aria-label="Feedback"
+      label="Feedback"
+      maxLength="22"
+      placeholder="Tell us your Feedback"
+      rows="5"
+    />
+  </CardBody>
+</Card>
+
+```jsx
+<TextArea
+  aria-label="Feedback"
+  label="Feedback"
+  maxLength="22"
+  placeholder="Tell us your Feedback"
+  rows="5"
+/>
+```
+
+#### `TextAreaCounter`
+
+```jsx
+import { TextAreaCounter } from '@cwds/components'
+```
+
+<ReferenceCard>
+  This is a controlled component. You need to manage state. It uses Formik to
+  manage state.
+</ReferenceCard>
+
+<Card>
+  <CardBody>
+    <Formik
+      initialValues={{ message: '' }}
+      render={props => {
+        return (
+          <TextAreaCounter
+            aria-label="Feedback"
+            label="Feedback"
+            maxLength="50"
+            onChange={e => props.setFieldValue('message', e.target.value)}
+            placeholder="Tell us your Feedback"
+            rows="5"
+            value={props.values.message}
+          />
+        )
+      }}
+    />
+  </CardBody>
+</Card>
+
+```jsx
+<TextAreaCounter
+  aria-label="Feedback"
+  label="Feedback"
+  maxLength="50"
+  onChange={e => props.setFieldValue('message', e.target.value)}
+  placeholder="Tell us your Feedback"
+  rows="5"
+  value={props.values.message}
+/>
+```
+
+## Related Articles
+
+- [`Input`](/components/forms/input)
