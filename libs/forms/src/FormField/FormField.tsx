@@ -11,7 +11,7 @@ import { Icon } from '@cwds/icons'
 import Styles from './FormField.module.scss'
 import { IFormControl } from '../types'
 
-const RequiredIndicator = () => <span>&#42;</span>
+export const RequiredIndicator = () => <span>&#42;</span>
 
 export interface FormFieldProps<T = {}> extends IFormControl<T> {
   className: string
@@ -32,9 +32,9 @@ class NewFormField extends Component<FormFieldProps> {
     onBlur: () => {},
   }
 
-  get valid() {
-    return !!this.props.error
-  }
+  // get valid() {
+  //   return !!this.props.error
+  // }
 
   render() {
     const {
