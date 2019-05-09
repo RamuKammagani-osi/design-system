@@ -37,23 +37,6 @@ function MyTelInput({ innerRef, ...props }) {
   )
 }
 
-const myMask = [
-  '(',
-  /[1-9]/,
-  /\d/,
-  /\d/,
-  ')',
-  ' ',
-  /\d/,
-  /\d/,
-  /\d/,
-  '-',
-  /\d/,
-  /\d/,
-  /\d/,
-  /\d/,
-]
-
 class KitchenSink extends Component {
   state = {
     isVisibleFormData: false,
@@ -84,6 +67,7 @@ class KitchenSink extends Component {
               age: '',
               tel: '',
               likes: [],
+              outlook: '',
             }}
             onSubmit={() => {}}
             render={props => (
@@ -128,16 +112,13 @@ class KitchenSink extends Component {
                     label="Telephone"
                     id="kitchen-sink-form__tel"
                     Component={InputMask}
-                    mask={myMask}
+                    mask={MASKS.PHONE_MASK}
                     unmask={d => d.replace(/[^\d]/gi, '')}
                     showMask
                     value={props.values.tel}
                     touched={props.touched.tel}
                     error={props.errors.tel}
                     onChange={(event, newValue) => {
-                      // There is no `unmask()` method provided by `react-text-mask`. Its DIY parsing (see issues and proposals e.g.; https://github.com/text-mask/text-mask/issues/909 )
-                      // const value = event.target.value
-                      // props.setFieldValue('tel', value.replace(/[^\d]/gi, ''))
                       props.setFieldValue('tel', newValue)
                     }}
                     onBlur={() => props.setFieldTouched('tel')}
@@ -155,6 +136,20 @@ class KitchenSink extends Component {
                       props.setFieldValue('likes', newValue)
                     }
                     onBlur={() => props.setFieldTouched('likes')}
+                  />
+                  <FormField
+                    name="outlook"
+                    id="kitchen-sink-form__outlook"
+                    label="Outlook"
+                    Component={RadioGroup}
+                    options={OUTLOOK_OPTIONS}
+                    value={props.values.outlook}
+                    touched={props.touched.outlook}
+                    error={props.errors.outlook}
+                    onChange={(event, newValue) =>
+                      props.setFieldValue('outlook', newValue)
+                    }
+                    onBlur={() => props.setFieldTouched('outlook')}
                   />
                 </Form>
                 {this.state.isVisibleFormData && (

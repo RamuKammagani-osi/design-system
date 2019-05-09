@@ -28,7 +28,7 @@ class RadioGroup extends Component<RadioGroupProps & { invalid: boolean }> {
   render() {
     return (
       <Fieldset name={this.props.name}>
-        <Legend className="sr-only">{this.props.groupName}</Legend>
+        <Legend className="sr-only">{this.props.name}</Legend>
         {this.props.options.map(option => (
           <FormGroup
             check
