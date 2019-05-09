@@ -1,30 +1,21 @@
-import React from 'react'
+import React, { FocusEventHandler } from 'react'
 import ReactSelect from 'react-select'
 import { Props as ReactSelectProps } from 'react-select/lib/Select'
 import DS from '@cwds/core'
-import { IFormControl, IListType, IOption } from './types'
+import { IFormControl, IOption, Omit, Optionalize } from './types'
 import { ValueType } from 'react-select/lib/types'
 
-interface ISelectProps<T = {}, U = Element>
-  extends ReactSelectProps,
-    IFormControl<IListType> {
-  onChange: (
-    event: React.ChangeEvent<U> | null,
-    newValue: T,
-    ...rest: any
-  ) => void
-  formatValue: (
-    value: ValueType<IOption<T>>,
-    options: IOption<T>[]
-  ) => string | string[]
-  mapValueToOptions: (
-    value: string | string[],
-    options: IOption<T>[]
-  ) => IOption<T>[]
-}
+type ISelectProps<T = string | string[]> = Omit<
+  ReactSelectProps<IOption<T>>,
+  'id' | 'value' | 'onChange' | 'onBlur'
+> &
+  IFormControl<T> & {
+    formatValue: (value: IOption<T>, options: IOption<T>[]) => T
+    mapValueToOptions: (value: T, options: IOption<T>[]) => IOption<T>[]
+  }
 
 class Select extends React.Component<ISelectProps> {
-  static defaultProps = {
+  static defaultProps: Partial<ISelectProps> = {
     isOptionDisabled: (option: { [K: string]: any }) => option.disabled,
     styles: {
       control: (base: any, { isDisabled, isFocused, theme }: any) => {
@@ -60,7 +51,7 @@ class Select extends React.Component<ISelectProps> {
       },
     }),
     onChange: () => {},
-    formatValue: (value: any) => value,
+    formatValue: value => value,
     mapValueToOptions: (valueOrValues, options) => {
       return Array.isArray(valueOrValues)
         ? valueOrValues.map(value =>

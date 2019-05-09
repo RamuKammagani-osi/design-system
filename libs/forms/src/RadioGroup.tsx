@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { IListType, IFormControl } from './types'
+import { ICollectionType, IFormControl } from './types'
 import cn from 'classnames'
 import { Input, FormGroup, Label } from '@cwds/reactstrap'
 import { Icon } from '@cwds/icons'
@@ -7,7 +7,7 @@ import Styles from './RadioGroup.module.scss'
 import Fieldset from './Fieldset'
 import Legend from './Legend'
 
-export interface RadioGroupProps extends IListType, IFormControl {}
+export interface RadioGroupProps extends ICollectionType, IFormControl {}
 
 class RadioGroup extends Component<RadioGroupProps & { invalid: boolean }> {
   static defaultProps = {

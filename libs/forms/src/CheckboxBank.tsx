@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { IListType, IFormControl } from './types'
+import { ICollectionType, IFormControl } from './types'
 import CheckboxControl from './CheckboxControl'
 import Fieldset from './Fieldset'
 
 type StringOrNumber = string | number
 
 export interface CheckboxBankProps
-  extends IListType,
+  extends ICollectionType,
     IFormControl<StringOrNumber[], HTMLInputElement> {
   inline: boolean
   onBlur: React.FocusEventHandler & (() => void)
