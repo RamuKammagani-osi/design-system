@@ -53,11 +53,9 @@ const MyOtherCustomHeader: React.FunctionComponent<CustomHeaderProps> = ({
       onClick={decreaseMonth}
       icon={<Icon icon="angle-left" />}
     />
-
     <div>
       {months[getMonth(date)]} {getYear(date)}
     </div>
-
     <IconButton
       aria-hidden="true"
       onClick={increaseMonth}
