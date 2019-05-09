@@ -1,18 +1,29 @@
-import React, { FocusEventHandler } from 'react'
+import React from 'react'
 import ReactSelect from 'react-select'
 import { Props as ReactSelectProps } from 'react-select/lib/Select'
 import DS from '@cwds/core'
-import { IFormControl, IOption, Omit, Optionalize } from './types'
+import { IFormControl, IOption, Omit, ICollectionType } from './types'
 import { ValueType } from 'react-select/lib/types'
 
-type ISelectProps<T = string | string[]> = Omit<
-  ReactSelectProps<IOption<T>>,
-  'id' | 'value' | 'onChange' | 'onBlur'
-> &
-  IFormControl<T> & {
-    formatValue: (value: IOption<T>, options: IOption<T>[]) => T
-    mapValueToOptions: (value: T, options: IOption<T>[]) => IOption<T>[]
-  }
+interface ISelectProps<T = string>
+  extends Omit<
+      ReactSelectProps<IOption<T>>,
+      'id' | 'value' | 'onChange' | 'onBlur' | 'options'
+    >,
+    IFormControl<T | T[]>,
+    ICollectionType<T> {
+  /**
+   * Transform ReactSelect value(s). Used in `onChange`
+   */
+  parseValue: (value: ValueType<IOption<T>>) => T[] | T
+  /**
+   * Transform CWDS FormControl serialized simple values to ReactSelect selected option value(s)
+   */
+  mapValue: (
+    value: T | T[],
+    options: IOption<T>[]
+  ) => ReactSelectProps<IOption<T>>['value']
+}
 
 class Select extends React.Component<ISelectProps> {
   static defaultProps: Partial<ISelectProps> = {
@@ -51,29 +62,31 @@ class Select extends React.Component<ISelectProps> {
       },
     }),
     onChange: () => {},
-    formatValue: value => value,
-    mapValueToOptions: (valueOrValues, options) => {
+    parseValue: reactSelectValue => {
+      if (!reactSelectValue) return ''
+      return Array.isArray(reactSelectValue)
+        ? reactSelectValue.map(({ value }) => value)
+        : reactSelectValue.value
+    },
+    mapValue: (valueOrValues, options) => {
       return Array.isArray(valueOrValues)
-        ? valueOrValues.map(value =>
-            options.find(option => option.value === value)
-          )
+        ? (valueOrValues
+            .map(value => options.find(option => option.value === value))
+            .filter(Boolean) as IOption<string>[])
         : options.find(option => option.value === valueOrValues)
     },
   }
 
-  handleChange: ReactSelectProps['onChange'] = (value, action) => {
+  handleChange: ReactSelectProps<IOption>['onChange'] = (value, action) => {
     if (!this.props.onChange) return
-    this.props.onChange(null, this.props.formatValue(value), value, action)
+    this.props.onChange(null, this.props.parseValue(value), value, action)
   }
 
   render() {
     return (
       <ReactSelect
         {...this.props}
-        value={this.props.mapValueToOptions(
-          this.props.value,
-          this.props.options
-        )}
+        value={this.props.mapValue(this.props.value, this.props.options)}
         onChange={this.handleChange}
         inputId={this.props.id}
         id={`${this.props.id}-select`}
@@ -83,13 +96,3 @@ class Select extends React.Component<ISelectProps> {
 }
 
 export default Select
-
-//
-// Helpers
-//
-
-function mapValueToOptions(valueOrValues, options) {
-  return Array.isArray(valueOrValues)
-    ? valueOrValues.map(value => options.find(option => option.value === value))
-    : options.find(option => option.value === valueOrValues)
-}

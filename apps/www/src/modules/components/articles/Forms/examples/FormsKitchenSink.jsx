@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { Formik } from 'formik'
 import {
   Button,
@@ -18,9 +18,7 @@ import {
   Select,
 } from '@cwds/components'
 import {
-  LIKE,
   LIKE_OPTIONS,
-  OUTLOOK,
   OUTLOOK_OPTIONS,
   PIZZA_TOPPING_OPTIONS,
   SERVICE_RATING_OPTIONS,
@@ -159,8 +157,8 @@ class KitchenSink extends Component {
                   id="kitchen-sink-form__pizza-toppings"
                   label="Pizza Toppings"
                   Component={Select}
-                  formatValue={selectOptionsToState}
-                  parse
+                  // formatValue={selectOptionsToState}
+                  // parseValue={}
                   isMulti
                   options={PIZZA_TOPPING_OPTIONS}
                   value={props.values.pizzaToppings}
@@ -277,42 +275,8 @@ export default KitchenSink
 // Helpers
 //
 
-function stateToSelectOptions(valueOrValues, options) {
-  return Array.isArray(valueOrValues)
-    ? valueOrValues.map(value => options.find(option => option.value === value))
-    : options.find(option => option.value === valueOrValues)
-}
-
 function selectOptionsToState(selectedOptionOrOptions) {
   return Array.isArray(selectedOptionOrOptions)
     ? selectedOptionOrOptions.map(({ value }) => value)
     : selectedOptionOrOptions.value
 }
-
-function validateName(name) {
-  if (!name) return 'This is a required field!'
-  if (name.length <= 2) return 'More than 2 characters please!'
-  if (name.toLowerCase() === 'admin') return 'Admins are not allowed!'
-}
-
-function validateAge(age) {
-  if (!age) return 'This is a required field!'
-  if (age < 0) return 'Invalid value'
-  if (age > 99) return 'Invalid value'
-}
-
-function validateTel(tel) {
-  if (!tel) return 'This is a required field!'
-  if (tel.startsWith('555')) return 'No 555 fake numbers please!'
-}
-
-function validateLikes(likes) {
-  if (likes.indexOf(LIKE.HIGH_FIVE) > -1) return 'High fives are the worst!'
-}
-
-function validateOutlook(outlook) {
-  if (outlook && outlook !== OUTLOOK.GLASS_HALF_FULL)
-    return 'Only positive outlooks are allowed!'
-}
-
-function validatePizzaToppings(pizzaToppings) {}

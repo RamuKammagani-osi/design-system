@@ -79,5 +79,3 @@ export interface IFormControl<ValueType = {}, ControlElement = Element> {
   /** Blur event handler for CWDS FormControls */
   onBlur: React.FocusEventHandler
 }
-
-export interface IFormField {}
