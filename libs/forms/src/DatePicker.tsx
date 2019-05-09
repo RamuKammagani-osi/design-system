@@ -4,11 +4,10 @@ import { IconButton } from '@cwds/cares'
 import InputMask from './InputMask'
 import range from 'lodash.range'
 import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker'
-import getYear from 'date-fns/getYear'
-import getMonth from 'date-fns/getMonth'
+import { getYear, getMonth, parseISO } from 'date-fns'
 import { DATE_MASK } from './Masks'
 import './DatePicker.module.scss'
-import { IFormControl } from './types'
+import { IFormControl, Omit } from './types'
 
 const years = range(1990, getYear(new Date()) + 1, 1)
 
@@ -37,7 +36,7 @@ interface CustomHeaderProps {
   nextMonthButtonDisabled: boolean
 }
 
-const MyOtherCustomHeader: React.FunctionComponent<CustomHeaderProps> = ({
+const MyOtherCustomHeader: React.FC<CustomHeaderProps> = ({
   date,
   changeYear,
   changeMonth,
@@ -65,31 +64,37 @@ const MyOtherCustomHeader: React.FunctionComponent<CustomHeaderProps> = ({
   </div>
 )
 
-interface IOverloads {
-  onChange: (arg: string) => string
-}
+interface IDatePickerProps
+  extends Omit<ReactDatePickerProps, 'onChange' | 'onBlur' | 'id' | 'value'>,
+    IFormControl<string> {}
 
-class DatePicker extends Component<ReactDatePickerProps & IFormControl> {
-  static defaultProps: Partial<ReactDatePickerProps> = {
-    placeholderText: 'mm/dd/yyyy',
-    dateFormat: 'MM/dd/yyyy',
-    customInput: <InputMask mask={DATE_MASK} />,
-    renderCustomHeader: MyOtherCustomHeader,
+class DatePicker extends Component<IDatePickerProps> {
+  handleChange = (date: Date) => {
+    this.props.onChange(null, date.toISOString())
   }
 
-  state = {
-    startDate: null,
-  }
+  // Note: a noop placeholder for callbacks that ReactDatePicker manages on `customInput`
+  noop = () => {}
 
-  handleChange: ReactDatePickerProps['onChange'] = (date, event) => {
-    this.props.onChange(event || null, date)
-  }
+  // Note: dummy data b/c ReactDatePicker manages `customInput#value`
+  dummy = ''
 
   render() {
     return (
       <ReactDatePicker
-        {...this.props}
-        selected={this.state.startDate}
+        placeholderText="mm/dd/yyyy"
+        selected={this.props.value ? parseISO(this.props.value) : null}
+        id={this.props.id}
+        customInput={
+          <InputMask
+            id={this.dummy}
+            value={this.dummy}
+            mask={DATE_MASK}
+            onChange={this.noop}
+            onBlur={this.noop}
+          />
+        }
+        renderCustomHeader={MyOtherCustomHeader}
         onChange={this.handleChange}
       />
     )

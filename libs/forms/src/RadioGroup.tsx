@@ -7,7 +7,9 @@ import Styles from './RadioGroup.module.scss'
 import Fieldset from './Fieldset'
 import Legend from './Legend'
 
-export interface RadioGroupProps extends ICollectionType, IFormControl {}
+export interface RadioGroupProps
+  extends ICollectionType<string>,
+    IFormControl {}
 
 class RadioGroup extends Component<RadioGroupProps & { invalid: boolean }> {
   static defaultProps = {

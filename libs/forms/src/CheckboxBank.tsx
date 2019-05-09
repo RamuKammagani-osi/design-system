@@ -7,7 +7,7 @@ import Fieldset from './Fieldset'
 type StringOrNumber = string | number
 
 export interface CheckboxBankProps
-  extends ICollectionType,
+  extends ICollectionType<string>,
     IFormControl<StringOrNumber[], HTMLInputElement> {
   inline: boolean
   onBlur: React.FocusEventHandler & (() => void)
@@ -63,7 +63,7 @@ class CheckboxBank extends Component<CheckboxBankProps> {
               onBlur={this.handleBlur}
               label={opt.label}
               inline={this.props.inline}
-              error={!!this.props.invalid}
+              error={!!this.props.error}
             />
           )
         })}

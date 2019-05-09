@@ -183,15 +183,16 @@ class KitchenSink extends Component {
                   onBlur={() => props.setFieldTouched('satisfaction')}
                 />
                 <FormField
+                  id="kitchen-sink-form__dob"
                   name="dob"
                   label="Date of Birth"
                   Component={DatePicker}
                   value={props.values.dob}
                   touched={props.touched.dob}
                   error={props.errors.dob}
-                  onChange={(event, newValue) =>
+                  onChange={(event, newValue) => {
                     props.setFieldValue('dob', newValue)
-                  }
+                  }}
                   onBlur={() => props.setFieldTouched('dob')}
                 />
                 {this.state.isVisibleFormData && (

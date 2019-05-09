@@ -1,24 +1,12 @@
 import React, { Component } from 'react'
 import { Input } from '@cwds/reactstrap'
 import ReactTextMask, { MaskedInputProps } from 'react-text-mask'
-import { IFormControlEventHandlers } from './types'
+import { Omit, IFormControl } from './types'
 
-// const InputMask: React.FunctionComponent<MaskedInputProps> = props => {
-//   return <ReactTextMask {...props} />
-// }
-
-// InputMask.defaultProps = {
-//   render: (ref: any, props: any) => {
-//     console.warn(props)
-//     return <Input innerRef={ref} {...props} />
-//   },
-// }
-
-// interface IInputMaskProps extends MaskedInputProps {
 interface IInputMaskProps
-  extends Pick<MaskedInputProps, Exclude<keyof MaskedInputProps, 'onChange'>> {
+  extends Omit<MaskedInputProps, 'onChange' | 'onBlur' | 'id' | 'value'>,
+    IFormControl<string> {
   unmask: (value: string) => string
-  onChange: IFormControlEventHandlers['onChange']
 }
 
 class InputMask extends Component<IInputMaskProps> {
@@ -40,19 +28,5 @@ class InputMask extends Component<IInputMaskProps> {
     )
   }
 }
-
-// class InputMask extends Component<MaskedInputProps> {
-//   render() {
-//     console.log('hi')
-//     return (
-//       <ReactTextMask
-//         {...this.props}
-//         render={(ref: any, props: any) => {
-//           return <Input innerRef={ref} {...props} />
-//         }}
-//       />
-//     )
-//   }
-// }
 
 export default InputMask

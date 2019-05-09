@@ -72,7 +72,7 @@ export interface IFormControl<ValueType = {}, ControlElement = Element> {
   error?: string
   /** Overloaded onChange handler for CWDS controls */
   onChange: (
-    event: React.ChangeEvent | null,
+    event: React.ChangeEvent | React.SyntheticEvent<any> | null | undefined,
     newValue: ValueType | undefined | null,
     ...rest: any[]
   ) => void
