@@ -19,3 +19,4 @@ export { default as InputMask } from './InputMask'
 export { MASKS }
 export { default as DatePicker } from './DatePicker'
 export { default as FormField } from './FormField'
+export { default as TextArea, TextAreaCounter } from './TextArea'
