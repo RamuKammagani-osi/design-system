@@ -27,6 +27,16 @@ import { MASKS } from '@cwds/forms'
 import { CodeBlock } from '@cwds/docs'
 
 class KitchenSink extends Component {
+  initialValues = {
+    name: '',
+    age: '',
+    tel: '',
+    likes: [],
+    outlook: '',
+    pizzaToppings: [],
+    satisfaction: '',
+    dob: '',
+  }
   state = {
     isVisibleFormData: false,
   }
@@ -60,16 +70,7 @@ class KitchenSink extends Component {
           </div>
         </CardHeader>
         <Formik
-          initialValues={{
-            name: '',
-            age: '',
-            tel: '',
-            likes: [],
-            outlook: '',
-            pizzaToppings: [],
-            satisfaction: '',
-            dob: '',
-          }}
+          initialValues={this.initialValues}
           onSubmit={() => {}}
           render={props => (
             <Form onSubmit={props.handleSubmit} noValidate>
@@ -157,14 +158,12 @@ class KitchenSink extends Component {
                   id="kitchen-sink-form__pizza-toppings"
                   label="Pizza Toppings"
                   Component={Select}
-                  // formatValue={selectOptionsToState}
-                  // parseValue={}
                   isMulti
                   options={PIZZA_TOPPING_OPTIONS}
                   value={props.values.pizzaToppings}
                   touched={props.touched.pizzaToppings}
                   error={props.errors.pizzaToppings}
-                  onChange={(event, newValue, selectArgs) => {
+                  onChange={(event, newValue) => {
                     props.setFieldValue('pizzaToppings', newValue)
                   }}
                   onBlur={() => props.setFieldTouched('pizzaToppings')}
@@ -176,10 +175,9 @@ class KitchenSink extends Component {
                   Component={Select}
                   options={SERVICE_RATING_OPTIONS}
                   value={props.values.satisfaction}
-                  formatValue={selectOptionsToState}
                   touched={props.touched.satisfaction}
                   error={props.errors.satisfaction}
-                  onChange={(event, newValue, selectArgs) => {
+                  onChange={(event, newValue) => {
                     props.setFieldValue('satisfaction', newValue)
                   }}
                   onBlur={() => props.setFieldTouched('satisfaction')}
@@ -217,66 +215,4 @@ class KitchenSink extends Component {
   }
 }
 
-//           <FormField
-//             name="pizzaToppings"
-//             label="Pizza Toppings"
-//             Component={Select}
-//             isMulti
-//             options={PIZZA_TOPPING_OPTIONS}
-//             value={stateToSelectOptions(
-//               this.state.values.pizzaToppings,
-//               PIZZA_TOPPING_OPTIONS
-//             )}
-//             touched={this.state.touched.pizzaToppings}
-//             error={this.state.errors.pizzaToppings}
-//             onChange={this.handlePizzaToppingsChange}
-//             onBlur={() =>
-//               this.setState({
-//                 touched: { ...this.state.touched, pizzaToppings: true },
-//               })
-//             }
-//           />
-//           <FormField
-//             name="satisfaction"
-//             label="Satisfaction"
-//             Component={Select}
-//             options={SERVICE_RATING_OPTIONS}
-//             value={stateToSelectOptions(
-//               this.state.values.satisfaction,
-//               SERVICE_RATING_OPTIONS
-//             )}
-//             touched={this.state.touched.satisfaction}
-//             error={this.state.errors.satisfaction}
-//             onChange={this.handleSatisfactionChange}
-//             onBlur={() =>
-//               this.setState({
-//                 touched: { ...this.state.touched, satisfaction: true },
-//               })
-//             }
-//           />
-//           {/* <FormField
-//             name="dob"
-//             label="Date of Birth"
-//             Component={DatePicker}
-//             value={this.state.values.dob}
-//             touched={this.state.touched.dob}
-//             error={this.state.errors.dob}
-//             onChange={this.handleDOBChange}
-//             onBlur={this.handleBlur}
-//           /> */}
-//     )
-//   }
-// }
-
-// export default TinyForm
 export default KitchenSink
-
-//
-// Helpers
-//
-
-function selectOptionsToState(selectedOptionOrOptions) {
-  return Array.isArray(selectedOptionOrOptions)
-    ? selectedOptionOrOptions.map(({ value }) => value)
-    : selectedOptionOrOptions.value
-}
